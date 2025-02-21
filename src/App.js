@@ -1,10 +1,10 @@
 import TelegramAuth from './components/TeleAuth';
 import './App.css';
-
+import Test from './components/Test';
 function App() {
   return (
     <div className="App">
-      <TelegramAuth />
+      <Test />
     </div>
   );
 }
