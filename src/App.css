@@ -1,0 +1,18 @@
+h1,h2,p{
+  color: white;
+  font-size: 40px !important;
+}
+div{
+  width: 98%;
+  height: 98%;
+}
+body{
+  background-color:black;
+}
+h1{
+  text-align: center;
+  margin-top: 40vh;
+}
+h2,p{
+  margin-left: 30 px !important;
+}
