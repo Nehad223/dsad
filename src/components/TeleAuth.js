@@ -5,22 +5,21 @@ const TelegramAuth = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // تحقق من وجود Telegram.WebApp
     if (window.Telegram && window.Telegram.WebApp) {
       const tg = window.Telegram.WebApp;
-      
-      // تحقق من وجود بيانات المستخدم في initDataUnsafe
+
       if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
         setUser(tg.initDataUnsafe.user);
       } 
-    }
+    } 
   }, []);
 
   return (
     <div>
       {user ? (
         <div>
-          <h1>OK</h1>
+          <h1> ID: {user.id}</h1>
+          <h2> Username: {user.username ? `@${user.username}` : "No UserName"}</h2>
         </div>
       ) : (
         <Error_auth />
