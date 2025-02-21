@@ -1,24 +1,30 @@
 import { useEffect, useState } from "react";
 import Error_auth from "./Error_auth";
-import '../App.css';
+
 const TelegramAuth = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    try {
-      const tg = window?.Telegram?.WebApp; 
-      const userData = tg.initDataUnsafe?.user;
-      if (userData) {
-        setUser(userData);
+    // تحقق من وجود Telegram.WebApp
+    if (window.Telegram && window.Telegram.WebApp) {
+      const tg = window.Telegram.WebApp;
+      
+      // تحقق من وجود بيانات المستخدم في initDataUnsafe
+      if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
+        setUser(tg.initDataUnsafe.user);
       } 
-    } catch (error) {
-      console.error(error);
     }
   }, []);
 
   return (
     <div>
-      {user ? <h1>OK</h1> : <Error_auth />}
+      {user ? (
+        <div>
+          <h1>OK</h1>
+        </div>
+      ) : (
+        <Error_auth />
+      )}
     </div>
   );
 };
