@@ -1,0 +1,62 @@
+
+.Start_Page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30vh;
+}
+.logo{
+    width: 150px !important;
+    height: 150px !important;
+}
+
+
+.card {
+    width: 240px;
+    height: 380px;
+    background: linear-gradient(to bottom, #bbb, transparent);
+    border-radius: 30px 30px 0 0;
+    position: relative;
+  }
+  
+  .cutout {
+    width: 90px;
+    height: 30px;
+    background-color: var(--main);
+    border-radius: 15px;
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .Card_Logo{
+    margin-top: 10vh !important;
+    justify-items: center;
+  }
+  .Card_Tag{
+    margin-right: 3vb;
+  }
+  .Card_Title{
+    font-size: 25px;
+    float: right;
+    color: white;
+  }
+  .Card_Par{
+    margin-left: 3vb;
+    margin-top: -1vh;
+    color: white;
+    float: left;
+    font-size: 13px ;
+  }
+  .Card_Button{
+    width: 220px !important;
+    height: 40px !important;
+    background-color: var(--second);
+    color: white;
+    text-align: center;
+    border: solid 1px var(--second);
+    border-radius: 70px !important;
+    margin-left: 5vb;
+
+  }
