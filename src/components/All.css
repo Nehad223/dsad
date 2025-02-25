@@ -6,8 +6,8 @@
     margin-top: 30vh;
 }
 .logo{
-    width: 150px !important;
-    height: 150px !important;
+    width: 200px !important;
+    height: 200px !important;
 }
 
 
@@ -38,7 +38,7 @@
     margin-right: 3vb;
   }
   .Card_Title{
-    font-size: 25px;
+    font-size: 30px;
     float: right;
     color: white;
   }
@@ -47,17 +47,17 @@
     margin-top: -1vh;
     color: white;
     float: left;
-    font-size: 13px ;
+    font-size: 15px ;
   }
   .Card_Button{
-    width: 230px !important;
+    width: 50vb !important;
     height: 40px !important;
     background-color: var(--second);
     color: white;
     text-align: center;
     border: solid 1px var(--second);
     border-radius: 70px !important;
-    margin-left: 10vb;
+    margin-left: 9vb;
     margin-bottom: 2vh;
 
   }
