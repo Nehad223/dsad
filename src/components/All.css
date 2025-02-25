@@ -50,13 +50,14 @@
     font-size: 13px ;
   }
   .Card_Button{
-    width: 220px !important;
+    width: 230px !important;
     height: 40px !important;
     background-color: var(--second);
     color: white;
     text-align: center;
     border: solid 1px var(--second);
     border-radius: 70px !important;
-    margin-left: 5vb;
+    margin-left: 10vb;
+    margin-bottom: 2vh;
 
   }
