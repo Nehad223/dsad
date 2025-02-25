@@ -16,11 +16,9 @@ function App() {
     <div className="App">
       <CounterContext.Provider value={{ id, setId }}>
       <Routes>
-        <Route path='/dsad' element={<Test/>}> 
-        </Route>
         <Route path='dsad/catg/:catgId' element={<Catg/>} >
         </Route>
-        <Route path='dsad/start' element={<Start_Page/>}></Route>
+        <Route path='/dsad' element={<Start_Page/>}></Route>
         <Route path='dsad/conformation' element={<Conformation_Page/>}></Route>
       </Routes>
       
