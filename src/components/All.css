@@ -34,10 +34,8 @@
     margin-top: 12vh !important;
     justify-items: center;
   }
-  .Card_Tag{
-    margin-right: 5vb;
-  }
   .Card_Title{
+    margin-right: 5vb;
     font-size: 30px;
     float: right;
     color: white;
