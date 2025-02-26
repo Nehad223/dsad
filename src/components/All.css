@@ -112,8 +112,8 @@
   width: 90% !important;
   max-width: 300px !important;
   background-color: white;
-  left: 10px;
-
+  left: 50%; 
+  transform: translateX(-50%); 
   
 }
 
