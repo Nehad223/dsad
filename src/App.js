@@ -7,6 +7,7 @@ import { Route,Routes } from 'react-router-dom';
 import Test from './components/Test';
 import Start_Page from './components/Start_Page';
 import Conformation_Page from './components/Conformation_Page';
+import Home_Page from './components/Home_Page';
 export const CounterContext = createContext();
 function App() {
   const [id,setId]=useState(0);
@@ -20,6 +21,7 @@ function App() {
         </Route>
         <Route path='/dsad' element={<Start_Page/>}></Route>
         <Route path='dsad/conformation' element={<Conformation_Page/>}></Route>
+        <Route path='dsad/home' element={<Home_Page/>} ></Route>
       </Routes>
       
       </CounterContext.Provider>

@@ -1,5 +1,6 @@
 import React from 'react';
 import './All.css';
+import { Link } from 'react-router-dom';
 
 const Conformation_Page = () => {
   return (
@@ -16,8 +17,9 @@ const Conformation_Page = () => {
             Lorem ipsum is simply dummy text of the printing <br />
             and typesetting industry. Lorem ipsum has been <br />
             the industry’s standard dummy text ever since
-          </p>
-          <button className="Card_Button">متابعة</button>
+          </p> 
+          <Link to="/dsad/home"><button className="Card_Button">متابعة</button></Link>
+          
         </div>
       </div>
     </div>
