@@ -41,14 +41,14 @@
     color: white;
   }
   .Card_Par{
-    margin-left: 10vb;
+    margin-left: 12vb;
     margin-top: -1vh;
     color: white;
     float: left;
     font-size: 13px ;
   }
   .Card_Button{
-    width: 42vb !important;
+    width: 38vb !important;
     height: 40px !important;
     background-color: var(--second);
     color: white;
