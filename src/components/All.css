@@ -31,24 +31,24 @@
   }
   
   .Card_Logo{
-    margin-top: 8vh !important;
+    margin-top: 5vh !important;
     justify-items: center;
   }
   .Card_Title{
-    margin-right: 3vb;
+    margin-right: 4vb;
     font-size: 30px;
     float: right;
     color: white;
   }
   .Card_Par{
-    margin-left: 8vb;
+    margin-left: 4vb;
     margin-top: -1vh;
     color: white;
     float: left;
     font-size: 14px ;
   }
   .Card_Button{
-    width: 40vb !important;
+    width: 45vb !important;
     height: 40px !important;
     background-color: var(--second);
     color: white;
