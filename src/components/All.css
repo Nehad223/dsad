@@ -23,7 +23,7 @@
 }
 
 .card {
-  margin-top: -5vh !important;
+  margin-top: -10vh !important;
   width: 80%; 
   max-width: 250px; /* حد أقصى لعدم التمدد أكثر */
   height: 320px;
@@ -59,7 +59,7 @@
 }
 
 .Card_Button {
-  width: 80%; /* يتكيف مع الشاشة */
+  width: 90%; /* يتكيف مع الشاشة */
   height: 40px;
   background-color: var(--second) !important;
   color: white;
@@ -81,6 +81,6 @@
   }
 
   .Card_Button {
-      width: 90%;
+      width: 100%;
   }
 }
