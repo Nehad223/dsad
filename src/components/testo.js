@@ -3,9 +3,9 @@ import { Search } from "lucide-react";
 import './All.css';
 const Home_Page = () => {
   return (
-<div className='out'>
-  <div className='in1'></div>
-  <div className='Search_Box'>
+
+    <div className='Home_Page'>
+      <div className='Search_Box'>
       <Search className="Search_Logo " />
       <input
         type="text"
@@ -13,8 +13,7 @@ const Home_Page = () => {
         className="Search_Input focus:outline-none focus:ring-0"
       />
       </div>
-  <div className='in2'></div>
-</div>
+      </div>
   )
 }
 
