@@ -35,20 +35,20 @@
     justify-items: center;
   }
   .Card_Title{
-    margin-right: 5vb;
+    margin-right: 3vb;
     font-size: 30px;
     float: right;
     color: white;
   }
   .Card_Par{
-    margin-left: 5vb;
+    margin-left: 8vb;
     margin-top: -1vh;
     color: white;
     float: left;
     font-size: 13px ;
   }
   .Card_Button{
-    width: 48vb !important;
+    width: 45vb !important;
     height: 40px !important;
     background-color: var(--second);
     color: white;
