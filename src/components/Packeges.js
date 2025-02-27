@@ -1,12 +1,13 @@
-import React from 'react'
+import React from 'react';
+import Item_Package from './Item_Package';
 
 const Packeges = (props) => {
   return (
     <div>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="items_Packages">
   {props.items.map((item, index) => (
-    <div key={index} className="p-2 border">
-      {item}
+    <div key={index} className=" ">
+      <Item_Package items={item.id} />
     </div>
   ))}
 </div>
@@ -15,4 +16,6 @@ const Packeges = (props) => {
   )
 }
 
-export default Packeges
+export default Packeges;
+
+

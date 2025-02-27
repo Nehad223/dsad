@@ -8,8 +8,6 @@ const Item = (props) => {
             <h5 className='Item_Name'>{props.item.name}</h5>
             <p className='Item_Price'>{props.item.price.toLocaleString()}</p>
         </div>
-
-      
     </div>
   )
 }

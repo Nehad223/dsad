@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Search } from "lucide-react";
+import {  Search } from "lucide-react";
 import './All.css';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { useState } from 'react';
@@ -8,6 +8,7 @@ import Nav from './Nav';
 import Doctors_Students from './Doctors';
 import Logo from './Assests/logo.png'
 import axios from 'axios';
+import Packeges from './Packeges';
 global.Helmet = Helmet;
 var root = document.querySelector(':root');
 const Home_Page = () => {
@@ -28,6 +29,7 @@ const Home_Page = () => {
     });
 
   },[]);
+
   const [selectedValue, setSelectedValue] = useState(0);
   const handleSelection = (value) => {
     setSelectedValue(value);
@@ -36,7 +38,9 @@ const Home_Page = () => {
 
    Render_Result();
 
-  },[selectedValue])
+  },[selectedValue]);
+const x=[{"id":"مستهلكات"},{"id":"معدنيات"},{"id":"مواد للسنة الاولى"}];
+
   function Render_Result(){
     if(selectedValue==0){
       return(<Doctors_Students items={data} doctor_student={1} />)
@@ -46,7 +50,7 @@ const Home_Page = () => {
       return(<Doctors_Students items={data} doctor_student={2} />)    }
     else{
       return(<div>
-        <h1>sdjfla</h1>
+        <Packeges items={x} />
       </div>)
 
     }
