@@ -249,7 +249,7 @@ transform: translateX(-15%);
   position: absolute;
   z-index: 90 !important;
   margin-top: -20px;
-  margin-right: 10px;
+  margin-right: 7px;
   width:100px ;
   height: 15px;
   border: solid 1px var(--second);
