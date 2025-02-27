@@ -33,14 +33,16 @@ const Test = () => {
 
     return (
         <div>
+            
             <ul>
                 {data.map((dataItem, dataIndex) => {
                     return (
+                        
                         <li key={dataIndex}>
                             <h1>{dataItem.name}</h1>
                             <p>{dataItem.description}</p>
                             <ul>
-                                {dataItem.items.map((item, itemIndex) => (
+                                {dataItem.limited_student_items.map((item, itemIndex) => (
                                     <li key={itemIndex}>
                                         <h2>{item.name}</h2>
                                         <h2>{item.price}</h2>
@@ -49,6 +51,16 @@ const Test = () => {
                                         {item.photo && <img src={item.photo} alt={item.name} />}
                                     </li>
                                 ))}
+                                  {dataItem.limited_doctor_items.map((item, itemIndex) => (
+                                    <li key={itemIndex}>
+                                        <h2>{item.name}</h2>
+                                        <h2>{item.price}</h2>
+                                        <p>{item.description}</p>
+                                        <h3>{item.category}</h3>
+                                        {item.photo && <img src={item.photo} alt={item.name} />}
+                                    </li>
+                                ))}
+                                
                                   <Link to={`catg/${dataItem.id}`}>
                                 <h2  >
                                     See More →
