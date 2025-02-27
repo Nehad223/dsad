@@ -217,8 +217,11 @@ transform: translateX(-15%);
   direction: rtl
 
 }
+
 .Item_Info_Pack{
   text-align: center;
+  height: 40px;
+
   
 }
 .Item_Pack_Name{
@@ -248,7 +251,7 @@ transform: translateX(-15%);
   margin-top: -20px;
   margin-right: 5px;
   width:100px ;
-  height: 18px;
+  height: 15px;
   border: solid 1px var(--second);
   background-color: var(--second);
   border-radius: 20px;
@@ -256,5 +259,5 @@ transform: translateX(-15%);
 }
 .Item_Price_Pack{
   color: white;
-  font-size: 14px;
+  font-size: 12px;
 }
