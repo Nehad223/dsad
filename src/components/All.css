@@ -188,13 +188,6 @@ transform: translateX(-15%);
   display: flex;
   justify-content: space-between; /* توزيع العناصر بين اليمين واليسار */
   align-items: center; /* تأكيد أن العناصر على نفس المحاذاة عموديًا */
-  width: 90%;
-  max-width: 150px !important;
-  height: 50px;
-  border: solid 1px #1C458D;
-  background-color: #1C458D;
-  padding: 10px;
-  direction: rtl; /* لضمان أن النصوص تبدأ من اليمين */
 }
 .Item_Name {
   color: white;
@@ -214,4 +207,17 @@ transform: translateX(-15%);
   text-overflow: ellipsis; /* يضع "..." إذا كان النص طويلًا */
   max-width: 100%; /* يمنع خروج النص عن البوكس */
 }
+.Item_inf,.Item_Info_Pack{
+  width: 90%;
+  max-width: 150px !important;
+  height: 50px;
+  border: solid 1px #1C458D;
+  background-color: #1C458D;
+  padding: 10px;
+  direction: rtl
 
+}
+.Item_Info_Pack{
+  text-align: center;
+  
+}
