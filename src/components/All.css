@@ -215,3 +215,6 @@ transform: translateX(-15%);
   max-width: 100%; /* يمنع خروج النص عن البوكس */
 }
 
+.catg{
+  margin-bottom: 20px !important;
+}
