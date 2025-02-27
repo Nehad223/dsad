@@ -135,8 +135,8 @@
 }
 .Logo_in1{
 position: absolute;
-left: 15%;
-top: 5%;
+left: 17%;
+top: 4%;
 
 transform: translateX(-15%);
  
@@ -215,6 +215,3 @@ transform: translateX(-15%);
   max-width: 100%; /* يمنع خروج النص عن البوكس */
 }
 
-.catg{
-  margin-bottom: 20px !important;
-}

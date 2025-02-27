@@ -2,7 +2,7 @@ import React from 'react'
 import item_Img from './Assests/item.png'
 const Item = (props) => {
   return (
-    <div className='Item '>
+    <div className='Item mb-4 '>
         <img className='Item_Image'    src={item_Img} />
         <div className='Item_inf'>
             <h5 className='Item_Name'>{props.item.name}</h5>
