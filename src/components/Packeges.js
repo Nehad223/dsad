@@ -7,7 +7,7 @@ const Packeges = (props) => {
       <div className="items_Packages">
   {props.items.map((item, index) => (
     <div key={index} className=" ">
-      <Item_Package items={item.id} />
+      <Item_Package items={item.name} />
     </div>
   ))}
 </div>
