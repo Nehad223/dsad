@@ -1,12 +1,12 @@
 import React from 'react'
-
+import item_Img from './Assests/item.png'
 const Item = (props) => {
   return (
     <div className='Item'>
-        <img className='Item_Image'    src={props.item.img} />
+        <img className='Item_Image'    src={item_Img} />
         <div className='Item_inf'>
-            <h1>{props.item.name}</h1>
-            <h1>{props.item.price}</h1>
+            <h5 className='Item_Name'>{props.item.name}</h5>
+            <p className='Item_Price'>{props.item.price.toLocaleString()}</p>
         </div>
 
       

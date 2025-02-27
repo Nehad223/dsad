@@ -19,8 +19,8 @@ const Nav = ({ onSelect }) => {
           onClick={() => handleClick(index)}
           style={{
             color: activeButton === index ? 'blue' : 'gray',
-            backgroundColor: activeButton === index ? 'white' : '#ccc',
-            border: activeButton === index ? '2px solid white' : '2px solid gray',
+            backgroundColor: activeButton === index ? 'white' : 'hwb(0 84% 16%)',
+            border: activeButton === index ? '2px solid white' : '0px solid ',
           }}
         >
           {text}

@@ -4,7 +4,7 @@ import Item from './item';
 const Slider = (props) => {
   return (
     <div>
-        <Swiper dir='RTL' slidesPerView={2.2} spaceBetween={2}>
+        <Swiper dir='RTL' slidesPerView={2.1} spaceBetween={4}>
         {props.items?.map((item,itemIndex)=>{return(
     <SwiperSlide key={itemIndex} ><Item item={item}/></SwiperSlide>
 )})

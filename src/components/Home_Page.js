@@ -6,6 +6,7 @@ import { useState } from 'react';
 import dd from './Assests/logo.png';
 import Nav from './Nav';
 import Doctors_Students from './Doctors';
+import Logo from './Assests/logo.png'
 import axios from 'axios';
 global.Helmet = Helmet;
 var root = document.querySelector(':root');
@@ -54,7 +55,9 @@ const Home_Page = () => {
   return (
     
 <div className='out'>
-  <div className='in1'></div>
+  <div className='in1'>
+    <img src={Logo} width="75px" height="75px" className='Logo_in1'/>
+  </div>
   <div className='Search_Box'>
       <Search className="Search_Logo " />
       <input
