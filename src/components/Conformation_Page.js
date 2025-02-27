@@ -18,7 +18,7 @@ const Conformation_Page = () => {
             and typesetting industry. Lorem ipsum has been <br />
             the industry’s standard dummy text ever since
           </p> 
-          <Link to="/dsad/home"><button className="Card_Button">متابعة</button></Link>
+          <Link to="/dsad"><button className="Card_Button">متابعة</button></Link>
           
         </div>
       </div>
