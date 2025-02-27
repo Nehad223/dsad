@@ -210,7 +210,7 @@ transform: translateX(-15%);
 .Item_inf,.Item_Info_Pack{
   width: 90%;
   max-width: 150px !important;
-  height: 30px;
+  height: 35px;
   border: solid 1px #1C458D;
   background-color: #1C458D;
   padding: 10px;
@@ -242,3 +242,18 @@ transform: translateX(-15%);
   box-sizing: border-box;
 }
 
+.Item_Price_Pack_Box{
+  position: absolute;
+  z-index: 90 !important;
+  margin-top: -20px;
+  margin-right: 20px;
+  width:70px ;
+  height: 20px;
+  border: solid 1px var(--second);
+  background-color: var(--second);
+  border-radius: 20px;
+}
+.Item_Price_Pack{
+  color: white;
+  font-size: 15px;
+}
