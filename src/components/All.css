@@ -24,7 +24,7 @@
 }
 
 .card {
-  margin-top: -10vh !important;
+  
   width: 80%; 
   max-width: 250px; 
   height: 320px;
@@ -51,12 +51,15 @@
   color: white;
   text-align: right; /* يجعل العنوان في المنتصف */
   margin-top: 20px;
+  margin-right: 30px !important;
 }
 
 .Card_Par {
   color: white;
   font-size: 14px;
   margin: 10px 15px;
+  margin-left: 25px !important;
+  text-align: left;
 }
 
 .Card_Button {
@@ -168,5 +171,4 @@
 }
 .catges{
   margin-right: 30px !important;
-  margin-top: 20px;
 }
