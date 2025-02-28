@@ -6,7 +6,7 @@ const Search_Page = () => {
 
   useEffect(() => {
     const handleBackButton = () => {
-      navigate("/dsad/home"); // يرجع مباشرة لصفحة الهوم
+      navigate(-1); // يرجع مباشرة لصفحة الهوم
     };
 
     if (window.Telegram && window.Telegram.WebApp) {
