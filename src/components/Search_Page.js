@@ -6,36 +6,24 @@ const Search_Page = () => {
 
   useEffect(() => {
     const handleBackButton = () => {
-      navigate("/home"); // يرجع لصفحة الهوم بشكل يدوي
+      navigate("/home"); // يرجع مباشرة لصفحة الهوم
     };
 
     if (window.Telegram && window.Telegram.WebApp) {
       window.Telegram.WebApp.expand();
-      window.Telegram.WebApp.onEvent("backButtonClicked", handleBackButton);
-      window.Telegram.WebApp.enableClosingConfirmation();
+      window.Telegram.WebApp.BackButton.show(); // عرض زر الرجوع الخاص بتلغرام
+      window.Telegram.WebApp.BackButton.onClick(handleBackButton); // تشغيل الرجوع
 
       return () => {
-        window.Telegram.WebApp.offEvent("backButtonClicked", handleBackButton);
-      };
-    } else {
-      // حل احتياطي للمتصفحات العادية
-      const handlePopState = (event) => {
-        event.preventDefault();
-        navigate("/home"); // يرجع للصفحة الرئيسية بدلاً من -1
-      };
-
-      window.history.pushState(null, "", window.location.pathname);
-      window.addEventListener("popstate", handlePopState);
-
-      return () => {
-        window.removeEventListener("popstate", handlePopState);
+        window.Telegram.WebApp.BackButton.hide(); // إخفاء زر الرجوع عند الخروج
+        window.Telegram.WebApp.BackButton.offClick(handleBackButton);
       };
     }
   }, [navigate]);
 
   return (
     <div>
-      <h1>fuck off</h1>
+      <h1>Search Page</h1>
     </div>
   );
 };
