@@ -5,27 +5,40 @@ const Search_Page = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // إضافة حالة جديدة لمنع الخروج الفوري
-    window.history.pushState({ page: "search" }, "", window.location.pathname);
+    // التأكد من أن التطبيق يعمل داخل Telegram Web App
+    if (window.Telegram && window.Telegram.WebApp) {
+      window.Telegram.WebApp.expand(); // تمديد الواجهة ليظهر كل المحتوى
 
-    const handleBackButton = () => {
-      // إعادة الصفحة إلى نفس العنوان لمنع الخروج من التطبيق
-      window.history.pushState({ page: "search" }, "", window.location.pathname);
+      // منع الخروج عند الضغط على زر الرجوع
+      const handleBackButton = () => {
+        navigate(-1);
+      };
 
-      // العودة إلى الصفحة السابقة داخل التطبيق
-      navigate(-1);
-    };
+      window.Telegram.WebApp.onEvent("backButtonClicked", handleBackButton);
+      window.Telegram.WebApp.enableClosingConfirmation(); // منع الإغلاق المفاجئ
 
-    window.addEventListener("popstate", handleBackButton);
+      return () => {
+        window.Telegram.WebApp.offEvent("backButtonClicked", handleBackButton);
+      };
+    } else {
+      // حل احتياطي للمتصفحات العادية
+      const handlePopState = (event) => {
+        event.preventDefault();
+        navigate(-1);
+      };
 
-    return () => {
-      window.removeEventListener("popstate", handleBackButton);
-    };
+      window.history.pushState(null, "", window.location.pathname);
+      window.addEventListener("popstate", handlePopState);
+
+      return () => {
+        window.removeEventListener("popstate", handlePopState);
+      };
+    }
   }, [navigate]);
 
   return (
     <div>
-      <h1>Fuck Off</h1>
+      <h1>Search Page</h1>
     </div>
   );
 };
