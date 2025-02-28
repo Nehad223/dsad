@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Search } from "lucide-react";
 import "./All.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { HelmetProvider, Helmet } from "react-helmet-async";
 import axios from "axios";
 import Nav from "./Nav";
@@ -13,12 +13,15 @@ global.Helmet = Helmet;
 var root = document.querySelector(":root");
 
 const Home_Page = () => {
+  const navigate=useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [data, setData] = useState([]);
   const [packagesData, setPackagesData] = useState([]);
   const [selectedValue, setSelectedValue] = useState(0);
-
+  function f(){
+    navigate("/dsad/search")
+  }
   useEffect(() => {
     root.style.setProperty("--main", "white");
 
@@ -66,19 +69,19 @@ const Home_Page = () => {
       <div className="in1">
         <img src={Logo} width="75px" height="75px" className="Logo_in1" />
       </div>
-      <Link to="/dsad/search">
-      <div className="Search_Box">
+ 
+      <div className="Search_Box" onClick={f}>
         
-        <Search className="Search_Logo " />
-        <Link to="/dsad/search">
+        <Search className="Search_Logo " onClick={f} />
+  
         <input
+        onClick={f}
           type="text"
           placeholder="Search"
           className="Search_Input focus:outline-none focus:ring-0"
-          disabled
-        /></Link>
+         
+        />
       </div>
-      </Link>
 
       <div className="in2">
         <Nav onSelect={handleSelection} />
