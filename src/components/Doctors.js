@@ -12,13 +12,13 @@ const Doctors_Students = (props) => {
                     <div className='catg'>
                         <h1 className='catg_Name '>{catg.name}</h1>
                         <h3 className='catg_Des' >{catg.description}</h3>
-                        <Slider items={catg.limited_doctor_items} />
+                        <Slider items={catg.limited_doctor_items} catgId={catg.id} />
                     </div>
 ) : props.doctor_student == 2 && catg.limited_student_items?.length > 0 ? (
     <div className='catg'>
     <h1 className='catg_Name'>{catg.name}</h1>
     <h3 className='catg_Des' >{catg.description}</h3>
-    <Slider items={catg.limited_student_items} />
+    <Slider items={catg.limited_student_items} catgId={catg.id} />
 </div>
 ) : null}
 

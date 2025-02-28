@@ -11,6 +11,7 @@ import Home_Page from './components/Home_Page';
 import ProductSlider from './components/TestSwiper';
 import ParentComponent from './components/TestButton';
 import Test_Col from './components/Test_Col';
+import Search_Page from './components/Search_Page';
 export const CounterContext = createContext();
 function App() {
   const [id,setId]=useState(0);
@@ -26,6 +27,7 @@ function App() {
         <Route path='dsad/conformation' element={<Conformation_Page/>}></Route>
         <Route path='dsad/home' element={<Home_Page/>} ></Route>
         <Route path='dsad/Test' element={<Test_Col/>} ></Route>
+        <Route path='dsad/search' element={<Search_Page/>}></Route>
       </Routes>
       
       </CounterContext.Provider>

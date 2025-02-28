@@ -6,9 +6,6 @@ const Item_Package = (props) => {
       <img  src={item_Img} className='Item_Image' />
       <div className='Item_Info_Pack'>
         <div className='Item_Price_Pack_Box' ><h5 className='Item_Price_Pack'>2000</h5></div>
-
-     
-
         
         <h1 className='Item_Pack_Name'>{props.items}</h1>
         </div>

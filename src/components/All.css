@@ -261,3 +261,21 @@ transform: translateX(-15%);
   color: white;
   font-size: 12px;
 }
+.See_More {
+  margin-top: 50%;
+  color: #1C458D !important;
+  text-align: center;
+  text-decoration: none !important;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.arrow {
+  font-size: 22px;
+  font-weight: bold;
+  transform: translateY(2px); /* تعديل بسيط للمحاذاة */
+}
