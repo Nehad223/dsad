@@ -6,11 +6,10 @@ const Search_Page = () => {
 
   useEffect(() => {
     const handleBackButton = () => {
-      navigate(-1);
+      navigate("/home"); // يرجع لصفحة الهوم بشكل يدوي
     };
 
     if (window.Telegram && window.Telegram.WebApp) {
-      // تمديد الواجهة وضبط زر الرجوع داخل Telegram Web App
       window.Telegram.WebApp.expand();
       window.Telegram.WebApp.onEvent("backButtonClicked", handleBackButton);
       window.Telegram.WebApp.enableClosingConfirmation();
@@ -22,7 +21,7 @@ const Search_Page = () => {
       // حل احتياطي للمتصفحات العادية
       const handlePopState = (event) => {
         event.preventDefault();
-        navigate(-1);
+        navigate("/home"); // يرجع للصفحة الرئيسية بدلاً من -1
       };
 
       window.history.pushState(null, "", window.location.pathname);
@@ -36,7 +35,7 @@ const Search_Page = () => {
 
   return (
     <div>
-      <h1> fuck off</h1>
+      <h1>fuck off</h1>
     </div>
   );
 };
