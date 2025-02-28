@@ -37,17 +37,10 @@ const Home_Page = () => {
   };
 
   const handleSearch = () => {
-    if (searchQuery.trim() !== "") {
-      navigate(`/dsad/search?query=${encodeURIComponent(searchQuery)}`);
-    }
-  };
 
-  const handleKeyPress = (event) => {
-    if (event.key === "Enter") {
-      handleSearch();
-    }
+      navigate(`/dsad/search`);
+      
   };
-
   function Render_Result() {
     if (selectedValue === 0) {
       return <Doctors_Students items={data} doctor_student={1} />;
@@ -64,16 +57,14 @@ const Home_Page = () => {
         <img src={Logo} width="75px" height="75px" className="Logo_in1" />
       </div>
 
-      <div className="Search_Box">
+      <div className="Search_Box"  onClick={handleSearch}>
 
-      <Search className="Search_Logo" />
+      <Search className="Search_Logo" onClick={handleSearch} />
         <input
-          type="text"
-          placeholder="Search"
+          type="button"
+          value="Search"
           className="Search_Input focus:outline-none focus:ring-0"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          onKeyDown={handleKeyPress} // عند الضغط على Enter يتم البحث
+          onClick={handleSearch}
         />
       </div>
 

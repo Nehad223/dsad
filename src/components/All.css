@@ -273,7 +273,7 @@ transform: translateX(-15%);
   justify-content: center;
   gap: 8px;
 }
-
+.Search_Input{color: grey;}
 .arrow {
   font-size: 22px;
   font-weight: bold;

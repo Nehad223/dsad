@@ -1,16 +1,27 @@
-import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Search_Page = () => {
-  const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
-  const searchQuery = queryParams.get("query");
+const Search_page = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleBackButton = (event) => {
+      event.preventDefault();
+      navigate(-1); 
+    };
+
+    window.addEventListener("popstate", handleBackButton);
+
+    return () => {
+      window.removeEventListener("popstate", handleBackButton);
+    };
+  }, [navigate]);
 
   return (
     <div>
-      <h2> {searchQuery}</h2>
-      {/* هنا تضع الكود لجلب وعرض النتائج بناءً على searchQuery */}
+      <h1> search page</h1>
     </div>
   );
 };
 
-export default Search_Page;
+export default  Search_page;
