@@ -40,6 +40,7 @@ const Home_Page = () => {
       .get("https://market-cwgu.onrender.com/packages/")
       .then((response) => {
         setPackagesData(response.data);
+        console.log(response.data)
       })
       .catch((error) => {
         setError(error);
@@ -69,12 +70,13 @@ const Home_Page = () => {
       <div className="Search_Box">
         
         <Search className="Search_Logo " />
+        <Link to="/dsad/search">
         <input
           type="text"
           placeholder="Search"
           className="Search_Input focus:outline-none focus:ring-0"
           disabled
-        />
+        /></Link>
       </div>
       </Link>
 
