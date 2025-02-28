@@ -5,17 +5,15 @@ const Search_Page = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // التأكد من أن التطبيق يعمل داخل Telegram Web App
+    const handleBackButton = () => {
+      navigate(-1);
+    };
+
     if (window.Telegram && window.Telegram.WebApp) {
-      window.Telegram.WebApp.expand(); // تمديد الواجهة ليظهر كل المحتوى
-
-      // منع الخروج عند الضغط على زر الرجوع
-      const handleBackButton = () => {
-        navigate(-1);
-      };
-
+      // تمديد الواجهة وضبط زر الرجوع داخل Telegram Web App
+      window.Telegram.WebApp.expand();
       window.Telegram.WebApp.onEvent("backButtonClicked", handleBackButton);
-      window.Telegram.WebApp.enableClosingConfirmation(); // منع الإغلاق المفاجئ
+      window.Telegram.WebApp.enableClosingConfirmation();
 
       return () => {
         window.Telegram.WebApp.offEvent("backButtonClicked", handleBackButton);
