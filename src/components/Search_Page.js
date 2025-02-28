@@ -6,7 +6,7 @@ const Search_Page = () => {
 
   useEffect(() => {
     const handleBackButton = () => {
-      navigate("/home"); // يرجع مباشرة لصفحة الهوم
+      navigate("/dsad/home"); // يرجع مباشرة لصفحة الهوم
     };
 
     if (window.Telegram && window.Telegram.WebApp) {
@@ -23,7 +23,7 @@ const Search_Page = () => {
 
   return (
     <div>
-      <h1>Search Page</h1>
+      <h1>Fuck for samer suliman</h1>
     </div>
   );
 };
