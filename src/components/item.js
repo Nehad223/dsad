@@ -1,5 +1,4 @@
 import React from 'react'
-import item_Img from './Assests/item.png'
 const Item = (props) => {
   return (
     <div className='Item mb-4 '>
@@ -13,5 +12,4 @@ const Item = (props) => {
 }
 
 export default Item;
-
 
