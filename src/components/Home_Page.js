@@ -1,57 +1,51 @@
 import React, { useEffect, useState } from "react";
 import { Search } from "lucide-react";
-import "./All.css";
-import { Link, useNavigate } from "react-router-dom";
-import { HelmetProvider, Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "./All.css";
 import Nav from "./Nav";
 import Packeges from "./Packeges";
 import Doctors_Students from "./Doctors";
 import Logo from "./Assests/logo.png";
 
-global.Helmet = Helmet;
-var root = document.querySelector(":root");
-
 const Home_Page = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [data, setData] = useState([]);
   const [packagesData, setPackagesData] = useState([]);
   const [selectedValue, setSelectedValue] = useState(0);
-  function f(){
-    navigate("/dsad/search")
-  }
+
   useEffect(() => {
-    root.style.setProperty("--main", "white");
+    document.documentElement.style.setProperty("--main", "white");
 
     axios
       .get("https://market-cwgu.onrender.com/bot/homepage/")
-      .then((response) => {
-        setData(response.data);
-      console.log(response.data)
-
-      })
-      .catch((error) => {
-        setError(error);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+      .then((response) => setData(response.data))
+      .catch((error) => setError(error))
+      .finally(() => setIsLoading(false));
 
     axios
       .get("https://market-cwgu.onrender.com/packages/")
-      .then((response) => {
-        setPackagesData(response.data);
-        console.log(response.data)
-      })
-      .catch((error) => {
-        setError(error);
-      });
+      .then((response) => setPackagesData(response.data))
+      .catch((error) => setError(error));
   }, []);
 
   const handleSelection = (value) => {
     setSelectedValue(value);
+  };
+
+  const handleSearch = () => {
+    if (searchQuery.trim() !== "") {
+      navigate(`/dsad/search?query=${encodeURIComponent(searchQuery)}`);
+    }
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
   };
 
   function Render_Result() {
@@ -69,17 +63,17 @@ const Home_Page = () => {
       <div className="in1">
         <img src={Logo} width="75px" height="75px" className="Logo_in1" />
       </div>
- 
-      <div className="Search_Box" onClick={f}>
-        
-        <Search className="Search_Logo " onClick={f} />
-  
+
+      <div className="Search_Box">
+
+      <Search className="Search_Logo" />
         <input
-        onClick={f}
           type="text"
           placeholder="Search"
           className="Search_Input focus:outline-none focus:ring-0"
-         
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          onKeyDown={handleKeyPress} // عند الضغط على Enter يتم البحث
         />
       </div>
 
