@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Search_page = () => {
+const Search_Page = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const handleBackButton = (event) => {
-      event.preventDefault();
+    window.history.pushState(null, "", window.location.pathname);
+
+    const handleBackButton = () => {
       navigate(-1); 
     };
 
@@ -24,4 +25,4 @@ const Search_page = () => {
   );
 };
 
-export default  Search_page;
+export default Search_Page;
