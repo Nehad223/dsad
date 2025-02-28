@@ -26,6 +26,8 @@ const Home_Page = () => {
       .get("https://market-cwgu.onrender.com/bot/homepage/")
       .then((response) => {
         setData(response.data);
+      console.log(response.data)
+
       })
       .catch((error) => {
         setError(error);
