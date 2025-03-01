@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import Error_auth from "./Error_auth";
 import React, { useContext } from 'react';
-import { CounterContext } from "../App";
+import { useCart } from './CartContext';
+
 const TelegramAuth = () => {
   const [user, setUser] = useState(null);
-  const { setId } = useContext(CounterContext);
+  const { setId } = useCart();
 
   useEffect(() => {
     if (window.Telegram && window.Telegram.WebApp) {
