@@ -280,3 +280,22 @@ transform: translateX(-15%);
   font-weight: bold;
   transform: translateY(2px); /* تعديل بسيط للمحاذاة */
 }
+img {
+  pointer-events: none;
+
+}
+.lazy-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.blurred {
+  filter: blur(10px);
+  transition: filter 0.3s ease-out;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}

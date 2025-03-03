@@ -1,8 +1,10 @@
+
 import { useEffect, useRef, useState } from "react";
 
-const LazyImage = ({ src, alt, className }) => {
+const LazyImage = ({ src, alt, className, placeholder }) => {
   const imgRef = useRef(null);
-  const [imageSrc, setImageSrc] = useState("");
+  const [imageSrc, setImageSrc] = useState(placeholder); // Start with the placeholder image
+  const [loaded, setLoaded] = useState(false); // State to handle loaded image
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -12,7 +14,7 @@ const LazyImage = ({ src, alt, className }) => {
           observer.unobserve(imgRef.current);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 } // Adjust this value if needed
     );
 
     if (imgRef.current) {
@@ -22,12 +24,17 @@ const LazyImage = ({ src, alt, className }) => {
     return () => observer.disconnect();
   }, [src]);
 
+  const handleLoad = () => {
+    setLoaded(true); // Set image as loaded
+  };
+
   return (
     <img
       ref={imgRef}
       src={imageSrc} 
       alt={alt}
-      className={className}
+      className={`${className} ${loaded ? "fade-in" : "blurred"}`} // Add fade-in class once image is loaded
+      onLoad={handleLoad}
       referrerPolicy="no-referrer"
     />
   );
