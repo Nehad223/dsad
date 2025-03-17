@@ -29,3 +29,5 @@ const Search_Page = () => {
 };
 
 export default Search_Page;
+
+

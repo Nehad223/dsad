@@ -1,6 +1,7 @@
 import React from 'react';
-import logo from './Assests/logo.png'
-import LazyImage from './LazyImage'; // استيراد LazyImage
+import logo from './Assests/logo.png';
+import LazyImage from './LazyImage';
+
 
 const Item = (props) => {
 
@@ -16,7 +17,6 @@ const Item = (props) => {
         <h5 className='Item_Name'>{props.item.name}</h5>
         <p className='Item_Price'>{props.item.price.toLocaleString()}</p>
       </div>
-      {/* Commented out button */}
     </div>
   );
 }

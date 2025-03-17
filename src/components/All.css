@@ -179,9 +179,12 @@ transform: translateX(-15%);
   margin-right: 30px !important;
   margin-top: 30px;
 }
+
 .Item_Image{
+  border: solid 1px #bbb;
   margin-top: 20px;
-  width: 90%;
+  width: 100%;
+  border-radius: 5px 5px 0px 0px !important;
   max-width: 150px !important;
   height: 150px;
 }
@@ -209,7 +212,7 @@ transform: translateX(-15%);
   max-width: 100%; /* يمنع خروج النص عن البوكس */
 }
 .Item_inf,.Item_Info_Pack{
-  width: 90%;
+  width: 100%;
   max-width: 150px !important;
   height: 32px;
   border: solid 1px #1C458D;
@@ -242,7 +245,7 @@ transform: translateX(-15%);
 .Item_Package {
   margin-bottom: 10px !important;
   max-width: 150px; 
-  width: 100% !important;
+  width: 90% !important;
   box-sizing: border-box;
 }
 
@@ -261,6 +264,8 @@ transform: translateX(-15%);
 .Item_Price_Pack{
   color: white;
   font-size: 12px;
+  
+
 }
 .See_More {
   margin-top: 50%;
@@ -279,4 +284,9 @@ transform: translateX(-15%);
   font-size: 22px;
   font-weight: bold;
   transform: translateY(2px); /* تعديل بسيط للمحاذاة */
+}
+span{
+  margin-left: 5px !important;
+  
+
 }

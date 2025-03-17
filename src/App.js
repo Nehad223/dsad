@@ -12,10 +12,11 @@ import ProductSlider from './components/TestSwiper';
 import ParentComponent from './components/TestButton';
 import Test_Col from './components/Test_Col';
 import Search_Page from './components/Search_Page';
+import Cart from './components/Cart';
 export const CounterContext = createContext();
 function App() {
   const [id,setId]=useState(0);
-  
+
   return (
     
     <div className="App">
@@ -28,6 +29,8 @@ function App() {
         <Route path='dsad/home' element={<Home_Page/>} ></Route>
         <Route path='dsad/Test' element={<Test_Col/>} ></Route>
         <Route path='dsad/search' element={<Search_Page/>}></Route>
+        <Route path='dsad/cart' element={<Cart/>}></Route>
+        
       </Routes>
       
       </CounterContext.Provider>
@@ -39,3 +42,4 @@ function App() {
 }
 
 export default App;
+
