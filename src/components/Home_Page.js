@@ -69,7 +69,7 @@ const Home_Page = () => {
         />
       </div>
 
-      <div className="in2">
+      <div className="in2 ">
         <Nav onSelect={handleSelection} />
         {Render_Result()}
       </div>
