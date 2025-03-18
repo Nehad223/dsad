@@ -13,6 +13,9 @@ import ParentComponent from './components/TestButton';
 import Test_Col from './components/Test_Col';
 import Search_Page from './components/Search_Page';
 import Cart from './components/Cart';
+import Points_Page from './components/Points_Page';
+import Profile from './components/Profile';
+
 export const CounterContext = createContext();
 function App() {
   const [id,setId]=useState(0);
@@ -30,6 +33,8 @@ function App() {
         <Route path='dsad/Test' element={<Test_Col/>} ></Route>
         <Route path='dsad/search' element={<Search_Page/>}></Route>
         <Route path='dsad/cart' element={<Cart/>}></Route>
+        <Route path='dsad/profile' element={<Profile/>}></Route>   
+        <Route path='dsad/points' element={<Points_Page/>}></Route> 
         
       </Routes>
       
