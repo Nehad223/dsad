@@ -3,6 +3,7 @@ import { Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./All.css";
+import Dashboard from "./Dashboard";
 import Nav from "./Nav";
 import Packeges from "./Packeges";
 import Doctors_Students from "./Doctors";
@@ -71,6 +72,7 @@ const Home_Page = () => {
       <div className="in2">
         <Nav onSelect={handleSelection} />
         {Render_Result()}
+        <Dashboard/>
       </div>
     </div>
   );
