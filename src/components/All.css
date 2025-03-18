@@ -1,6 +1,11 @@
 :root{
   --main:#1C458D;
   --second:#9CD5C1;
+  --home:#1C458D;
+  --search:#9CD5C1;
+  --profile:#9CD5C1;
+  --message:#9CD5C1;
+
 }
 .Start_Page{
   display: flex;
@@ -343,9 +348,29 @@ span{
   z-index: 100 !important;
 }
 .Search-Btn svg path ,.Home-Btn svg path , .Message-Btn svg path , .Pro-Btn svg path{
-
+  pointer-events: all !important;
   cursor: pointer;
-  fill: #9CD5C1;
+}
+.Search-Btn svg path{
+  color: var(--search);
+}
+.Home-Btn svg path{
+  color: var(--home);
+}
+.Message-Btn svg path{
+  color: var(--message);
+}
+.Pro-Btn svg path{
+  color: var(--profile);
+}
+.Btn_Icons{
+  border:none !important;
+  background-color:transparent;
+  width:50px;
+  height: 50px;
+  display: flex; 
+  justify-content: center;
+  align-items: center ;
 }
 .in2_Package{
   width: 100%;

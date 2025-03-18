@@ -4,7 +4,7 @@ import { useState } from "react";
 const icons = {
     home: (
       <div className="Home-Btn">
-      <svg viewBox="0 0 22 21" xmlns="http://www.w3.org/2000/svg">
+      <svg  viewBox="0 0 22 21" xmlns="http://www.w3.org/2000/svg">
         <path
           fill="currentColor"
           fillRule="evenodd"
@@ -19,7 +19,7 @@ const icons = {
 
     profile: (
       <div className="Pro-Btn">
-      <svg viewBox="0 0 17 20" xmlns="http://www.w3.org/2000/svg">
+      <svg  viewBox="0 0 20 23" xmlns="http://www.w3.org/2000/svg">
         <path
           fill="currentColor"
           fillRule="evenodd"
@@ -31,7 +31,7 @@ const icons = {
     ),
     search: (
       <div className="Search-Btn">
-      <svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+      <svg width="30px" height="30px" viewBox="6 6 20 20" xmlns="http://www.w3.org/2000/svg">
         <path
           fill="currentColor"
           fillRule="evenodd"
@@ -43,7 +43,7 @@ const icons = {
     ),
     message: (
       <div className="Message-Btn">
-      <svg viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg  viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           fill="currentColor"
           fillRule="evenodd"
@@ -56,7 +56,7 @@ const icons = {
     ),
   };
   export const CartIcon = () => (
-    <svg width="30" height="30" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="60" height="36" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="21.1697" cy="21" r="21" fill="#1C458D"/>
       <circle cx="17.897" cy="28.3637" r="1.63636" fill="#1C458D" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
       <circle cx="27.7152" cy="28.3637" r="1.63636" fill="#1C458D" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
