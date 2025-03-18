@@ -72,7 +72,6 @@ const Home_Page = () => {
       <div className="in2">
         <Nav onSelect={handleSelection} />
         {Render_Result()}
-        <Dashboard/>
       </div>
     </div>
   );
