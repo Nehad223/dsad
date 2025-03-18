@@ -290,3 +290,23 @@ span{
   
 
 }
+.Dashboard {
+  position: fixed;
+  top: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 200px !important;
+  height: 50px;
+  background-color: white;
+  border: solid 1px white;
+  border-radius: 50px !important;
+  display: flex;
+  align-items: center; /* لضبط الأيقونات بشكل مركزي */
+  justify-content: space-evenly; /* توزيع الأيقونات بالتساوي */
+}
+.Search-Btn svg path ,.Home-Btn svg path , .Message-Btn svg path , .Pro-Btn svg path{
+
+  cursor: pointer;
+  fill: #9CD5C1;
+}

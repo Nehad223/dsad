@@ -1,4 +1,3 @@
-import TelegramAuth from './components/TeleAuth';
 import './App.css';
 import { createContext } from 'react';
 import Catg from './components/Catg';
@@ -8,9 +7,6 @@ import Test from './components/Test';
 import Start_Page from './components/Start_Page';
 import Conformation_Page from './components/Conformation_Page';
 import Home_Page from './components/Home_Page';
-import ProductSlider from './components/TestSwiper';
-import ParentComponent from './components/TestButton';
-import Test_Col from './components/Test_Col';
 import Search_Page from './components/Search_Page';
 import Cart from './components/Cart';
 export const CounterContext = createContext();
@@ -27,7 +23,7 @@ function App() {
         <Route path='/dsad' element={<Start_Page/>}></Route>
         <Route path='dsad/conformation' element={<Conformation_Page/>}></Route>
         <Route path='dsad/home' element={<Home_Page/>} ></Route>
-        <Route path='dsad/Test' element={<Test_Col/>} ></Route>
+        <Route path='dsad/Test' element={<Test/>} ></Route>
         <Route path='dsad/search' element={<Search_Page/>}></Route>
         <Route path='dsad/cart' element={<Cart/>}></Route>
         
