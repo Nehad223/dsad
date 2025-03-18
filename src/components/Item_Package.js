@@ -16,7 +16,7 @@ const Item_Package = (props) => {
   )
 }
 
-export default Item_Package
+export default Item_Package;
 
 
 

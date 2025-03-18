@@ -153,6 +153,9 @@ transform: translateX(-15%);
   float: right;
   background-color: white;
 }
+.Item{
+  margin-bottom: 70px !important;
+}
 
 .NavBar{
   margin-top: 40px;
@@ -426,4 +429,7 @@ span{
   color:#686363;
   font-size: 12px;
 
+}
+.Item_Package{
+  margin-bottom: 70px !important;
 }

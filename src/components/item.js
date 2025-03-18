@@ -6,7 +6,7 @@ import LazyImage from './LazyImage';
 const Item = (props) => {
 
   return (
-    <div className='Item mb-4'>
+    <div className='Item '>
       <LazyImage
         className='Item_Image'
         src={`https://res.cloudinary.com/dgocqho3b/${props.item.photo}`}
