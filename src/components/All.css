@@ -335,6 +335,7 @@ span{
   display: flex;
   align-items: center; /* لضبط الأيقونات بشكل مركزي */
   justify-content: space-evenly; /* توزيع الأيقونات بالتساوي */
+  z-index: 100 !important;
 }
 .Search-Btn svg path ,.Home-Btn svg path , .Message-Btn svg path , .Pro-Btn svg path{
 
