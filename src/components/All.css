@@ -235,7 +235,7 @@ transform: translateX(-15%);
   
 }
 .Item_Name, .Item_Price {
-  font-size: clamp(9px, 5vw, 15px); /* حجم يتغير تلقائيًا بين 10px و 16px حسب العرض */
+  font-size: clamp(9px, 5vw, 14px); /* حجم يتغير تلقائيًا بين 10px و 16px حسب العرض */
   white-space: nowrap; /* يمنع النص من النزول لسطر جديد */
   overflow: hidden; /* يمنع ظهور النص الزائد */
   text-overflow: ellipsis; /* يضع "..." إذا كان النص طويلًا */
