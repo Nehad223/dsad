@@ -8,7 +8,7 @@ const Item_Package = (props) => {
       <img  src={`https://res.cloudinary.com/dgocqho3b/${props.items.photo}`} className='Item_Image' />
       
       <div className='Item_Info_Pack'>
-        <div className='Item_Price_Pack_Box' ><h5 className='Item_Price_Pack' > {props.items.price}<span>sp</span> </h5> </div>
+        <div className='Item_Price_Pack_Box' ><h5 className='Item_Price_Pack' > {props.items.price.toLocaleString()}<span>sp</span> </h5> </div>
         
         <h1 className='Item_Pack_Name'>{props.items.name}</h1>
         </div>
