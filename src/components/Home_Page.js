@@ -73,7 +73,7 @@ const Home_Page = () => {
         <Nav onSelect={handleSelection} />
         {Render_Result()}
       </div>
-      <Dashboard/>
+     
 
     </div>
   );

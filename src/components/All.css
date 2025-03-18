@@ -181,16 +181,18 @@ transform: translateX(-15%);
 }
 .catg_Name,.catg_Des{
   text-align: right;
-  color: #1C458D;
   font-family: "Almarai", sans-serif;
   font-style: normal;
 }
 .catg_Name{
+  color: #1C458D;
   font-weight: 700;
   font-size: 14px;
 
+
 }
 .catg_Des{
+  color: #77838F;
   font-size: 12px;
   font-weight: 400;
 }
@@ -320,7 +322,7 @@ span{
 }
 .Dashboard {
   position: fixed;
-  bottom: 15px !important;
+  bottom: 10px !important;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
