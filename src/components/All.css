@@ -320,7 +320,7 @@ span{
 }
 .Dashboard {
   position: fixed;
-  bottom: 10px !important;
+  bottom: 15px !important;
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
