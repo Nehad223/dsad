@@ -323,7 +323,7 @@ span{
   bottom: 15px !important;
   left: 50%;
   transform: translateX(-50%);
-  width: 90%;
+  width: 100%;
   max-width: 400px !important;
   height: 50px;
   background-color: white;
