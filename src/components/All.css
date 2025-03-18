@@ -212,8 +212,8 @@ transform: translateX(-15%);
   padding: 10px;
   margin-top: 20px;
   width: 100%;
-  max-width: 150px !important;
-  height: 150px;
+  max-width: 142px !important;
+  height: 135px;
 }
 .Item_inf {
   display: flex;
@@ -235,7 +235,7 @@ transform: translateX(-15%);
   
 }
 .Item_Name, .Item_Price {
-  font-size: clamp(9px, 5vw, 14px); /* حجم يتغير تلقائيًا بين 10px و 16px حسب العرض */
+  font-size: clamp(9px, 5vw, 12px); /* حجم يتغير تلقائيًا بين 10px و 16px حسب العرض */
   white-space: nowrap; /* يمنع النص من النزول لسطر جديد */
   overflow: hidden; /* يمنع ظهور النص الزائد */
   text-overflow: ellipsis; /* يضع "..." إذا كان النص طويلًا */
@@ -243,7 +243,7 @@ transform: translateX(-15%);
 }
 .Item_inf,.Item_Info_Pack{
   width: 100%;
-  max-width: 150px !important;
+  max-width: 142px !important;
   height: 32px;
   border: solid 1px #1C458D;
   background-color: #1C458D;
@@ -277,7 +277,7 @@ transform: translateX(-15%);
 
 .Item_Package {
   margin-bottom: 10px !important;
-  max-width: 150px; 
+  max-width: 142px; 
   width: 90% !important;
   box-sizing: border-box;
 }
@@ -286,7 +286,7 @@ transform: translateX(-15%);
   position: absolute;
   z-index: 90 !important;
   margin-top: -20px;
-  margin-right: 15px;
+  margin-right: 16px;
   width:80px ;
   height: 15px;
   border: solid 1px var(--second);
