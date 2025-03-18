@@ -292,11 +292,11 @@ span{
 }
 .Dashboard {
   position: fixed;
-  top: 90%;
+  bottom: 10px !important;
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
-  max-width: 200px !important;
+  max-width: 400px !important;
   height: 50px;
   background-color: white;
   border: solid 1px white;
