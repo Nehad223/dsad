@@ -18,6 +18,7 @@ const Nav = ({ onSelect }) => {
           className="Button_Nav"
           onClick={() => handleClick(index)}
           style={{
+           
             color: activeButton === index ? '#171C26' : '#77838F',
             backgroundColor: activeButton === index ? 'white' : '#F5F5F5',
             border: activeButton === index ? '2px solid white' : '0px solid ',
