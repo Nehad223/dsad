@@ -21,7 +21,7 @@ const Home_Page = () => {
   useEffect(() => {
     document.documentElement.style.setProperty("--main", "white");
 
-    if (!data.length) {
+   
       axios
         .get("https://market-cwgu.onrender.com/bot/homepage/")
         .then((response) => {
@@ -30,9 +30,9 @@ const Home_Page = () => {
         })
         .catch((error) => setError(error))
         .finally(() => setIsLoading(false));
-    }
+    
 
-    if (!packagesData.length) {
+
       axios
         .get("https://market-cwgu.onrender.com/packages/")
         .then((response) => {
@@ -40,7 +40,6 @@ const Home_Page = () => {
           localStorage.setItem("packagesData", JSON.stringify(response.data));
         })
         .catch((error) => setError(error));
-    }
   }, []);
 
   const handleSelection = (value) => {
