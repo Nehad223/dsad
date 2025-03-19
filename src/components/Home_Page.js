@@ -14,8 +14,8 @@ const Home_Page = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [data, setData] = useState(JSON.parse(localStorage.getItem("data")) || []);
-  const [packagesData, setPackagesData] = useState(JSON.parse(localStorage.getItem("packagesData")) || []);
+  const [data, setData] = useState([]);
+  const [packagesData, setPackagesData] = useState([]);
   const [selectedValue, setSelectedValue] = useState(0);
 
   useEffect(() => {
@@ -26,7 +26,6 @@ const Home_Page = () => {
         .get("https://market-cwgu.onrender.com/bot/homepage/")
         .then((response) => {
           setData(response.data);
-          localStorage.setItem("data", JSON.stringify(response.data));
         })
         .catch((error) => setError(error))
         .finally(() => setIsLoading(false));
@@ -37,7 +36,7 @@ const Home_Page = () => {
         .get("https://market-cwgu.onrender.com/packages/")
         .then((response) => {
           setPackagesData(response.data);
-          localStorage.setItem("packagesData", JSON.stringify(response.data));
+  
         })
         .catch((error) => setError(error));
   }, []);
