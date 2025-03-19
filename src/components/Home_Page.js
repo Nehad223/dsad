@@ -8,37 +8,17 @@ import Nav from "./Nav";
 import Packeges from "./Packeges";
 import Doctors_Students from "./Doctors";
 import Logo from "./Assests/logo.png";
+import { useLocation } from "react-router-dom";
 
 const Home_Page = () => {
   const navigate = useNavigate();
-  const [searchQuery, setSearchQuery] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [data, setData] = useState([]);
-  const [packagesData, setPackagesData] = useState([]);
+  const location = useLocation();
+  const data = location.state?.data || [];
+  const packagesData = location.state?.packages || [];
   const [selectedValue, setSelectedValue] = useState(0);
 
   useEffect(() => {
     document.documentElement.style.setProperty("--main", "white");
-
-   
-      axios
-        .get("https://market-cwgu.onrender.com/bot/homepage/")
-        .then((response) => {
-          setData(response.data);
-        })
-        .catch((error) => setError(error))
-        .finally(() => setIsLoading(false));
-    
-
-
-      axios
-        .get("https://market-cwgu.onrender.com/packages/")
-        .then((response) => {
-          setPackagesData(response.data);
-  
-        })
-        .catch((error) => setError(error));
   }, []);
 
   const handleSelection = (value) => {
@@ -85,3 +65,5 @@ const Home_Page = () => {
 };
 
 export default Home_Page;
+
+
