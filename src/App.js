@@ -27,7 +27,7 @@ function App() {
         <Route path='/dsad' element={<Start_Page/>} />
         <Route path='/dsad/conformation' element={<Conformation_Page/>} />
         <Route path='/dsad/home' element={<Home_Page/>} />
-        <Route path='/dsad/Test' element={<Test_Col/>} />
+        <Route path='/dsad/Test' element={<Test/>} />
         <Route path='/dsad/search' element={<Search_Page/>} />
         <Route path='/dsad/cart' element={<Cart/>} />
         <Route path='/dsad/profile' element={<Profile/>} />
