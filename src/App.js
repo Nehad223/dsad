@@ -30,7 +30,6 @@ function App() {
         <Route path='/dsad/Test' element={<Test_Col/>} />
         <Route path='/dsad/search' element={<Search_Page/>} />
         <Route path='/dsad/cart' element={<Cart/>} />
-        <Route path='/dsad/auth' element={<TelegramAuth/>} />
         <Route path='/dsad/profile' element={<Profile/>} />
         <Route path='/dsad/points' element={<Points_Page/>} />
       </Routes>

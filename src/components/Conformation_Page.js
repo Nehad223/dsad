@@ -1,8 +1,30 @@
-import React from 'react';
-import './All.css';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import "./All.css";
+import { Link, useNavigate } from "react-router-dom";
+import { useCart } from "./CartContext";
+import { TelegramAuth } from "./TeleAuth"; // استيراد مكون التحقق من التلغرام
 
 const Conformation_Page = () => {
+  const navigate = useNavigate();
+  const { setUserData } = useCart();
+  const [user, setUser] = useState(null);
+
+  const handleTelegramAuth = () => {
+    if (window.Telegram?.WebApp) {
+      const tg = window.Telegram.WebApp;
+
+      if (tg.initDataUnsafe?.user) {
+        const { id, first_name, last_name, photo_url } = tg.initDataUnsafe.user;
+        const newUser = { id, first_name, last_name, photo_url };
+
+        setUser(newUser);
+        setUserData(newUser);
+
+        navigate("/dsad/home");
+      }
+    }
+  };
+
   return (
     <div className="container Conformation_Page">
       <div className="row justify-content-center">
@@ -17,9 +39,10 @@ const Conformation_Page = () => {
             Lorem ipsum is simply dummy text of the printing <br />
             and typesetting industry. Lorem ipsum has been <br />
             the industry’s standard dummy text ever since
-          </p> 
-          <Link to="/dsad/auth"><button className="Card_Button">متابعة</button></Link>
-          
+          </p>
+          <button className="Card_Button" onClick={handleTelegramAuth}>
+            متابعة
+          </button>
         </div>
       </div>
     </div>
@@ -27,5 +50,3 @@ const Conformation_Page = () => {
 };
 
 export default Conformation_Page;
-
-
