@@ -1,9 +1,10 @@
 import React from 'react'
 import { Icon, CartIcon } from './HomeIcon';
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const icons = ["home", "search", "message", "profile"];
-
+  const navigate=useNavigate();
   function Make_All_UnActive() {
     const root = document.documentElement; // جلب root داخل الدالة
     icons.forEach(icon => {
@@ -15,7 +16,9 @@ const Dashboard = () => {
     const root = document.documentElement; // جلب root داخل الدالة
     Make_All_UnActive();
     root.style.setProperty(`--${icon}`, '#1C458D');
+    navigate(`/dsad/${icon}`)
   }
+
 
   return (
     <div className='Dashboard'>
@@ -25,7 +28,7 @@ const Dashboard = () => {
         <div onClick={Make_All_UnActive}><CartIcon/></div>
       <button className='Btn_Icons' onClick={() => Make_Active("message")}>
       <Icon name="message" size={20}  /></button>
-      <button className='Btn_Icons' onClick={() => Make_Active("profile")}>
+      <button className='Btn_Icons' onClick={() => Make_Active("profile") }>
       <Icon name="profile" size={15}  /></button>
     
     </div>

@@ -19,7 +19,7 @@ const icons = {
 
     profile: (
       <div className="Pro-Btn">
-      <svg  viewBox="0 0 20 23" xmlns="http://www.w3.org/2000/svg">
+      <svg  viewBox="0 0 20 25" xmlns="http://www.w3.org/2000/svg">
         <path
           fill="currentColor"
           fillRule="evenodd"
