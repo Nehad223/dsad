@@ -8,43 +8,53 @@ import Nav from "./Nav";
 import Packeges from "./Packeges";
 import Doctors_Students from "./Doctors";
 import Logo from "./Assests/logo.png";
-
+import { useLocation } from "react-router-dom";
 const Home_Page = () => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [packagesData, setPackagesData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedValue, setSelectedValue] = useState(0);
+  const location = useLocation(); 
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-  
-        const cachedData = sessionStorage.getItem("botData");
-        const cachedPackages = sessionStorage.getItem("packagesData");
+        const savedData = sessionStorage.getItem("botData");
+        const savedPackages = sessionStorage.getItem("packagesData");
 
-        if (cachedData && cachedPackages) {
-          setData(JSON.parse(cachedData));
-          setPackagesData(JSON.parse(cachedPackages));
-          setIsLoading(false);
-        } else {
-          const botResponse = await axios.get("https://market-cwgu.onrender.com/bot/homepage/");
-          const packagesResponse = await axios.get("https://market-cwgu.onrender.com/packages/");
+        if (savedData && savedPackages) {
+
+          setData(JSON.parse(savedData));
+          setPackagesData(JSON.parse(savedPackages));
+        }
+
+  
+        const botResponse = await axios.get("https://market-cwgu.onrender.com/bot/homepage/");
+        const packagesResponse = await axios.get("https://market-cwgu.onrender.com/packages/");
+
+
+        if (
+          JSON.stringify(botResponse.data) !== savedData ||
+          JSON.stringify(packagesResponse.data) !== savedPackages
+        ) {
+          console.log("🔄 البيانات تغيرت، تحديث الهوم...");
           setData(botResponse.data);
           setPackagesData(packagesResponse.data);
-          setIsLoading(false);
 
-          // تخزين البيانات في sessionStorage
+   
           sessionStorage.setItem("botData", JSON.stringify(botResponse.data));
           sessionStorage.setItem("packagesData", JSON.stringify(packagesResponse.data));
         }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setIsLoading(false);
+      } catch (err) {
+        console.error(err);
       }
     };
 
     fetchData();
-  }, []);
+  }, [location.key]); 
+
+
 
   useEffect(() => {
     document.documentElement.style.setProperty("--main", "white");
