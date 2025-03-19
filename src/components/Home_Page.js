@@ -14,23 +14,33 @@ const Home_Page = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [data, setData] = useState([]);
-  const [packagesData, setPackagesData] = useState([]);
+  const [data, setData] = useState(JSON.parse(localStorage.getItem("data")) || []);
+  const [packagesData, setPackagesData] = useState(JSON.parse(localStorage.getItem("packagesData")) || []);
   const [selectedValue, setSelectedValue] = useState(0);
 
   useEffect(() => {
     document.documentElement.style.setProperty("--main", "white");
 
-    axios
-      .get("https://market-cwgu.onrender.com/bot/homepage/")
-      .then((response) => setData(response.data))
-      .catch((error) => setError(error))
-      .finally(() => setIsLoading(false));
+    if (!data.length) {
+      axios
+        .get("https://market-cwgu.onrender.com/bot/homepage/")
+        .then((response) => {
+          setData(response.data);
+          localStorage.setItem("data", JSON.stringify(response.data));
+        })
+        .catch((error) => setError(error))
+        .finally(() => setIsLoading(false));
+    }
 
-    axios
-      .get("https://market-cwgu.onrender.com/packages/")
-      .then((response) => setPackagesData(response.data))
-      .catch((error) => setError(error));
+    if (!packagesData.length) {
+      axios
+        .get("https://market-cwgu.onrender.com/packages/")
+        .then((response) => {
+          setPackagesData(response.data);
+          localStorage.setItem("packagesData", JSON.stringify(response.data));
+        })
+        .catch((error) => setError(error));
+    }
   }, []);
 
   const handleSelection = (value) => {
@@ -38,10 +48,9 @@ const Home_Page = () => {
   };
 
   const handleSearch = () => {
-
-      navigate(`/dsad/search`);
-      
+    navigate(`/dsad/search`);
   };
+
   function Render_Result() {
     if (selectedValue === 0) {
       return <Doctors_Students items={data} doctor_student={1} />;
@@ -55,12 +64,11 @@ const Home_Page = () => {
   return (
     <div className="out">
       <div className="in1">
-        <img src={Logo} width="75px" height="75px" className="Logo_in1" />
+        <img src={Logo} width="92px" height="41px" className="Logo_in1" />
       </div>
 
-      <div className="Search_Box"  onClick={handleSearch}>
-
-      <Search className="Search_Logo" onClick={handleSearch} />
+      <div className="Search_Box" onClick={handleSearch}>
+        <Search className="Search_Logo" onClick={handleSearch} />
         <input
           type="button"
           value="Search"
@@ -73,12 +81,9 @@ const Home_Page = () => {
         <Nav onSelect={handleSelection} />
         {Render_Result()}
       </div>
-     <Dashboard/>
-
+      <Dashboard />
     </div>
   );
 };
 
 export default Home_Page;
-
-

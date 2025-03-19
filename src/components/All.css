@@ -11,7 +11,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 30vh;
+  margin-top: 40vh;
+
 }
 .logo{
   width: 212px !important;
@@ -141,14 +142,14 @@
 
 .in1 {
   width: 100%;
-  height: 120px; 
+  height: 140px; 
   background-color: #1C458D !important;
 
 }
 .Logo_in1{
 position: absolute;
 left: 17%;
-top: 0%;
+top: 4%;
 
 transform: translateX(-15%);
  
@@ -338,7 +339,7 @@ span{
   transform: translateX(-50%);
   width: 90%;
   max-width: 400px !important;
-  height: 50px;
+  height: 70px;
   background-color: white;
   border: solid 1px #bbb;
   border-radius: 50px !important;
@@ -451,6 +452,7 @@ span{
   font-style: normal;
   font-size: 20px;
   color: #1C458D;
+  margin-top: 60px !important;
 }
 .in2_Profile p{
   color:#686363;
@@ -459,4 +461,21 @@ span{
 }
 .Item_Package{
   margin-bottom: 70px !important;
+}
+.Logo_in1_Profile{
+  position: absolute;
+  top:3%;
+  left: 50%;
+  transform: translateX(-50%);
+
+}
+.Profile_Photo{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border: solid 1px #D8D8D8;
+  border-radius: 100px;
+  top:12%;
+
+  background-color: #D8D8D8;
 }

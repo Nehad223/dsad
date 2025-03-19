@@ -15,34 +15,28 @@ import Search_Page from './components/Search_Page';
 import Cart from './components/Cart';
 import Points_Page from './components/Points_Page';
 import Profile from './components/Profile';
-
+import { CartProvider } from './components/CartContext';
 export const CounterContext = createContext();
 function App() {
-  const [id,setId]=useState(0);
 
   return (
-    
+    <CartProvider>
     <div className="App">
-      <CounterContext.Provider value={{ id, setId }}>
       <Routes>
-        <Route path='dsad/catg/:catgId' element={<Catg/>} >
-        </Route>
-        <Route path='/dsad' element={<Start_Page/>}></Route>
-        <Route path='dsad/conformation' element={<Conformation_Page/>}></Route>
-        <Route path='dsad/home' element={<Home_Page/>} ></Route>
-        <Route path='dsad/Test' element={<Test_Col/>} ></Route>
-        <Route path='dsad/search' element={<Search_Page/>}></Route>
-        <Route path='dsad/cart' element={<Cart/>}></Route>
-        <Route path='dsad/profile' element={<Profile/>}></Route>   
-        <Route path='dsad/points' element={<Points_Page/>}></Route> 
-        
+        <Route path='/dsad/catg/:catgId' element={<Catg/>} />
+        <Route path='/dsad' element={<Start_Page/>} />
+        <Route path='/dsad/conformation' element={<Conformation_Page/>} />
+        <Route path='/dsad/home' element={<Home_Page/>} />
+        <Route path='/dsad/Test' element={<Test_Col/>} />
+        <Route path='/dsad/search' element={<Search_Page/>} />
+        <Route path='/dsad/cart' element={<Cart/>} />
+        <Route path='/dsad/auth' element={<TelegramAuth/>} />
+        <Route path='/dsad/profile' element={<Profile/>} />
+        <Route path='/dsad/points' element={<Points_Page/>} />
       </Routes>
-      
-      </CounterContext.Provider>
-      
-  
-
     </div>
+  </CartProvider>
+  
   );
 }
 
