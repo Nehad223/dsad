@@ -410,8 +410,8 @@ span{
 .points_btn{
   display: flex;
   position: relative;
-  margin-left: 60%;
-  transform: translateX(-55%);
+  margin-left: 53%;
+  transform: translateX(-50%);
   font-family: "Almarai", sans-serif;
   font-weight: 700;
   font-style: normal;
