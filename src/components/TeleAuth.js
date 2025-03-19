@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "./CartContext";
 import Error_auth from "./Error_auth";
-import Start_Page from "./Start_Page";
 const TelegramAuth = () => {
   const navigate = useNavigate();
   const { setUserData } = useCart();
@@ -24,7 +23,7 @@ const TelegramAuth = () => {
     }
   }, []);
 
-  if (!user) return <Start_Page/>;
+  if (!user) return <Error_auth/>;
 
   return <div />;
 };
