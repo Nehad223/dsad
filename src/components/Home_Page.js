@@ -8,14 +8,43 @@ import Nav from "./Nav";
 import Packeges from "./Packeges";
 import Doctors_Students from "./Doctors";
 import Logo from "./Assests/logo.png";
-import { useLocation } from "react-router-dom";
 
 const Home_Page = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const data = location.state?.data || [];
-  const packagesData = location.state?.packages || [];
+  const [data, setData] = useState([]);
+  const [packagesData, setPackagesData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [selectedValue, setSelectedValue] = useState(0);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+  
+        const cachedData = sessionStorage.getItem("botData");
+        const cachedPackages = sessionStorage.getItem("packagesData");
+
+        if (cachedData && cachedPackages) {
+          setData(JSON.parse(cachedData));
+          setPackagesData(JSON.parse(cachedPackages));
+          setIsLoading(false);
+        } else {
+          const botResponse = await axios.get("https://market-cwgu.onrender.com/bot/homepage/");
+          const packagesResponse = await axios.get("https://market-cwgu.onrender.com/packages/");
+          setData(botResponse.data);
+          setPackagesData(packagesResponse.data);
+          setIsLoading(false);
+
+          // تخزين البيانات في sessionStorage
+          sessionStorage.setItem("botData", JSON.stringify(botResponse.data));
+          sessionStorage.setItem("packagesData", JSON.stringify(packagesResponse.data));
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   useEffect(() => {
     document.documentElement.style.setProperty("--main", "white");
@@ -29,6 +58,7 @@ const Home_Page = () => {
     navigate(`/dsad/search`);
   };
 
+
   function Render_Result() {
     if (selectedValue === 0) {
       return <Doctors_Students items={data} doctor_student={1} />;
@@ -38,6 +68,7 @@ const Home_Page = () => {
       return <Packeges items={packagesData} />;
     }
   }
+
 
   return (
     <div className="out">
@@ -65,5 +96,3 @@ const Home_Page = () => {
 };
 
 export default Home_Page;
-
-

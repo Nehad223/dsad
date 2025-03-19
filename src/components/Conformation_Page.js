@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./All.css";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { useCart } from "./CartContext";
 
 const Conformation_Page = () => {
   const navigate = useNavigate();
-  const location = useLocation();
   const { setUserData } = useCart();
   const [user, setUser] = useState(null);
-  const data = location.state?.data || [];
-  const packages = location.state?.packages || [];
   const handleTelegramAuth = () => {
     if (window.Telegram?.WebApp) {
       const tg = window.Telegram.WebApp;
@@ -21,9 +18,7 @@ const Conformation_Page = () => {
         setUser(newUser);
         setUserData(newUser);
 
-        navigate("/dsad/home",{
-          state: { data:data, packages:packages },
-        }); 
+        navigate("/dsad/home"); 
       }
     } 
   };
