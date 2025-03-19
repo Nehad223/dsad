@@ -23,7 +23,7 @@ const Profile = () => {
 
       <div className="in2_Profile">
         <h1 className='mt-5'> {userData.first_name} {userData.last_name ? userData.last_name : ""}</h1>
-        <p>01928303 (ID Num)</p>
+        <p>{userData.id} (ID Num)</p>
         <div className='points_btn mb-5'>
           <button className='num_points'>400</button><button className='name_points'>عدد النقاط</button>
 
