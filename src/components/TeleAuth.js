@@ -22,7 +22,7 @@ const TelegramAuth = () => {
         navigate("/dsad/home");
       }
     }
-  }, [setUserData, navigate]);
+  }, []);
 
   if (!user) return <Start_Page/>;
 
