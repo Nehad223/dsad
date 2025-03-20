@@ -8,7 +8,7 @@ const Profile = () => {
   const { userData } = useCart();
   const navigate = useNavigate();
   const goToPointsPage = () => {
-    navigate(`/points`);
+    navigate(`dsad/points`);
   };
   return (
     <div className="out">
