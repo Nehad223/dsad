@@ -8,7 +8,7 @@ const Profile = () => {
   const { userData } = useCart();
   const navigate = useNavigate();
   const goToPointsPage = () => {
-    navigate(`points`);
+    navigate('/dsad/profile/points');
   };
   return (
     <div className="out">
@@ -38,9 +38,10 @@ const Profile = () => {
           <button className="num_points">400</button>
             <button className="name_points">عدد النقاط</button>
         </button>
-        <button className="pro_btton dd" onClick={goToPointsPage}>
+        <Link to="points">
+        <button className="pro_btton dd" >
           تبديل النقاط
-        </button>
+        </button></Link>
         <button className="pro_btton"> سجل المشتريات</button>
       </div>
       <Dashboard />

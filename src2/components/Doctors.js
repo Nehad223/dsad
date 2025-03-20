@@ -25,6 +25,7 @@ const Doctors_Students = (props) => {
           </div>
         );
       })}
+        <div className="spacer" style={{ height: "35px" }}></div>
     </div>
   );
 };

@@ -30,7 +30,7 @@ function App() {
         <Route path='/dsad/Test' element={<Test/>} />
         <Route path='/dsad/search' element={<Search_Page/>} />
         <Route path='/dsad/cart' element={<Cart/>} />
-        <Route path='/dsad/profile' element={<Profile/>} />
+        <Route path='/dsad/profile/' element={<Profile/>} />
         <Route path='/dsad/profile/points' element={<Points_Page/>} />
       </Routes>
     </div>

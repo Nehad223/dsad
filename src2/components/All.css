@@ -161,7 +161,7 @@ transform: translateX(-15%);
   background-color: white;
 }
 .Item{
-  margin-bottom: 70px !important;
+  margin-bottom: 40px !important;
 }
 
 .NavBar{
@@ -282,11 +282,11 @@ transform: translateX(-15%);
 }
 
 .Item_Package {
-  margin-bottom: 10px !important;
+
   max-width: 142px; 
   width: 90% !important;
   box-sizing: border-box;
-  margin-bottom: 70px !important;
+
 }
 
 .Item_Price_Pack_Box{

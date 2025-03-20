@@ -3,15 +3,15 @@ import Item_Package from "./Item_Package";
 
 const Packeges = (props) => {
   return (
-    <div>
-      <div className="items_Packages">
+      <div className="items_Packages ">
         {props.items.map((item, index) => (
-          <div key={index} className=" ">
+         
             <Item_Package items={item} currency={props.currency} />
-          </div>
+       
         ))}
+        <div className="spacer" style={{ height: "70px" }}></div>
       </div>
-    </div>
+
   );
 };
 
