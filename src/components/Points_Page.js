@@ -1,42 +1,69 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import Logo from "./Assests/logo.png";
-import { Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Dashboard from "./Dashboard";
+import { useCart } from "./CartContext";
 import Packeges from "./Packeges";
-import axios from 'axios';
-
+import axios from "axios";
+import Go_Back_Btn from "./Go_Back_Btn";
 const Points_Page = () => {
- const[packagesData,setPackagesData]=useState(null);
- const [isLoading, setIsLoading] = useState(false);
- const [error, setError] = useState(null);
-  useEffect(()=>{
-    axios.get("https://market-cwgu.onrender.com/packages/")
-    .then((response) => console.log(response.data))
-    .catch((error) => setError(error));
-    console.log(error);
-   
-  },[])
-    return (
-        <div className="out">
-          <div className="in1">
-            <img src={Logo} width="75px" height="75px" className="Logo_in1" />
-          </div>
-    
-    
-          <div className="in2_Profile">
-            <h1 className='mt-5'>عبدالله شوار</h1>
-            <p>01928303 (ID Num)</p>
-            <div className='points_btn mb-5'>
-              <button className='num_points'>400</button><button className='name_points'>عدد النقاط</button>
-            </div>
-          </div>
-        
+  const [dataPoints, setDataPoints] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://market-cwgu.onrender.com/getpointitems/"
+        );
+        console.log("Fetched data:", response.data);
+        setDataPoints(Object.values(response.data)); 
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
 
-         
-        <Dashboard/>
-        </div>
-      )
-}
+    fetchData();
+  }, []);
+  useEffect(() => {
+    document.documentElement.style.setProperty("--main", "white");
+  }, []);
+  const { userData } = useCart();
+  const navigate = useNavigate();
+  useEffect(()=>{Go_Back_Btn();},[navigate])
+
+  return (
+    <div className="out">
+      <div className="in1">
+        <img
+          src={Logo}
+          width="91px"
+          height="41px"
+          className="Logo_in1_Profile"
+        />
+        {userData.photo_url && (
+          <img
+            src={userData.photo_url}
+            width="103px"
+            height="103px"
+            className="Profile_Photo"
+          />
+        )}
+      </div>
+      <div className="in2">
+        <div className="inf_Points">
+          <h1 className="mt-5">
+            {userData.first_name} {userData.last_name ? userData.last_name : ""}
+          </h1>
+          <p>{userData.id} (ID Num)</p>
+          <button className="points_btn mb-5">
+            <button className="num_points">400</button>
+            <button className="name_points">عدد النقاط</button>
+          </button>
+        </div>{" "}
+        <Packeges items={dataPoints} currency="points" />
+      </div>
+      <Dashboard />
+    </div>
+  );
+};
 
 export default Points_Page;

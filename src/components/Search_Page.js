@@ -1,24 +1,11 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import Go_Back_Btn from "./Go_Back_Btn";
 const Search_Page = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const handleBackButton = () => {
-      navigate(-1); // يرجع مباشرة لصفحة الهوم
-    };
-
-    if (window.Telegram && window.Telegram.WebApp) {
-      window.Telegram.WebApp.expand();
-      window.Telegram.WebApp.BackButton.show(); // عرض زر الرجوع الخاص بتلغرام
-      window.Telegram.WebApp.BackButton.onClick(handleBackButton); // تشغيل الرجوع
-
-      return () => {
-        window.Telegram.WebApp.BackButton.hide(); // إخفاء زر الرجوع عند الخروج
-        window.Telegram.WebApp.BackButton.offClick(handleBackButton);
-      };
-    }
+Go_Back_Btn();
   }, [navigate]);
 
   return (

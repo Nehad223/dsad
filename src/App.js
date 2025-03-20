@@ -31,7 +31,7 @@ function App() {
         <Route path='/dsad/search' element={<Search_Page/>} />
         <Route path='/dsad/cart' element={<Cart/>} />
         <Route path='/dsad/profile' element={<Profile/>} />
-        <Route path='/dsad/points' element={<Points_Page/>} />
+        <Route path='/dsad/profile/points' element={<Points_Page/>} />
       </Routes>
     </div>
   </CartProvider>
