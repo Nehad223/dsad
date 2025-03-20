@@ -122,7 +122,7 @@
   height: 35px;
   position: absolute;
   top: 80px !important;
-  margin-top: 16px;
+  margin-top: 10px;
   border: solid 1px grey;
   border-radius: 15px !important;
   width: 90% !important;
@@ -149,7 +149,7 @@
 .Logo_in1{
 position: absolute;
 left: 17%;
-top: 6%;
+top: 4%;
 
 transform: translateX(-15%);
  
@@ -161,7 +161,7 @@ transform: translateX(-15%);
   background-color: white;
 }
 .Item{
-  margin-bottom: 40px !important;
+  margin-bottom: 70px !important;
 }
 
 .NavBar{
@@ -282,11 +282,10 @@ transform: translateX(-15%);
 }
 
 .Item_Package {
-
+  margin-bottom: 10px !important;
   max-width: 142px; 
   width: 90% !important;
   box-sizing: border-box;
-
 }
 
 .Item_Price_Pack_Box{
@@ -345,8 +344,8 @@ span{
   border: solid 1px #bbb;
   border-radius: 50px !important;
   display: flex;
-  align-items: center; 
-  justify-content: space-evenly;
+  align-items: center; /* لضبط الأيقونات بشكل مركزي */
+  justify-content: space-evenly; /* توزيع الأيقونات بالتساوي */
   z-index: 100 !important;
 }
 .Search-Btn svg path ,.Home-Btn svg path , .Message-Btn svg path , .Pro-Btn svg path{
@@ -455,21 +454,22 @@ span{
   background-color: #9CD5C1;
   color: white;
 }
-.in2_Profile h1,.inf_Points h1{
+.in2_Profile h1{
   font-family: "Almarai", sans-serif;
   font-weight: 700;
   font-style: normal;
   font-size: 20px;
   color: #1C458D;
-  z-index: 100;
   margin-top: 70px !important;
 }
-.in2_Profile p,.inf_Points p{
+.in2_Profile p{
   color:#686363;
   font-size: 12px;
 
 }
-
+.Item_Package{
+  margin-bottom: 70px !important;
+}
 .Logo_in1_Profile{
   position: absolute;
   top:3%;
@@ -486,7 +486,4 @@ span{
   top:12%;
 
   background-color: #D8D8D8;
-}
-.inf_Points{
-  text-align: center;
 }

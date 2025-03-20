@@ -3,8 +3,9 @@ import { createContext, useContext, useState } from "react";
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
-  const [cart, setCart] = useState({});
+  const [cart, setCart] = useState({}); 
   const [userData, setUserData] = useState(null);
+
 
   const addToCart = (item) => {
     setCart((prev) => ({
@@ -15,9 +16,10 @@ export function CartProvider({ children }) {
     }));
   };
 
+  // تعديل الكمية أو حذف العنصر
   const updateQuantity = (itemId, delta) => {
     setCart((prev) => {
-      if (!prev[itemId]) return prev; 
+      if (!prev[itemId]) return prev; // إذا العنصر مش موجود بالسلة
 
       const newQty = prev[itemId].quantity + delta;
       if (newQty <= 0) {
@@ -35,16 +37,7 @@ export function CartProvider({ children }) {
   };
 
   return (
-    <CartContext.Provider
-      value={{
-        cart,
-        userData,
-        setUserData,
-        addToCart,
-        updateQuantity,
-        clearCart,
-      }}
-    >
+    <CartContext.Provider value={{ cart,userData,setUserData, addToCart, updateQuantity, clearCart }}>
       {children}
     </CartContext.Provider>
   );
@@ -53,3 +46,5 @@ export function CartProvider({ children }) {
 export function useCart() {
   return useContext(CartContext);
 }
+
+

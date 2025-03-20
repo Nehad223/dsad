@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./All.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { useCart } from "./CartContext";
 
 const Conformation_Page = () => {
@@ -18,9 +18,9 @@ const Conformation_Page = () => {
         setUser(newUser);
         setUserData(newUser);
 
-        navigate("/dsad/home");
+        navigate("/dsad/home"); 
       }
-    }
+    } 
   };
 
   return (
@@ -48,3 +48,4 @@ const Conformation_Page = () => {
 };
 
 export default Conformation_Page;
+
