@@ -1,34 +1,22 @@
 import { useEffect, useState } from "react";
-import Error_auth from "./Error_auth";
-import React, { useContext } from 'react';
-import { CounterContext } from "../App";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "./CartContext";
 const TelegramAuth = () => {
+  const navigate = useNavigate();
+  const { setUserData } = useCart();
   const [user, setUser] = useState(null);
-  const { setId } = useContext(CounterContext);
 
-  useEffect(() => {
-    if (window.Telegram && window.Telegram.WebApp) {
-      const tg = window.Telegram.WebApp;
+  if (window.Telegram?.WebApp) {
+    const tg = window.Telegram.WebApp;
 
-      if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
-        setUser(tg.initDataUnsafe.user);
-        setId(user.id);
-      } 
-    } 
-  }, []);
+    if (tg.initDataUnsafe?.user) {
+      const { id, first_name, last_name, photo_url } = tg.initDataUnsafe.user;
+      const newUser = { id, first_name, last_name, photo_url };
 
-  return (
-    <div>
-      {user ? (
-        <div>
-          <h1> ID: {user.id}</h1>
-          <h2> Username: {user.username ? `@${user.username}` : "No UserName"}</h2>
-        </div>
-      ) : (
-        <Error_auth />
-      )}
-    </div>
-  );
+      setUser(newUser);
+      setUserData(newUser);
+
+      navigate("/dsad/home");
+    }
+  }
 };
-
-export default TelegramAuth;
