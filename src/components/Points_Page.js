@@ -46,22 +46,22 @@ const Points_Page = () => {
 
   return (
     <div className="out">
-      <div className="in1_Profile">
+    <div className="in1_Profile">
+      <img
+        src={Logo}
+        width="91px"
+        height="41px"
+        className="Logo_in1_Profile"
+      />
+      {userData.photo_url && (
         <img
-          src={Logo}
-          width="91px"
-          height="41px"
-          className="Logo_in1_Profile"
+          src={userData.photo_url}
+          width="103px"
+          height="103px"
+          className="Profile_Photo"
         />
-        {userData.photo_url && (
-          <img
-            src={userData.photo_url}
-            width="103px"
-            height="103px"
-            className="Profile_Photo"
-          />
-        )}
-      </div>
+      )}
+    </div>
       <div className="in2">
         <div className="inf_Points">
           <h1 className="mt-5">
