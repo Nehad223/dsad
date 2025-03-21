@@ -11,7 +11,7 @@ const Item = (props) => {
         className='Item_Image'
         src={`https://res.cloudinary.com/dgocqho3b/${props.item.photo}`}
         alt={props.item.name}
-        placeholder={logo} // Placeholder image before the actual image is loaded
+        placeholder={logo} 
       />
       <div className='Item_inf'>
         <h5 className='Item_Name'>{props.item.name}</h5>

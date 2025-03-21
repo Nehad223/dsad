@@ -5,11 +5,12 @@ const Packeges = (props) => {
   return (
     <div>
       <div className="items_Packages">
-        {props.items.map((item, index) => (   
+        {props.items.map((item, index) => (
+          <div key={index} className=" ">
             <Item_Package items={item} currency={props.currency} />
+          </div>
         ))}
       </div>
-      <div className="spacer" style={{ height: "75px" }}></div>
     </div>
   );
 };

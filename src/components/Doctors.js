@@ -6,7 +6,7 @@ const Doctors_Students = (props) => {
     <div className='catges'>
       {props.items.map((catg,catgId)=>{
         return(
-            <div key={catgId} >
+            <div key={catgId}  >
                 
                 {props.doctor_student == 1 && catg.limited_doctor_items?.length > 0 ? (
                     <div className='catg'>
@@ -25,6 +25,7 @@ const Doctors_Students = (props) => {
             </div>
         )
       })}
+      <div className="spacer" style={{ height: "75px" }}></div>
     </div>
   )
 }

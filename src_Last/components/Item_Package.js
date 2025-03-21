@@ -24,11 +24,9 @@ const Item_Package = (props) => {
 
         <h1 className="Item_Pack_Name">{props.items.name}</h1>
       </div>
-
     </div>
   );
 };
 
 export default Item_Package;
-
 
