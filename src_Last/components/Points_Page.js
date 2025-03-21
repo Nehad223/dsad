@@ -5,6 +5,7 @@ import Dashboard from "./Dashboard";
 import { useCart } from "./CartContext";
 import Packeges from "./Packeges";
 import axios from "axios";
+import Go_Back_Btn from "./Go_Back_Btn";
 const Points_Page = () => {
   const [dataPoints, setDataPoints] = useState([]);
   useEffect(() => {
@@ -27,22 +28,7 @@ const Points_Page = () => {
   }, []);
   const { userData } = useCart();
   const navigate = useNavigate();
-  useEffect(() => {
-    const handleBackButton = () => {
-      navigate(-1); 
-    };
-
-    if (window.Telegram && window.Telegram.WebApp) {
-      window.Telegram.WebApp.expand();
-      window.Telegram.WebApp.BackButton.show(); 
-      window.Telegram.WebApp.BackButton.onClick(handleBackButton); 
-
-      return () => {
-        window.Telegram.WebApp.BackButton.hide();
-        window.Telegram.WebApp.BackButton.offClick(handleBackButton);
-      };
-    }
-  }, [navigate]);
+  useEffect(()=>{Go_Back_Btn();},[navigate])
 
   return (
     <div className="out">
@@ -72,7 +58,7 @@ const Points_Page = () => {
             <button className="num_points">400</button>
             <button className="name_points">عدد النقاط</button>
           </button>
-        </div>
+        </div>{" "}
         <Packeges items={dataPoints} currency="points" />
       </div>
       <Dashboard />

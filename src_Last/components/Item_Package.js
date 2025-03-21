@@ -24,7 +24,6 @@ const Item_Package = (props) => {
 
         <h1 className="Item_Pack_Name">{props.items.name}</h1>
       </div>
-      <div className="spacer" style={{ height: "100px" }}></div>
     </div>
   );
 };
