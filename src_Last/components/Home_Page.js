@@ -13,9 +13,8 @@ const Home_Page = () => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [packagesData, setPackagesData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [selectedValue, setSelectedValue] = useState(0);
-  const location = useLocation(); 
+  const location = useLocation();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,27 +23,29 @@ const Home_Page = () => {
         const savedPackages = sessionStorage.getItem("packagesData");
 
         if (savedData && savedPackages) {
-
           setData(JSON.parse(savedData));
           setPackagesData(JSON.parse(savedPackages));
         }
 
-  
-        const botResponse = await axios.get("https://market-cwgu.onrender.com/bot/homepage/");
-        const packagesResponse = await axios.get("https://market-cwgu.onrender.com/packages/");
-
+        const botResponse = await axios.get(
+          "https://market-cwgu.onrender.com/bot/homepage/"
+        );
+        const packagesResponse = await axios.get(
+          "https://market-cwgu.onrender.com/packages/"
+        );
 
         if (
           JSON.stringify(botResponse.data) !== savedData ||
           JSON.stringify(packagesResponse.data) !== savedPackages
         ) {
-          
           setData(botResponse.data);
           setPackagesData(packagesResponse.data);
 
-   
           sessionStorage.setItem("botData", JSON.stringify(botResponse.data));
-          sessionStorage.setItem("packagesData", JSON.stringify(packagesResponse.data));
+          sessionStorage.setItem(
+            "packagesData",
+            JSON.stringify(packagesResponse.data)
+          );
         }
       } catch (err) {
         console.error(err);
@@ -52,9 +53,7 @@ const Home_Page = () => {
     };
 
     fetchData();
-  }, [location.key]); 
-
-
+  }, [location.key]);
 
   useEffect(() => {
     document.documentElement.style.setProperty("--main", "white");
@@ -68,7 +67,6 @@ const Home_Page = () => {
     navigate(`/dsad/search`);
   };
 
-
   function Render_Result() {
     if (selectedValue === 0) {
       return <Doctors_Students items={data} doctor_student={1} />;
@@ -78,7 +76,6 @@ const Home_Page = () => {
       return <Packeges items={packagesData} currency="sp" />;
     }
   }
-
 
   return (
     <div className="out">
