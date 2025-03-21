@@ -139,7 +139,7 @@
   flex-direction: column; 
 }
 
-.in1 {
+.in1,.in1_Profile {
   width: 100%;
   height: 107px !important; 
   background-color: #1C458D !important;
@@ -369,6 +369,10 @@ span{
   justify-content: center;
   align-items: center ;
 }
+.in1_Profile{
+  height: 144px !important;
+}
+
 .in2_Package{
   width: 100%;
   height: 82%; 
@@ -450,6 +454,7 @@ span{
   background-color: #9CD5C1;
   color: white;
 }
+
 .in2_Profile h1,.inf_Points h1{
   font-family: "Almarai", sans-serif;
   font-weight: 700;
