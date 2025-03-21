@@ -106,6 +106,12 @@
       width: 90%;
   }
 }
+@media (max-width:350px) {
+.Logo_in1{
+  left: 20px !important;
+}  
+}
+
 .Search_Input,.Search_Input:focus{
   outline: none;
   border: none;
@@ -145,13 +151,12 @@
   background-color: #1C458D !important;
 
 }
-.Logo_in1{
-position: absolute;
-left: 19%;
-top: 4%;
-transform: translateX(-15%);
- 
+.Logo_in1 {
+  position: absolute;
+  left: calc(50% - 150px); /* 150px هو نصف عرض البوكس */
+  top: 30px;
 }
+
 .in2,.in2_Profile {
   width: 100%;
   height: 70%;
@@ -228,20 +233,20 @@ transform: translateX(-15%);
   font-style: normal;
   color: white;
   margin-top: 10px;
-  line-height: 1.5; /* لضبط ارتفاع الخط ومنع مشاكل التباعد */
+  line-height: 1.5;
 }
 .Item_Price {
   color: white;
   margin-top: 20px !important;
-  line-height: 1; /* نفس الشيء لضبط المحاذاة */
+  line-height: 1; 
   
 }
 .Item_Name, .Item_Price {
-  font-size: clamp(9px, 5vw, 12px); /* حجم يتغير تلقائيًا بين 10px و 16px حسب العرض */
-  white-space: nowrap; /* يمنع النص من النزول لسطر جديد */
-  overflow: hidden; /* يمنع ظهور النص الزائد */
-  text-overflow: ellipsis; /* يضع "..." إذا كان النص طويلًا */
-  max-width: 100%; /* يمنع خروج النص عن البوكس */
+  font-size: clamp(9px, 5vw, 12px);
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  max-width: 100%; 
 }
 .Item_inf,.Item_Info_Pack{
   width: 100%;
@@ -270,8 +275,8 @@ transform: translateX(-15%);
 .items_Packages {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(150px, 1fr)) !important; /* يحدد حد أدنى وأقصى لحجم العناصر */
-  gap: 5px; /* تصغير المسافة بين العناصر */
+  grid-template-columns: repeat(2, minmax(150px, 1fr)) !important; 
+  gap: 5px; 
   justify-content: center;
   margin-left: 50%;
   transform: translateX(-50%);

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Slider = (props) => {
   return (
     <div>
-      <Swiper dir='RTL' slidesPerView={2.3} spaceBetween={4}>
+      <Swiper dir='RTL' slidesPerView={2.1} spaceBetween={5}>
         {props.items?.map((item, itemIndex) => (
           <SwiperSlide key={itemIndex}><Item item={item} /></SwiperSlide>
         ))}
