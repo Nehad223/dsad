@@ -17,7 +17,7 @@ const Dashboard = () => {
     const root = document.documentElement;
     Make_All_UnActive();
     root.style.setProperty(`--${icon}`, "#1C458D");
-    navigate(`/dsad/${icon}`); // يمنع التراكم في history
+    navigate(`/dsad/${icon}`);
   }
 
   return (
