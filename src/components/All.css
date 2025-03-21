@@ -469,7 +469,7 @@ span{
 }
 .Logo_in1_Profile{
   position: absolute;
-  top:3%;
+  top:25px;
   left: 50%;
   transform: translateX(-50%);
 
@@ -480,7 +480,7 @@ span{
   transform: translateX(-50%);
   border: solid 1px #D8D8D8;
   border-radius: 100px;
-  top:85px !important;
+  top:90px !important;
 
   background-color: #D8D8D8;
 }

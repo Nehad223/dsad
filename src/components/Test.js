@@ -46,12 +46,18 @@ const  Test = () => {
 
   return (
     <div className="out">
-      <div className="in1">
+      <div className="in1_Profile">
         <img
           src={Logo}
           width="91px"
           height="41px"
           className="Logo_in1_Profile"
+        />
+          <img
+          src={Logo}
+          width="103px"
+          height="103px"
+          className="Profile_Photo"
         />
        
       </div>
