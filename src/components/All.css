@@ -147,7 +147,7 @@
 }
 .Logo_in1{
 position: absolute;
-left: 17%;
+left: 19%;
 top: 4%;
 transform: translateX(-15%);
  
@@ -270,7 +270,7 @@ transform: translateX(-15%);
 .items_Packages {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(130px, 1fr)) !important; /* يحدد حد أدنى وأقصى لحجم العناصر */
+  grid-template-columns: repeat(2, minmax(150px, 1fr)) !important; /* يحدد حد أدنى وأقصى لحجم العناصر */
   gap: 5px; /* تصغير المسافة بين العناصر */
   justify-content: center;
   margin-left: 50%;
@@ -279,7 +279,7 @@ transform: translateX(-15%);
 
 .Item_Package {
   max-width: 142px; 
-  width: 90% !important;
+  width: 100% !important;
   box-sizing: border-box;
  margin-top: 15px;
 }
