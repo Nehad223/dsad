@@ -16,7 +16,7 @@ const Item_Package = (props) => {
               {props.items.price.toLocaleString()}
            <span>sp</span></h5> :<h5 className="Item_Price_Pack">
           {props.items.points}
-            <span>نقطة</span>
+            <span> &nbsp;نقطة</span>
         
            </h5>}
          

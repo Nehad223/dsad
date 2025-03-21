@@ -1,104 +1,72 @@
 import React, { useEffect, useState } from "react";
-import { Search } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import "./All.css";
-import Dashboard from "./Dashboard";
-import Nav from "./Nav";
-import Packeges from "./Packeges";
-import Doctors_Students from "./Doctors";
 import Logo from "./Assests/logo.png";
-import { useLocation } from "react-router-dom";
-const Test = () => {
-  const navigate = useNavigate();
-  const [data, setData] = useState([]);
-  const [packagesData, setPackagesData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [selectedValue, setSelectedValue] = useState(0);
-  const location = useLocation(); 
-
+import { useNavigate } from "react-router-dom";
+import Dashboard from "./Dashboard";
+import { useCart } from "./CartContext";
+import Packeges from "./Packeges";
+import axios from "axios";
+const  Test = () => {
+  const [dataPoints, setDataPoints] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const savedData = sessionStorage.getItem("botData");
-        const savedPackages = sessionStorage.getItem("packagesData");
-
-        if (savedData && savedPackages) {
-
-          setData(JSON.parse(savedData));
-          setPackagesData(JSON.parse(savedPackages));
-        }
-
-  
-        const botResponse = await axios.get("https://market-cwgu.onrender.com/bot/homepage/");
-        const packagesResponse = await axios.get("https://market-cwgu.onrender.com/packages/");
-
-
-        if (
-          JSON.stringify(botResponse.data) !== savedData ||
-          JSON.stringify(packagesResponse.data) !== savedPackages
-        ) {
-          
-          setData(botResponse.data);
-          setPackagesData(packagesResponse.data);
-
-   
-          sessionStorage.setItem("botData", JSON.stringify(botResponse.data));
-          sessionStorage.setItem("packagesData", JSON.stringify(packagesResponse.data));
-        }
-      } catch (err) {
-        console.error(err);
+        const response = await axios.get(
+          "https://market-cwgu.onrender.com/getpointitems/"
+        );
+        console.log("Fetched data:", response.data);
+        setDataPoints(Object.values(response.data)); 
+      } catch (error) {
+        console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
-  }, [location.key]); 
-
-
-
+  }, []);
   useEffect(() => {
     document.documentElement.style.setProperty("--main", "white");
   }, []);
+  const { userData } = useCart();
+  const navigate = useNavigate();
+  useEffect(() => {
+    const handleBackButton = () => {
+      navigate(-1); 
+    };
 
-  const handleSelection = (value) => {
-    setSelectedValue(value);
-  };
+    if (window.Telegram && window.Telegram.WebApp) {
+      window.Telegram.WebApp.expand();
+      window.Telegram.WebApp.BackButton.show(); 
+      window.Telegram.WebApp.BackButton.onClick(handleBackButton); 
 
-  const handleSearch = () => {
-    navigate(`/dsad/search`);
-  };
-
-
-  function Render_Result() {
-    if (selectedValue === 0) {
-      return <Doctors_Students items={data} doctor_student={1} />;
-    } else if (selectedValue === 1) {
-      return <Doctors_Students items={data} doctor_student={2} />;
-    } else {
-      return <Packeges items={packagesData} currency="sp" />;
+      return () => {
+        window.Telegram.WebApp.BackButton.hide();
+        window.Telegram.WebApp.BackButton.offClick(handleBackButton);
+      };
     }
-  }
-
+  }, [navigate]);
 
   return (
     <div className="out">
       <div className="in1">
-        <img src={Logo} width="92px" height="41px" className="Logo_in1" />
-      </div>
-
-      <div className="Search_Box" onClick={handleSearch}>
-        <Search className="Search_Logo" onClick={handleSearch} />
-        <input
-          type="button"
-          value="Search"
-          className="Search_Input focus:outline-none focus:ring-0"
-          onClick={handleSearch}
+        <img
+          src={Logo}
+          width="91px"
+          height="41px"
+          className="Logo_in1_Profile"
         />
+       
       </div>
-
       <div className="in2">
-        <Nav onSelect={handleSelection} />
-        {Render_Result()}
+        <div className="inf_Points">
+          <h1 className="mt-5">
+            Nehad Shretah
+          </h1>
+          <p>31421 (ID Num)</p>
+          <button className="points_btn mb-5">
+            <button className="num_points">400</button>
+            <button className="name_points">عدد النقاط</button>
+          </button>
+        </div>
+        <Packeges items={dataPoints} currency="points" />
       </div>
       <Dashboard />
     </div>
