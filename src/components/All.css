@@ -152,7 +152,7 @@ top: 4%;
 transform: translateX(-15%);
  
 }
-.in2 {
+.in2,.in2_Profile {
   width: 100%;
   height: 70%;
   float: right;
@@ -375,7 +375,7 @@ span{
 
 .in2_Package{
   width: 100%;
-  height: 82%; 
+  height: 70%; 
   text-align: center;
   background-color: white;
 }
@@ -383,12 +383,11 @@ span{
   margin-top: 40px !important;
 }
 .in2_Profile{
-  width: 100%;
   text-align: center;
   align-items: center;
   justify-content: center;
-  height: 70% !important; 
-  background-color: white;
+
+
 }
 .pro_btton{
   margin-top: 30px;
@@ -481,7 +480,7 @@ span{
   transform: translateX(-50%);
   border: solid 1px #D8D8D8;
   border-radius: 100px;
-  top:80px !important;
+  top:85px !important;
 
   background-color: #D8D8D8;
 }
