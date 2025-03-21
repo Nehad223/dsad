@@ -28,7 +28,22 @@ const Points_Page = () => {
   }, []);
   const { userData } = useCart();
   const navigate = useNavigate();
-  useEffect(()=>{Go_Back_Btn();},[navigate])
+  useEffect(() => {
+    const handleBackButton = () => {
+      navigate(-1); 
+    };
+
+    if (window.Telegram && window.Telegram.WebApp) {
+      window.Telegram.WebApp.expand();
+      window.Telegram.WebApp.BackButton.show(); 
+      window.Telegram.WebApp.BackButton.onClick(handleBackButton); 
+
+      return () => {
+        window.Telegram.WebApp.BackButton.hide();
+        window.Telegram.WebApp.BackButton.offClick(handleBackButton);
+      };
+    }
+  }, [navigate]);
 
   return (
     <div className="out">

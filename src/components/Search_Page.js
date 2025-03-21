@@ -6,16 +6,16 @@ const Search_Page = () => {
 
   useEffect(() => {
     const handleBackButton = () => {
-      navigate(-1); // يرجع مباشرة لصفحة الهوم
+      navigate(-1); 
     };
 
     if (window.Telegram && window.Telegram.WebApp) {
       window.Telegram.WebApp.expand();
-      window.Telegram.WebApp.BackButton.show(); // عرض زر الرجوع الخاص بتلغرام
-      window.Telegram.WebApp.BackButton.onClick(handleBackButton); // تشغيل الرجوع
+      window.Telegram.WebApp.BackButton.show(); 
+      window.Telegram.WebApp.BackButton.onClick(handleBackButton); 
 
       return () => {
-        window.Telegram.WebApp.BackButton.hide(); // إخفاء زر الرجوع عند الخروج
+        window.Telegram.WebApp.BackButton.hide();
         window.Telegram.WebApp.BackButton.offClick(handleBackButton);
       };
     }
