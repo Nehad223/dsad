@@ -38,7 +38,7 @@ const Home_Page = () => {
           JSON.stringify(botResponse.data) !== savedData ||
           JSON.stringify(packagesResponse.data) !== savedPackages
         ) {
-          console.log("🔄 البيانات تغيرت، تحديث الهوم...");
+          
           setData(botResponse.data);
           setPackagesData(packagesResponse.data);
 

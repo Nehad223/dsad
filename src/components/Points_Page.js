@@ -5,7 +5,6 @@ import Dashboard from "./Dashboard";
 import { useCart } from "./CartContext";
 import Packeges from "./Packeges";
 import axios from "axios";
-import Go_Back_Btn from "./Go_Back_Btn";
 const Points_Page = () => {
   const [dataPoints, setDataPoints] = useState([]);
   useEffect(() => {
