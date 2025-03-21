@@ -38,10 +38,9 @@ const Profile = () => {
           <button className="num_points">400</button>
             <button className="name_points">عدد النقاط</button>
         </button>
-        <Link to="/dsad/points">
-        <button className="pro_btton dd" >
+        <button className="pro_btton dd" onClick={goToPointsPage} >
           تبديل النقاط
-        </button>      </Link>
+        </button>     
         <button className="pro_btton"> سجل المشتريات</button>
       </div>
       <Dashboard />
