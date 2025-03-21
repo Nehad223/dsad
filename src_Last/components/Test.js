@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import { useCart } from "./CartContext";
 import { Link } from "react-router-dom";
-const Profile = () => {
+const Test = () => {
   const { userData } = useCart();
   const navigate = useNavigate();
   const goToPointsPage = () => {
-    navigate(`/dsad/points`);
+    navigate('/dsad/points');
   };
   return (
     <div className="out">
@@ -19,21 +19,14 @@ const Profile = () => {
           height="41px"
           className="Logo_in1_Profile"
         />
-        {userData.photo_url && (
-          <img
-            src={userData.photo_url}
-            width="103px"
-            height="103px"
-            className="Profile_Photo"
-          />
-        )}
+ 
       </div>
       <div className="in2_Profile">
         <h1 className="mt-5">
       
-          {userData.first_name} {userData.last_name ? userData.last_name : ""}
+
         </h1>
-        <p>{userData.id} (ID Num)</p>
+        <p>(ID Num)</p>
         <button className="points_btn mb-5">
           <button className="num_points">400</button>
             <button className="name_points">عدد النقاط</button>
@@ -47,4 +40,4 @@ const Profile = () => {
     </div>
   );
 };
-export default Profile;
+export default Test;
