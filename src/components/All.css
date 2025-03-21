@@ -481,7 +481,7 @@ span{
   transform: translateX(-50%);
   border: solid 1px #D8D8D8;
   border-radius: 100px;
-  top:12%;
+  top:100px !important;
 
   background-color: #D8D8D8;
 }

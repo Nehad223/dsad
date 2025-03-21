@@ -12,7 +12,7 @@ const Profile = () => {
   };
   return (
     <div className="out">
-      <div className="in1">
+      <div className="in1_Profile">
         <img
           src={Logo}
           width="91px"
