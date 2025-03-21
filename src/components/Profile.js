@@ -38,8 +38,7 @@ const Profile = () => {
           <button className="num_points">400</button>
             <button className="name_points">عدد النقاط</button>
         </button>
-        <Link to="https://nehad223.github.io/dsad/#/dsad/points">
-  
+        <Link to="/dsad/points">
         <button className="pro_btton dd" >
           تبديل النقاط
         </button>      </Link>
