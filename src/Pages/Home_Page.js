@@ -1,9 +1,7 @@
 import React, { useEffect, useState,lazy } from "react";
-import { Search } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../style/All.css";
-import Logo from "../Assests/logo.png";
+import Search_Box from "../components/Search_Box";
 import { useLocation } from "react-router-dom";
 import Logo_Img from "../components/Logo_Img";
 const Dashboard = lazy(() => import("../components/Dashboard"));
@@ -11,7 +9,6 @@ const Nav = lazy(() => import("../components/Nav"));
 const Packeges = lazy(() => import("../components/Packeges"));
 const Doctors_Students = lazy(() => import("../components/Doctors"));
 const Home_Page = () => {
-  const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [packagesData, setPackagesData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -65,16 +62,11 @@ const Home_Page = () => {
     setSelectedValue(value);
   };
 
-  const handleSearch = () => {
-    navigate(`/dsad/search`);
-  };
-
-
   function Render_Result() {
     if (selectedValue === 0) {
-      return <Doctors_Students items={data} doctor_student={1} />;
+      return <Doctors_Students items={data} doctor_student="doctor" />;
     } else if (selectedValue === 1) {
-      return <Doctors_Students items={data} doctor_student={2} />;
+      return <Doctors_Students items={data} doctor_student="student" />;
     } else {
       return <Packeges items={packagesData} currency="sp" />;
     }
@@ -87,17 +79,7 @@ const Home_Page = () => {
         <Logo_Img class="Logo_in1" />
         
       </div>
-
-      <div className="Search_Box" onClick={handleSearch}>
-        <Search className="Search_Logo" onClick={handleSearch} />
-        <input
-          type="button"
-          value="Search"
-          className="Search_Input focus:outline-none focus:ring-0"
-          onClick={handleSearch}
-        />
-      </div>
-
+      <Search_Box />
       <div className="in2">
         <Nav onSelect={handleSelection} />
         {Render_Result()}

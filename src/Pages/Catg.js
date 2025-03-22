@@ -1,48 +1,61 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import Search_Box from '../components/Search_Box';
+import Logo_Img from '../components/Logo_Img';
+import Packeges from '../components/Packeges';
+import '../style/All.css';
+import Dashboard from '../components/Dashboard';
+import { useLocation } from 'react-router-dom';
 
 const Catg = () => {
+    const location = useLocation();
+    const name = location.state?.name || "";
+    const description = location.state?.description || "";
     const params = useParams();
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [data, setData] = useState({}); 
-
+    const [data, setData] = useState([]); 
+    useEffect(() => {
+        document.documentElement.style.setProperty("--main", "white");
+      }, []);
     useEffect(() => {
         setIsLoading(true);
-        setError(null);
+        setError(null);  
 
-        axios.get(`https://market-cwgu.onrender.com/category/${params.catgId}/`)
+        console.log(`Fetching: category=${params.catgId}, type=${params.doctorORstudent}`);
+        
+        axios.get(`https://market-cwgu.onrender.com/category/${params.catgId}/${params.doctorORstudent}/`)
             .then((response) => {
                 console.log(response.data);
                 setData(response.data);
             })
             .catch((error) => {
-                setError(error);
+                console.error("Error fetching data:", error);
+                setError(error.message);
             })
             .finally(() => {
                 setIsLoading(false);
             });
-    }, [params.catgId]); 
-
-    if (isLoading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error.message}</p>;
+    }, [params.catgId, params.doctorORstudent]);
 
     return (
-        <div>
-            <h1>{data.name}</h1>
-            <p>{data.description}</p>
-            <ul>
-                {data.items && data.items.map((item, itemIndex) => (
-                    <li key={itemIndex}>
-                        <h1>{item.name}</h1>
-                        <p>{item.description}</p>
-                        <p>{item.price}</p>
-                    </li>
-                ))}
-            </ul>
+        <div className="out">
+      <div className="in1">
+        <Logo_Img class="Logo_in1"/>   
+      </div>
+      <Search_Box />
+      <div className="in2">
+        <div className='title_Catg mt-5'>
+            <h1>{name}</h1>
+            <p>{description}</p>
+
         </div>
+      <Packeges items={data} currency="sp" />
+      </div>
+      <Dashboard />
+    </div>
     );
-}
+};
 
 export default Catg;

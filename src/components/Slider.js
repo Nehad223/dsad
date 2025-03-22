@@ -3,25 +3,16 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';  // تأكد من استيراد استايلات Swiper
 import Item from './item';
 import { Link } from 'react-router-dom';
-
-const Slider = forwardRef((props, ref) => {
-  const swiperRef = useRef(null);
-
-  // استدعاء الـ ref ليتمكن الكود في صفحة `Doctors_Students` من التحكم بالـ Slider
-  useImperativeHandle(ref, () => ({
-    scrollToLastSlide: () => {
-      if (swiperRef.current && props.items?.length ==10) {
-        const swiperInstance = swiperRef.current.swiper;
-        const totalSlides = swiperInstance.slides.length;
-        swiperInstance.slideTo(totalSlides - 1); // التمرير إلى آخر شريحة
-      }
-    }
-  }));
+import { useNavigate } from 'react-router-dom';
+const Slider = (props) => {
+  const navigate=useNavigate();
+  const Go_To_Catg=()=>{
+      navigate(`catg/${props.catgId}/${props.doctor_student}`,
+        {state:{name:props.catgName,description:props.catgDescription}});}
 
   return (
     <div id={props.id}>
       <Swiper
-        ref={swiperRef}
         dir="RTL"
         slidesPerView={2.1}
         spaceBetween={5}
@@ -33,14 +24,14 @@ const Slider = forwardRef((props, ref) => {
         ))}
         {props.items?.length === 10 && (
           <SwiperSlide>
-            <Link className="See_More" to={`catg/${props.catgId}`}>
+            <div className="See_More" onClick={Go_To_Catg}>
               See More <span className="arrow">←</span>
-            </Link>
+            </div>
           </SwiperSlide>
         )}
       </Swiper>
     </div>
   );
-});
+};
 
 export default Slider;

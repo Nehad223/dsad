@@ -1,53 +1,53 @@
 import React, { useRef } from 'react';
 import Slider from './Slider';
-
+import { useNavigate } from 'react-router-dom';
 const Doctors_Students = (props) => {
-  // نستخدم useRef لتخزين الـ Slider ref
-  const slidersRef = useRef({});
-
-  const handleCategoryClick = (catgName) => {
-    // الوصول إلى الـ Slider عن طريق الـ Ref الخاص بالكاتيغوري
-    const slider = slidersRef.current[catgName];
-    if (slider) {
-      slider.scrollToLastSlide(); // التمرير إلى آخر شريحة
+  const navigate=useNavigate();
+  const Go_To_Catg=(Num_Item,name,description,id,doctor_student)=>{
+    if(Num_Item===10){
+    navigate(`catg/${id}/${doctor_student}`,
+      {state:{name:name,description:description}});}
     }
-  };
 
   return (
     <div className='catges'>
       {props.items.map((catg, catgId) => {
         return (
           <div key={catgId}>
-            {props.doctor_student === 1 && catg.limited_doctor_items?.length > 0 ? (
+            {props.doctor_student === "doctor" && catg.limited_doctor_items?.length > 0 ? (
               <div className='catg'>
                 <h1
                   className='catg_Name'
-                  onClick={() => handleCategoryClick(catg.name)} // الضغط على الكاتيغوري
+                  onClick={()=>{Go_To_Catg(catg.limited_doctor_items.length,catg.name,catg.description,catg.id,props.doctor_student)}}
+                 
                 >
                   {catg.name}
                 </h1>
                 <h3 className='catg_Des'>{catg.description}</h3>
                 <Slider
-                  ref={(el) => (slidersRef.current[catg.name] = el)} // حفظ الـ ref لكل كاتيغوري
                   items={catg.limited_doctor_items}
                   catgId={catg.id}
                   catgName={catg.name}
+                  doctor_student={props.doctor_student}
+                  catgDescription={catg.description}
                 />
               </div>
-            ) : props.doctor_student === 2 && catg.limited_student_items?.length > 0 ? (
+            ) : props.doctor_student === "student" && catg.limited_student_items?.length > 0 ? (
               <div className='catg'>
                 <h1
                   className='catg_Name'
-                  onClick={() => handleCategoryClick(catg.name)} // الضغط على الكاتيغوري
+                  onClick={()=>{Go_To_Catg(catg.limited_student_items.length,catg.name,catg.description,catg.id,props.doctor_student)}}
+                 
                 >
                   {catg.name}
                 </h1>
                 <h3 className='catg_Des'>{catg.description}</h3>
                 <Slider
-                  ref={(el) => (slidersRef.current[catg.name] = el)} // حفظ الـ ref لكل كاتيغوري
                   items={catg.limited_student_items}
                   catgId={catg.id}
                   catgName={catg.name}
+                  doctor_student={props.doctor_student}
+                  catgDescription={catg.description}
                 />
               </div>
             ) : null}

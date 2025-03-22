@@ -18,7 +18,7 @@ function App() {
     <CartProvider>
     <div className="App">
       <Routes>
-        <Route path='/dsad/catg/:catgId' element={<Catg/>} />
+        <Route path='/dsad/home/catg/:catgId/:doctorORstudent' element={<Catg/>} />
         <Route path='/dsad' element={<Start_Page/>} />
         <Route path='/dsad/conformation' element={<Conformation_Page/>} />
         <Route path='/dsad/home' element={<Home_Page/>} />
