@@ -73,7 +73,7 @@ const Points_Page = () => {
         {userData?.photo_url && <Profile_Img src={userData.photo_url} />}
       </div>
       <div className="in2">
-        <div className="inf_Points">
+        <div className="inf_Points mb-2">
           <h1 className="mt-5">
             {userData?.first_name} {userData?.last_name || ""}
           </h1>
