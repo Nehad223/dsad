@@ -20,10 +20,10 @@ const Profile = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (!userData?.id) return; // ✅ تأكد من وجود userData.id قبل الطلب
+      if (!userData?.id) return; 
       try {
         const response = await axios.get(
-          `https://market-cwgu.onrender.com/getpoints/${userData.id}/`
+          `https://market-cwgu.onrender.com/bot/getpoints/${userData.id}/`
         );
         setPoints(Object.values(response.data));
       } catch (error) {
@@ -32,7 +32,7 @@ const Profile = () => {
     };
 
     fetchData();
-  }, [userData]); // ✅ أضف userData كـ Dependency
+  }, [userData]);
 
   return (
     <div className="out">

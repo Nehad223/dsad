@@ -32,19 +32,18 @@ const Points_Page = () => {
 
   useEffect(() => {
     const fetchPoints = async () => {
-      if (!userData?.id) return; // ✅ تأكد من أن userData معرف قبل الطلب
+      if (!userData?.id) return; 
       try {
         const response = await axios.get(
-          `https://market-cwgu.onrender.com/getpoints/${userData.id}/`
+          `https://market-cwgu.onrender.com/bot/getpoints/${userData.id}/`
         );
         setPoints(Object.values(response.data)); 
       } catch (error) {
         console.error(error);
       }
     };
-
     fetchPoints();
-  }, [userData]); // ✅ إضافة userData كـ Dependency
+  }, [userData]);
 
   useEffect(() => {
     document.documentElement.style.setProperty("--main", "white");
