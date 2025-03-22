@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './Assests/logo.png';
+import logo from '../Assests/logo.png';
 import LazyImage from './LazyImage';
 
 const Item = (props) => {

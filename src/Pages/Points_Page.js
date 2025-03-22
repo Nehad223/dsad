@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Logo from "./Assests/logo.png";
+import Logo from "../Assests/logo.png";
 import { useNavigate } from "react-router-dom";
-import Dashboard from "./Dashboard";
-import { useCart } from "./CartContext";
-import Packeges from "./Packeges";
+import Dashboard from "../components/Dashboard";
+import { useCart } from "../context/CartContext";
+import Packeges from "../components/Packeges";
+import Points_Number from "../components/Points_Number";
 import axios from "axios";
+import Logo_Img from "../components/Logo_Img";
+import Profile_Img from "../components/Profile_Img";
 const Points_Page = () => {
   const [dataPoints, setDataPoints] = useState([]);
   useEffect(() => {
@@ -47,20 +50,10 @@ const Points_Page = () => {
   return (
     <div className="out">
     <div className="in1_Profile">
-      <img
-        src={Logo}
-        width="91px"
-        height="41px"
-        className="Logo_in1_Profile"
-      />
-      {userData.photo_url && (
-        <img
-          src={userData.photo_url}
-          width="103px"
-          height="103px"
-          className="Profile_Photo"
-        />
-      )}
+    <Logo_Img class={"Logo_in1_Profile"} />
+    {userData.photo_url && (
+          <Profile_Img src={userData.photo_ur} />
+        )}
     </div>
       <div className="in2">
         <div className="inf_Points">
@@ -68,10 +61,7 @@ const Points_Page = () => {
             {userData.first_name} {userData.last_name ? userData.last_name : ""}
           </h1>
           <p>{userData.id} (ID Num)</p>
-          <button className="points_btn mb-5">
-            <button className="num_points">400</button>
-            <button className="name_points">عدد النقاط</button>
-          </button>
+          <Points_Number/>
         </div>
         <Packeges items={dataPoints} currency="points" />
       </div>

@@ -2,14 +2,13 @@ import React, { useEffect, useState,lazy } from "react";
 import { Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./All.css";
-
-import Logo from "./Assests/logo.png";
+import "../style/All.css";
+import Logo from "../Assests/logo.png";
 import { useLocation } from "react-router-dom";
-const Dashboard = lazy(() => import("./Dashboard"));
-const Nav = lazy(() => import("./Nav"));
-const Packeges = lazy(() => import("./Packeges"));
-const Doctors_Students = lazy(() => import("./Doctors"));
+const Dashboard = lazy(() => import("../components/Dashboard"));
+const Nav = lazy(() => import("../components/Nav"));
+const Packeges = lazy(() => import("../components/Packeges"));
+const Doctors_Students = lazy(() => import("../components/Doctors"));
 const Home_Page = () => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);

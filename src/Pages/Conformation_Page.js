@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./All.css";
+import "../style/All.css";
 import { useNavigate} from "react-router-dom";
-import { useCart } from "./CartContext";
+import { useCart } from "../context/CartContext";
 
 const Conformation_Page = () => {
   const navigate = useNavigate();

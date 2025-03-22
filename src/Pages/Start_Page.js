@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import logo from "./Assests/logo.png";
-import "./All.css";
-import axios from "axios";
+import logo from "../Assests/logo.png";
+import "../style/All.css";
 import { useNavigate } from "react-router-dom";
 
 const Start_Page = () => {

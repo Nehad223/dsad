@@ -1,7 +1,4 @@
 import React from "react";
-import logo from "./Assests/logo.png";
-import LazyImage from "./LazyImage";
-
 const Item_Package = (props) => {
   return (
     <div className="Item_Package">

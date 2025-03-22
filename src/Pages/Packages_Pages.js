@@ -1,9 +1,8 @@
 import React from 'react';
-import Logo from "./Assests/logo.png";
+import Logo from "../Assests/logo.png";
 import { Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import Dashboard from "./Dashboard";
-
+import Dashboard from "../components/Dashboard";
 
 
 const Packages_Pages = () => {

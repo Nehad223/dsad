@@ -293,7 +293,7 @@
   position: absolute;
   z-index: 90 !important;
   margin-top: -20px;
-  margin-right: 16px;
+  margin-right: 18px;
   width:80px ;
   height: 15px;
   border: solid 1px var(--second);
@@ -413,7 +413,7 @@ span{
 
 } 
 .points_btn{
-  cursor: none;
+  cursor:none;
   width:195px;
   height: 30px;
   background-color: transparent;
@@ -429,7 +429,6 @@ span{
 
 }
 .name_points{
-  cursor: none;
   font-family: "Almarai", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -445,7 +444,6 @@ span{
   border-bottom-left-radius:30px;
 }
 .num_points{
-  cursor: none;
   font-family: "Almarai", sans-serif;
   font-weight: 700;
   font-style: normal;
