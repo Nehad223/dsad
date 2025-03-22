@@ -1,15 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "./Assests/logo.png";
 import { useNavigate } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import { useCart } from "./CartContext";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+
 const Profile = () => {
   const { userData } = useCart();
+  const [points,setPoints]=useState(null);
   const navigate = useNavigate();
   const goToPointsPage = () => {
     navigate('/dsad/points');
   };
+  {/*
+  useEffect(()=>{
+    const getPoints=async ()=>{
+      try {
+        const response = await axios.post(`https://market-cwgu.onrender.com/getpoints/${userData.id}/`);
+        console.log(response.data);
+        setPoints(response.data)
+  
+       
+      } catch (error) {
+        console.log(error)
+      }
+
+    }
+    getPoints();
+  },[])
+  */}
   return (
     <div className="out">
       <div className="in1_Profile">

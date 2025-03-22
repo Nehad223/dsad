@@ -1,80 +1,50 @@
-import React, { useEffect, useState } from "react";
-import Logo from "./Assests/logo.png";
-import { useNavigate } from "react-router-dom";
-import Dashboard from "./Dashboard";
-import { useCart } from "./CartContext";
-import Packeges from "./Packeges";
-import axios from "axios";
-const  Test = () => {
-  const [dataPoints, setDataPoints] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://market-cwgu.onrender.com/getpointitems/"
-        );
-        console.log("Fetched data:", response.data);
-        setDataPoints(Object.values(response.data)); 
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+import React, { useRef } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css'; // تأكد من أنك قمت بإضافة هذه السطر لاستيراد ستايلات الـ Swiper
 
-    fetchData();
-  }, []);
-  useEffect(() => {
-    document.documentElement.style.setProperty("--main", "white");
-  }, []);
-  const { userData } = useCart();
-  const navigate = useNavigate();
-  useEffect(() => {
-    const handleBackButton = () => {
-      navigate(-1); 
-    };
+const Test = () => {
+  const swiperRef = useRef(null); // إنشاء Ref للـ Swiper
 
-    if (window.Telegram && window.Telegram.WebApp) {
-      window.Telegram.WebApp.expand();
-      window.Telegram.WebApp.BackButton.show(); 
-      window.Telegram.WebApp.BackButton.onClick(handleBackButton); 
+  const items = [
+    { name: 'Item 1', price: 100 },
+    { name: 'Item 2', price: 200 },
+    { name: 'Item 3', price: 300 },
+    { name: 'Item 4', price: 400 },
+    { name: 'Item 5', price: 500 },
+    { name: 'Item 6', price: 600 },
+    { name: 'Item 7', price: 700 },
+    { name: 'Item 8', price: 800 },
+    { name: 'Item 9', price: 900 },
+    { name: 'Item 10', price: 1000 },
+  ];
 
-      return () => {
-        window.Telegram.WebApp.BackButton.hide();
-        window.Telegram.WebApp.BackButton.offClick(handleBackButton);
-      };
+  const handleCategoryClick = () => {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slideTo(swiperRef.current.swiper.slides.length - 1);
     }
-  }, [navigate]);
+  };
 
   return (
-    <div className="out">
-      <div className="in1_Profile">
-        <img
-          src={Logo}
-          width="91px"
-          height="41px"
-          className="Logo_in1_Profile"
-        />
-          <img
-          src={Logo}
-          width="103px"
-          height="103px"
-          className="Profile_Photo"
-        />
-       
-      </div>
-      <div className="in2">
-        <div className="inf_Points">
-          <h1 className="mt-5">
-            Nehad Shretah
-          </h1>
-          <p>31421 (ID Num)</p>
-          <button className="points_btn mb-5">
-            <button className="num_points">400</button>
-            <button className="name_points">عدد النقاط</button>
-          </button>
-        </div>
-        <Packeges items={dataPoints} currency="points" />
-      </div>
-      <Dashboard />
+    <div>
+      <h1 onClick={handleCategoryClick} style={{ cursor: 'pointer', color: 'blue' }}>
+        Click to go to the last item
+      </h1>
+
+      <Swiper
+        ref={swiperRef} // ربط الـ Ref بالـ Swiper
+        dir='RTL'
+        slidesPerView={2.1}
+        spaceBetween={5}
+      >
+        {items.map((item, index) => (
+          <SwiperSlide key={index}>
+            <div style={{ padding: '10px', border: '1px solid #ddd' }}>
+              <h3>{item.name}</h3>
+              <p>{item.price} SP</p>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 };
