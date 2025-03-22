@@ -433,7 +433,7 @@ span{
   font-weight: 700;
   font-style: normal;
   padding-left: 20px;
-  padding-top: 5px;
+  padding-top: 5px !important;
   font-size: 12px;
   left: 75px;
   position: absolute;
@@ -445,6 +445,7 @@ span{
   border-bottom-left-radius:30px;
 }
 .num_points{
+  padding-top: 3px;
   font-family: "Almarai", sans-serif;
   font-weight: 700;
   font-style: normal;

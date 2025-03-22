@@ -3,7 +3,7 @@ import Points_Number from '../components/Points_Number'
 
 const Test = () => {
   return (
-    <div>
+    <div style={{backgroundColor:"white",}}>
       <Points_Number points={1000} />
     </div>
   )
