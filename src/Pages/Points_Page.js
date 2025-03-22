@@ -80,7 +80,8 @@ const Points_Page = () => {
           <p>{userData?.id} (ID Num)</p>
           {points !== undefined && <Points_Number points={points} />}
         </div>
-        <Packeges items={dataPoints} currency="points" />
+       
+        {points !== undefined &&  <Packeges items={dataPoints} currency="points" />}
       </div>
       <Dashboard />
     </div>
