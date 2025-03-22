@@ -5,6 +5,7 @@ import axios from "axios";
 import "../style/All.css";
 import Logo from "../Assests/logo.png";
 import { useLocation } from "react-router-dom";
+import Logo_Img from "../components/Logo_Img";
 const Dashboard = lazy(() => import("../components/Dashboard"));
 const Nav = lazy(() => import("../components/Nav"));
 const Packeges = lazy(() => import("../components/Packeges"));
@@ -83,7 +84,8 @@ const Home_Page = () => {
   return (
     <div className="out">
       <div className="in1">
-        <img src={Logo} width="92px" height="41px" className="Logo_in1" />
+        <Logo_Img class="Logo_in1" />
+        
       </div>
 
       <div className="Search_Box" onClick={handleSearch}>
