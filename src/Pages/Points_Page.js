@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import Dashboard from "../components/Dashboard";
 import Packeges from "../components/Packeges";
@@ -7,13 +6,14 @@ import Points_Number from "../components/Points_Number";
 import axios from "axios";
 import Logo_Img from "../components/Logo_Img";
 import Profile_Img from "../components/Profile_Img";
+import TelegramBackButton from "../components/Tele_Back_Btn";
 
 const Points_Page = () => {
   const [dataPoints, setDataPoints] = useState([]);
   const [points, setPoints] = useState();
   const { userData } = useCart();
-  const navigate = useNavigate();
 
+  TelegramBackButton();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -49,22 +49,7 @@ const Points_Page = () => {
     document.documentElement.style.setProperty("--main", "white");
   }, []);
 
-  useEffect(() => {
-    const handleBackButton = () => {
-      navigate(-1); 
-    };
-
-    if (window.Telegram && window.Telegram.WebApp) {
-      window.Telegram.WebApp.expand();
-      window.Telegram.WebApp.BackButton.show(); 
-      window.Telegram.WebApp.BackButton.onClick(handleBackButton); 
-
-      return () => {
-        window.Telegram.WebApp.BackButton.hide();
-        window.Telegram.WebApp.BackButton.offClick(handleBackButton);
-      };
-    }
-  }, [navigate]);
+ 
 
   return (
     <div className="out">
@@ -78,7 +63,7 @@ const Points_Page = () => {
             {userData?.first_name} {userData?.last_name || ""}
           </h1>
           <p>{userData?.id} (ID Num)</p>
-          {points !== undefined && <Points_Number points={points} />}
+          {points !== undefined && <Points_Number points={points} title="عدد النقاط" />}
         </div>
        
         {points !== undefined &&  <Packeges items={dataPoints} currency="points" />}

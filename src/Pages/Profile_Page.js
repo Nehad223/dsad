@@ -45,9 +45,9 @@ const Profile = () => {
           {userData?.first_name} {userData?.last_name || ""}
         </h1>
         <p>{userData?.id} (ID Num)</p>
-        {points !== null && <Points_Number points={points} />}
+        {points !== null && <div> <Points_Number points={points} title="عدد النقاط" />
         <Profile_Btns title="تبديل النقاط" action={goToPointsPage} />
-        <Profile_Btns title="سجل المشتريات" action={goToPointsPage} />
+        <Profile_Btns title="سجل المشتريات" action={goToPointsPage} /></div>}
       </div>
       <Dashboard />
     </div>

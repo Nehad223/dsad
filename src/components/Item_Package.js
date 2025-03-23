@@ -1,8 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 const Item_Package = (props) => {
-
+const navigate=useNavigate();
+const Go_To_Item=()=>{
+  navigate(`buy/${props.currency}`,
+    {state:{points:props.items.points,name:props.items.name,photo:props.items.photo,price:props.items.price}})
+}
   return (
-    <div className="Item_Package">
+    <div className="Item_Package" onClick={Go_To_Item}>
       <img
         src={`https://res.cloudinary.com/dgocqho3b/${props.items.photo}`}
         className="Item_Image"

@@ -5,8 +5,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-export default () => {
+function SliderImg  (){
   return (
+    <div className='Slider_Img'>
     <Swiper
       modules={[Pagination]}
       spaceBetween={50}
@@ -15,10 +16,11 @@ export default () => {
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}
     >
-      <SwiperSlide><img src={logo} width="100%" height="100px" /></SwiperSlide>
-      <SwiperSlide><img src={mobile} width="100%" height="100px" /></SwiperSlide>
-      <SwiperSlide><img src={logo} width="100%" height="100px" /></SwiperSlide>
-      <SwiperSlide><img src={mobile} width="100%" height="100px" /></SwiperSlide>
-    </Swiper>
+      <SwiperSlide><img src={logo} width="100%" className='imgs' /></SwiperSlide>
+      <SwiperSlide><img src={mobile} width="100%" className='imgs' /></SwiperSlide>
+      <SwiperSlide><img src={logo} width="100%" className='imgs'/></SwiperSlide>
+      <SwiperSlide><img src={mobile} width="100%" className='imgs'/></SwiperSlide>
+    </Swiper></div>
   );
 };
+export default SliderImg;

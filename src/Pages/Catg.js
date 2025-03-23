@@ -7,8 +7,10 @@ import Packeges from '../components/Packeges';
 import '../style/All.css';
 import Dashboard from '../components/Dashboard';
 import { useLocation } from 'react-router-dom';
+import TelegramBackButton from '../components/Tele_Back_Btn';
 
 const Catg = () => {
+
     const location = useLocation();
     const name = location.state?.name || "";
     const description = location.state?.description || "";
@@ -16,6 +18,7 @@ const Catg = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [data, setData] = useState([]); 
+    TelegramBackButton();
     useEffect(() => {
         document.documentElement.style.setProperty("--main", "white");
       }, []);
@@ -38,6 +41,7 @@ const Catg = () => {
                 setIsLoading(false);
             });
     }, [params.catgId, params.doctorORstudent]);
+    
 
     return (
         <div className="out">

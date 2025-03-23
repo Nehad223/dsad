@@ -5,7 +5,7 @@ const Points_Number = (props) => {
     <div>
         <button className='points_btn'>
             <div className="num_points">{props.points}</div>
-            <div className="name_points">عدد النقاط</div>
+            <div className="name_points">{props.title} </div>
         </button>
       
     </div>
