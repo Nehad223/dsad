@@ -579,6 +579,37 @@ div:empty {
   border: solid 1px #1C458D;
   border-radius: 20px;
   margin-right: 20px;
+  margin-bottom: 20px;
+ }
+ .qq{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 81px;
+  height: 22px;
+ }
+ .ff{
+  width: 100%;
   margin-top: 20px;
   margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 15px;
+  margin-top: 25px;
  }
+ .qq span{
+  font-size: 16px;
+  color:#686363;
+ }
+ .add,.sub{
+  width: 22px;
+  height: 22px;
+  border: solid 1px #6C6C6C;
+  border-radius: 20px;
+  color: #6C6C6C;
+  background-color: white;
+  padding-bottom: 15px;
+  font-size: 13px;
+
+ }
+

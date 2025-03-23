@@ -1,22 +1,26 @@
 import React, { useState } from "react";
-
+import Test from "../Pages/Test";
 const Form = () => {
-  // تخزين بيانات الفورم
+
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
     address: "",
+    quantity: 1, 
   });
 
-  // تحديث القيم عند الكتابة
+
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  // عرض البيانات عند الضغط على "شراء"
+  
   const handleSubmit = (event) => {
-    event.preventDefault(); // منع إعادة تحميل الصفحة
+    event.preventDefault(); 
     console.log("🚀 البيانات المدخلة:", formData);
+  };
+  const handleQuantityChange = (newQuantity) => {
+    setFormData({ ...formData, quantity: newQuantity });
   };
 
   return (
@@ -49,7 +53,8 @@ const Form = () => {
           onChange={handleChange}
           required
         />
-        <div>
+        <div className="ff">
+        <Test quantity={formData.quantity} setQuantity={handleQuantityChange} />
           <button className="submit" type="submit">شراء</button>
         </div>
       </form>

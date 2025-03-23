@@ -4,6 +4,7 @@ import Points_Number from "../components/Points_Number";
 import { useEffect } from 'react';
 import Form from '../components/Form';
 import { useLocation } from 'react-router-dom';
+import Test from './Test';
 import TelegramBackButton from '../components/Tele_Back_Btn';
 const Buy_Points = () => {
   const location = useLocation();

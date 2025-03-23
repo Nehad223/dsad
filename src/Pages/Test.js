@@ -1,24 +1,17 @@
-import { Pagination } from 'swiper/modules';
-import logo from '../Assests/item.png';
-import mobile from '../Assests/mobile.png';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
+import React, { useEffect } from 'react';
 
-export default () => {
+const Test = ({ quantity, setQuantity }) => {
+  useEffect(() => {
+    document.documentElement.style.setProperty("--main", "white");
+  }, []);
+
   return (
-    <Swiper
-      modules={[Pagination]}
-      spaceBetween={50}
-      slidesPerView={1}
-      pagination={{ clickable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
-    >
-      <SwiperSlide><img src={logo} width="100%" height="100px" /></SwiperSlide>
-      <SwiperSlide><img src={mobile} width="100%" height="100px" /></SwiperSlide>
-      <SwiperSlide><img src={logo} width="100%" height="100px" /></SwiperSlide>
-      <SwiperSlide><img src={mobile} width="100%" height="100px" /></SwiperSlide>
-    </Swiper>
+    <div className='qq'>
+      <button type="button" className='add' onClick={() => setQuantity(quantity + 1)}>+</button>
+      <span>{quantity!=null? quantity:1}</span>
+      <button type="button" className='sub' onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}>-</button>
+    </div>
   );
-};
+}
+
+export default Test;
