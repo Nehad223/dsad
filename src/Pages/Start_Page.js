@@ -8,7 +8,10 @@ const Start_Page = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setTimeout(()=>{navigate("/dsad/conformation");},2000)
+    const isFirstTime = localStorage.getItem("first_time") === null;
+    if(isFirstTime){setTimeout(()=>{navigate("/dsad/conformation");},2000)}
+    else{setTimeout(()=>{navigate("/dsad/home");},2000)}
+    
 
         
   }, []);

@@ -76,7 +76,8 @@ const Home_Page = () => {
   return (
     <div className="out">
       <div className="in1">
-        <Logo_Img class="Logo_in1" />     
+        <Logo_Img class="Logo_in1" />
+        
       </div>
       <Search_Box />
       <div className="in2">

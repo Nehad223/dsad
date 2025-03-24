@@ -17,7 +17,7 @@ const Form = () => {
   
   const handleSubmit = (event) => {
     event.preventDefault(); 
-    console.log("🚀 البيانات المدخلة:", formData);
+    console.log(formData);
   };
   const handleQuantityChange = (newQuantity) => {
     setFormData({ ...formData, quantity: newQuantity });
