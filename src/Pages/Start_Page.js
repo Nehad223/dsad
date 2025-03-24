@@ -9,13 +9,17 @@ const Start_Page = () => {
 
   useEffect(() => {
     const isFirstTime = localStorage.getItem("first_time") === null;
-    if(isFirstTime){setTimeout(()=>{navigate("/dsad/conformation");},2000)
-      localStorage.setItem("first_time", "false");}
-    else{setTimeout(()=>{navigate("/dsad/home");},2000)}
-    
+    const timeout = setTimeout(() => {
+      if (isFirstTime) {
+        localStorage.setItem("first_time", "false"); 
+        navigate("/dsad/conformation");
+      } else {
+        navigate("/dsad/home");
+      }
+    }, 2000);
 
-        
-  }, []);
+    return () => clearTimeout(timeout); 
+  }, [navigate]);
 
   return (
     <div className="Start_Page">
