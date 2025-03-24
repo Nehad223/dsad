@@ -170,13 +170,13 @@
 
 }
 .in1{
-  height: 67px !important;
+  height: 87px !important;
 }
 
 .Logo_in1 {
   position: absolute;
   left: calc(50% - 150px); /* 150px هو نصف عرض البوكس */
-  top: 17px;
+  top: 25px;
 }
 
 .in2,.in2_Profile {
