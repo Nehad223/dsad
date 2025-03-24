@@ -1,24 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import logo from "../Assests/logo.png";
 import "../style/All.css";
 import { useNavigate } from "react-router-dom";
 
 const Start_Page = () => {
-
   const navigate = useNavigate();
 
   useEffect(() => {
     const isFirstTime = localStorage.getItem("first_time") === null;
-    const timeout = setTimeout(() => {
-      if (isFirstTime) {
-        localStorage.setItem("first_time", "false"); 
-        navigate("/dsad/conformation");
-      } else {
-        navigate("/dsad/home");
-      }
-    }, 2000);
 
-    return () => clearTimeout(timeout); 
+    if (isFirstTime) {
+     
+      localStorage.setItem("first_time", "false");
+      setTimeout(() => {
+        navigate("/dsad/conformation");
+      }, 2000);
+    } else {
+      setTimeout(() => {
+        navigate("/dsad/home");
+      }, 2000);
+    }
   }, [navigate]);
 
   return (
@@ -29,4 +30,3 @@ const Start_Page = () => {
 };
 
 export default Start_Page;
-
