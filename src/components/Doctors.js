@@ -4,9 +4,8 @@ import { useNavigate } from 'react-router-dom';
 const Doctors_Students = (props) => {
   const navigate=useNavigate();
   const Go_To_Catg=(Num_Item,name,description,id,doctor_student)=>{
-    if(Num_Item===10){
     navigate(`catg/${id}/${doctor_student}`,
-      {state:{name:name,description:description}});}
+      {state:{name:name,description:description}});
     }
 
   return (

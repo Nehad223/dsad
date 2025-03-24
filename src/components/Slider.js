@@ -22,13 +22,13 @@ const Slider = (props) => {
             <Item item={item} />
           </SwiperSlide>
         ))}
-        {props.items?.length === 10 && (
+        (
           <SwiperSlide>
             <div className="See_More" onClick={Go_To_Catg}>
               See More <span className="arrow">←</span>
             </div>
           </SwiperSlide>
-        )}
+        )
       </Swiper>
     </div>
   );

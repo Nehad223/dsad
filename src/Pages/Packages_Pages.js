@@ -25,7 +25,7 @@ const Packages_Pages = () => {
         <input
           type="button"
           value="Search"
-          className="Search_Input focus:outline-none focus:ring-0"
+          className=" focus:outline-none focus:ring-0"
           onClick={handleSearch}
         />
       </div>

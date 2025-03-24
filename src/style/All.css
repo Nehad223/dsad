@@ -111,32 +111,50 @@
   left: 20px !important;
 }  
 }
-
-.Search_Input,.Search_Input:focus{
-  outline: none;
+.Search_Box {
+  width: 100%;
+  background: linear-gradient(to bottom, #1C458D 50%, #fff 50%);
   border: none;
-  background-color: white;
-  padding: 5px !important;
-  height: 30px !important;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
 }
-.Search_Logo{
-  color: grey;
-  padding-left: 5px !important;
-  margin-bottom: 5px;
-}
-.Search_Box{ 
-  height: 35px;
-  position: absolute;
-  top: 92px !important;
-  border: solid 1px grey;
-  border-radius: 15px !important;
-  width: 90% !important;
-  max-width: 300px !important;
-  background-color: white;
-  left: 50%; 
-  transform: translateX(-50%); 
+
+.Search_Box div {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  max-width: 347px;
+  background: white;
+  border-radius: 25px;
+  padding: 5px;
+  height: 40px !important;
+  position: relative;
+  border: solid 1px #77838F;
   
 }
+
+.Search_Logo {
+  position: absolute;
+  left: 10px;
+  font-size: small;
+  color: #77838F;
+}
+
+.Search_Box input {
+  flex: 1;
+  outline: none;
+  border: none;
+  width: 100%;
+  padding-left: 35px;
+  font-size: 16px;
+  background: transparent;
+}
+
+
+
 
 .out {
   width: 100%;
@@ -322,7 +340,7 @@
   justify-content: center;
   gap: 8px;
 }
-.Search_Input{color: grey;}
+._Input{color: grey;}
 .arrow {
   font-size: 22px;
   font-weight: bold;
@@ -527,6 +545,7 @@ div:empty {
  .Buy_Points{
   border: none;
   position: relative;
+ 
  }
  .Buy_Points Img{
   padding:5px ;
@@ -535,20 +554,23 @@ div:empty {
   height: 50%;
   max-height: 400px !important;
  }
+ .in_Buy_Points{
+  padding: 20px !important;
+  padding-top: 0px !important;
+ }
  .in_Buy_Points h1{
   margin-top: 10px;
   font-family: "Almarai", sans-serif;
   font-weight: 400;
   font-style: normal;
   text-align: right;
-  margin-right: 20px;
+
   font-size: 14px;
   color: #282A37;
  }
  .in_Buy_Points input{
   font-size: 14px;
   width: 90%;
-  margin-right: 20px;
   font-family: "Almarai", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -558,6 +580,7 @@ div:empty {
   border-radius: 12px;
   padding-right: 10px;
   color: #282A37;
+  outline: none;
 
  }
  .ss{
@@ -613,3 +636,39 @@ div:empty {
 
  }
 
+
+
+ .phone_Num{
+  transform: translateX(11%);
+  display: flex;
+  background-color: #fff;
+  position: relative;
+  width: 90%;
+  margin-right: 20px;
+  font-family: "Almarai", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  height: 52px;
+  border: solid 1px #ECEDF2;
+  border-radius: 12px;
+  padding-right: 10px;
+  color: #282A37;
+  
+ }
+.phone_Num input{
+  flex: 1;
+  text-align: left;
+  padding-left: 50px;
+  font-size: 14px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.phone_Num span{
+  position: absolute;
+  left: 10px;
+  font-size: 14px;
+  font-size: small;
+  margin-top: 17px;
+  color:grey;
+}

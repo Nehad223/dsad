@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Test from "../Pages/Test";
+import Cart_point from './Cart_Point';
 const Form = () => {
 
   const [formData, setFormData] = useState({
@@ -35,7 +35,10 @@ const Form = () => {
           onChange={handleChange}
           required
         />
+       
         <h1>رقم الموبايل</h1>
+         <div className="phone_Num">
+          <span>+963</span>
         <input
           type="text"
           name="phone"
@@ -43,7 +46,7 @@ const Form = () => {
           value={formData.phone}
           onChange={handleChange}
           required
-        />
+        /></div>
         <h1>العنوان</h1>
         <input
           type="text"
@@ -54,7 +57,7 @@ const Form = () => {
           required
         />
         <div className="ff">
-        <Test quantity={formData.quantity} setQuantity={handleQuantityChange} />
+        <Cart_point quantity={formData.quantity} setQuantity={handleQuantityChange} />
           <button className="submit" type="submit">شراء</button>
         </div>
       </form>
