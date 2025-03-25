@@ -39,7 +39,7 @@ const Start_Page = () => {
         }
       }, 2000);
     }
-  }, [navigate]);
+  }, [navigate,userData]);
 
   return (
     <div className="Start_Page">
