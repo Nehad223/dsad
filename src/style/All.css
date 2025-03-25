@@ -676,3 +676,11 @@ div:empty {
   margin-top: 17px;
   color:grey;
 }
+form p{
+  color: red;
+  font-size: 12px;
+  margin-top: 3px;
+  font-family: "Almarai", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
