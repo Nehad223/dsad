@@ -29,9 +29,12 @@ const Profile = () => {
           `https://market-cwgu.onrender.com/bot/getpoints/${userData.id}/`
         );
         setPoints(Object.values(response.data));
+        console.log(userData);
       } catch (error) {
         console.error(error);
       }
+      
+
     };
 
     fetchData();
