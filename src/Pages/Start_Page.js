@@ -8,37 +8,50 @@ const Start_Page = () => {
   const navigate = useNavigate();
   const { setUserData, userData } = useCart();
   const [isAuthChecked, setIsAuthChecked] = useState(false);
+  const [isFirstTime, setIsFirstTime] = useState(false);
 
-  const handleTelegramAuth = () => {
-    if (window.Telegram?.WebApp) {
-      const tg = window.Telegram.WebApp;
-
-      if (tg.initDataUnsafe?.user) {
-        const { id, first_name, last_name, photo_url } = tg.initDataUnsafe.user;
-        const newUser = { id, first_name, last_name, photo_url };
-        setUserData(newUser);
-      }
-    }
-    setIsAuthChecked(true); // تم التحقق من المصادقة
-  };
 
   useEffect(() => {
-    const isFirstTime = localStorage.getItem("first_time") === null;
-    handleTelegramAuth();
+    const firstTime = localStorage.getItem("first_time") === null;
+    setIsFirstTime(firstTime);
 
-    if (isFirstTime) {
+    if (firstTime) {
       localStorage.setItem("first_time", "false");
-      setTimeout(() => {
+    }
+  }, []);
+
+
+  useEffect(() => {
+    const handleTelegramAuth = async () => {
+      if (window.Telegram?.WebApp) {
+        const tg = window.Telegram.WebApp;
+
+        if (tg.initDataUnsafe?.user) {
+          const { id, first_name, last_name, photo_url } = tg.initDataUnsafe.user;
+          const newUser = { id, first_name, last_name, photo_url };
+          setUserData(newUser);
+        }
+      }
+      setIsAuthChecked(true);
+    };
+
+    handleTelegramAuth();
+  }, [setUserData]);
+
+
+  useEffect(() => {
+    if (!isAuthChecked) return;
+
+    setTimeout(() => {
+      if (isFirstTime) {
         navigate("/dsad/conformation");
-      }, 2000);
-    } else {
-      setTimeout(() => {
-        if (isAuthChecked && userData) {
+      } else {
+        if (userData) {
           navigate("/dsad/home");
         }
-      }, 2000);
-    }
-  }, [navigate, isAuthChecked, userData]); // 🔹 أضفنا `isAuthChecked` لضمان التحقق قبل التوجيه
+      }
+    }, 2000);
+  }, [navigate, isFirstTime, userData, isAuthChecked]);
 
   return (
     <div className="Start_Page">
