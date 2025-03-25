@@ -5,23 +5,12 @@ import { useCart } from "../context/CartContext";
 
 const Conformation_Page = () => {
   const navigate = useNavigate();
-  const { setUserData } = useCart();
-  const [user, setUser] = useState(null);
+  const { userData } = useCart();
   const handleTelegramAuth = () => {
-    if (window.Telegram?.WebApp) {
-      const tg = window.Telegram.WebApp;
-
-      if (tg.initDataUnsafe?.user) {
-        const { id, first_name, last_name, photo_url } = tg.initDataUnsafe.user;
-        const newUser = { id, first_name, last_name, photo_url };
-
-        setUser(newUser);
-        setUserData(newUser);
-
+        if(userData){
         navigate("/dsad/home"); 
       }
-    } 
-  };
+  }
 
   return (
     <div className="container Conformation_Page">
