@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 const Nav = ({ onSelect }) => {
   const [activeButton, setActiveButton] = useState(0);
   const buttons = ['أطباء','طلاب', 'بكجات'];
-  const values = [0, 1, 2]; // القيم المتوافقة مع الأزرار
+  const values = [0, 1, 2];
 
   const handleClick = (index) => {
     setActiveButton(index);
-    onSelect(values[index]); // إرسال القيمة المتوافقة مع الزر للأب
+    onSelect(values[index]); 
   };
 
   return (

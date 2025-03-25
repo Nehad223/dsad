@@ -17,6 +17,9 @@ const Profile = () => {
   const goToPointsPage = () => {
     navigate('/dsad/points');
   };
+  useEffect(() => {
+    document.documentElement.style.setProperty("--main", "white");
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {

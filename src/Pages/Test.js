@@ -9,11 +9,15 @@ const Test = () => {
   document.documentElement.style.setProperty("--main", "white");
 }, []);
   return (
-    <div className='ww'> 
-      <span>+963</span>
-      <input />
-   
-  </div>
+<div className="out">
+      <div className="in1">
+        <Logo_Img class="Logo_in1" />
+      </div>
+      <Search_Box />
+      <div className="in2">
+      </div>
+      <Dashboard />
+    </div>
   )
 }
 
