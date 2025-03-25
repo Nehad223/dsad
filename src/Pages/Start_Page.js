@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../Assests/logo.png";
 import "../style/All.css";
 import { useNavigate } from "react-router-dom";
@@ -6,8 +6,8 @@ import { useCart } from "../context/CartContext";
 
 const Start_Page = () => {
   const navigate = useNavigate();
-  const { setUserData,userData } = useCart();
-  const [user,setUser]=useState({});
+  const { setUserData, userData } = useCart();
+  const [isAuthChecked, setIsAuthChecked] = useState(false);
 
   const handleTelegramAuth = () => {
     if (window.Telegram?.WebApp) {
@@ -16,10 +16,10 @@ const Start_Page = () => {
       if (tg.initDataUnsafe?.user) {
         const { id, first_name, last_name, photo_url } = tg.initDataUnsafe.user;
         const newUser = { id, first_name, last_name, photo_url };
-        setUser(newUser);
         setUserData(newUser);
       }
-    } 
+    }
+    setIsAuthChecked(true); // تم التحقق من المصادقة
   };
 
   useEffect(() => {
@@ -27,19 +27,18 @@ const Start_Page = () => {
     handleTelegramAuth();
 
     if (isFirstTime) {
-     
       localStorage.setItem("first_time", "false");
       setTimeout(() => {
         navigate("/dsad/conformation");
       }, 2000);
     } else {
       setTimeout(() => {
-        if(userData){
-          navigate("/dsad/home"); 
+        if (isAuthChecked && userData) {
+          navigate("/dsad/home");
         }
       }, 2000);
     }
-  }, [navigate,userData]);
+  }, [navigate, isAuthChecked, userData]); // 🔹 أضفنا `isAuthChecked` لضمان التحقق قبل التوجيه
 
   return (
     <div className="Start_Page">
@@ -49,4 +48,3 @@ const Start_Page = () => {
 };
 
 export default Start_Page;
-
