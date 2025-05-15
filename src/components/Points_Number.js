@@ -12,4 +12,4 @@ const Points_Number = (props) => {
   )
 }
 
-export default Points_Number
+export default Points_Number;

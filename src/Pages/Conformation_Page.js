@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../style/All.css";
 import { useNavigate} from "react-router-dom";
 import { useCart } from "../context/CartContext";
-
+import mobile from '../Assests/mobile.png'
 const Conformation_Page = () => {
   const navigate = useNavigate();
   const { userData } = useCart();
@@ -16,11 +16,9 @@ const Conformation_Page = () => {
     <div className="container Conformation_Page">
       <div className="row justify-content-center">
         <div className="col-12 d-flex justify-content-center">
-          <div className="card">
-            <div className="cutout"></div>
-          </div>
+          <img src={mobile} className="Mobile_Img " />
         </div>
-        <div className="col-12 text-center Card_Tag">
+        <div className="col-12  text-center Card_Tag">
           <h1 className="Card_Title">Dental.kit أهلا بك في</h1>
           <p className="Card_Par">
             Lorem ipsum is simply dummy text of the printing <br />
