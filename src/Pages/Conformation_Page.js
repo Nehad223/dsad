@@ -16,9 +16,9 @@ const Conformation_Page = () => {
     <div className="container Conformation_Page">
       <div className="row justify-content-center">
         <div className="col-12 d-flex justify-content-center">
-          <img src={mobile} className="Mobile_Img " />
+          <img src={mobile} className="Mobile_Img" />
         </div>
-        <div className="col-12  text-center Card_Tag">
+        <div className="col-12 text-center Card_Tag">
           <h1 className="Card_Title">Dental.kit أهلا بك في</h1>
           <p className="Card_Par">
             Lorem ipsum is simply dummy text of the printing <br />
