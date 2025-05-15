@@ -1,5 +1,7 @@
 
 import mobile from '../Assests/mobile.png';
+import "../style/All.css";
+
 const Test = () => {
   return (
          <div className="container Conformation_Page">
