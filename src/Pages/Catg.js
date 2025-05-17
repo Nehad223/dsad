@@ -48,14 +48,13 @@ const Catg = () => {
       <div className="in1">
         <Logo_Img class="Logo_in1"/>   
       </div>
-      <Search_Box />
       <div className="in2">
         <div className='title_Catg mt-5'>
             <h1>{name}</h1>
             <p>{description}</p>
 
         </div>
-      <Packeges items={data} currency="sp" />
+      <Packeges items={data} type="items" currency="sp" />
       </div>
       <Dashboard />
     </div>
