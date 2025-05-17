@@ -21,11 +21,19 @@ const Home_Page = () => {
 
   const Send_Search = async (type) => {
     try {
+      if(type!="packages"){
       const res = await axios.get(
         `https://market-cwgu.onrender.com/search/${type}/${searchQuery}/`
+    
       );
-      setDataSearch(res.data);
-    } catch (error) {
+     setDataSearch(res.data);}
+       else{
+        const res=await axios.get(`https://market-cwgu.onrender.com/searchpackage/${searchQuery}/`)
+       setDataSearch(res.data);
+      }
+     }
+
+     catch (error) {
       console.log(error);
     }
   };
@@ -80,7 +88,6 @@ const Home_Page = () => {
     setSearchQuery("");
   }, [selectedValue]);
 
-  // 🔍 Send search request when query or selection changes
   useEffect(() => {
     if (!searchQuery) {
       setDataSearch([]);
@@ -93,7 +100,7 @@ const Home_Page = () => {
           ? "doctor"
           : selectedValue === 1
           ? "student"
-          : "package";
+          : "packages";
 
       Send_Search(type);
     }, 300);
@@ -113,7 +120,11 @@ const Home_Page = () => {
         );
       }
     } else {
-      return <Packeges type="items" currency="sp" items={dataSearch} />;
+      if(selectedValue!=0 || selectedValue!=1 ){
+      return <Packeges type="items" currency="sp" items={dataSearch} />;}
+      else{
+        return <Packeges type="packages" currency="sp" items={dataSearch} />
+      }
     }
   }
 

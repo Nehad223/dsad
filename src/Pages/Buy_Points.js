@@ -14,7 +14,7 @@ const [data,setData]=useState({});
 useEffect(()=>{
   const fetch=async ()=>{
     try{
-      const res=await axios.get(`https://market-cwgu.onrender.com/item/${id}/`);
+      const res=await axios.get(`https://market-cwgu.onrender.com/pointitem/${id}/`);
       setData(res.data);
     }
     catch(err){
@@ -22,7 +22,7 @@ useEffect(()=>{
     }
 
   }
-  fetch
+  fetch();
 },[])
   useEffect(() => {
     document.documentElement.style.setProperty("--main", "white");
@@ -34,7 +34,7 @@ useEffect(()=>{
          </div>
        
         <div className='in_Buy_Points mt-5'>
-          <Points_Number title={data.name} points={points}  />
+          <Points_Number title={data.name} points={data.points}  />
           <Form/>
 
 
