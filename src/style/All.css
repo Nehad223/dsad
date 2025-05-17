@@ -534,7 +534,7 @@ div:empty {
   font-family: "Almarai", sans-serif;
   font-weight: 400;
 }
-.in_Buy_Points{
+.in_Buy_Points,.in_Buy_Item{
   text-align: right;
   width: 100%;
   height: 50%;
@@ -544,6 +544,19 @@ div:empty {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
   background-color: white;
+}
+
+.in_Buy_Item h1{
+  text-align: center !important;
+  color: #1C458D;
+  font-size: 30px !important;
+}
+.in_Buy_Item p{
+  margin-left: 50%;
+  transform: translateX(-50%);
+  text-wrap: wrap;
+  flex-wrap: wrap;
+
 }
  .Buy_Points Img img{
   border: none;

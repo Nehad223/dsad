@@ -23,19 +23,13 @@ const Dashboard = () => {
   return (
     <div className="Dashboard">
       <button onClick={() => Make_Active("home")} className="Btn_Icons">
-        <Icon name="home" size={20} />
-      </button>
-      <button onClick={() => Make_Active("search")} className="Btn_Icons">
-        <Icon name="search" size={20} />
+        <Icon name="home" size={25} />
       </button>
       <div onClick={Make_All_UnActive}>
         <CartIcon />
       </div>
-      <button className="Btn_Icons" onClick={() => Make_Active("message")}>
-        <Icon name="message" size={20} />
-      </button>
       <button className="Btn_Icons" onClick={() => Make_Active("profile")}>
-        <Icon name="profile" size={15} />
+        <Icon name="profile" size={20} />
       </button>
     </div>
   );

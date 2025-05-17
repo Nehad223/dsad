@@ -29,34 +29,10 @@ const icons = {
       </svg>
       </div>
     ),
-    search: (
-      <div className="Search-Btn">
-      <svg width="30px" height="30px" viewBox="6 6 20 20" xmlns="http://www.w3.org/2000/svg">
-        <path
-          fill="currentColor"
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M21.7105 20.7105C21.3163 21.1047 20.6837 21.1047 20.2895 20.7105L16.6893 17.1103C16.0463 17.6523 15.1181 18 14.1213 18C11.6111 18 9.5 15.889 9.5 13.379C9.5 10.869 11.6111 8.758 14.1213 8.758C16.6314 8.758 18.7425 10.869 18.7425 13.379C18.7425 14.3767 18.4689 15.2723 18.0113 15.9228L21.7105 19.7105C22.1047 20.1047 22.1047 20.6837 21.7105 21.0779C21.3163 21.4721 20.6837 21.4721 20.2895 21.0779L16.6893 17.4797C16.0463 17.9368 15.1181 18.1797 14.1213 18.1797C12.2806 18.1797 10.7611 16.6602 10.7611 14.8195C10.7611 12.9788 12.2806 11.4593 14.1213 11.4593C15.962 11.4593 17.4815 12.9788 17.4815 14.8195C17.4815 15.7919 16.922 16.7464 16.0119 17.1103L20.2895 20.7105Z"
-        />
-      </svg>
-      </div>
-    ),
-    message: (
-      <div className="Message-Btn">
-      <svg  viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          fill="currentColor"
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M17.1199 1.47585H2.08229L9.61181 9L17.1199 1.47585ZM17.7263 2.12522L9.91234 9.93381C9.74598 10.1002 9.46154 10.1002 9.29517 9.93381L1.47585 2.12522V13.5188H17.7263V2.12522ZM0.729875 0H0.751342H18.4669C18.8748 0 19.2129 0.332737 19.2129 0.740608V0.762075V14.254C19.2129 14.6726 18.8748 15 18.4669 15H18.4454H0.729875C0.332737 15 0 14.6726 0 14.254V14.2433V0.740608C0 0.332737 0.332737 0 0.729875 0Z"
-          
-        />
-      </svg>
-      </div>
-    ),
+
   };
   export const CartIcon = () => (
-    <svg width="60" height="36" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="100" height="40" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="21.1697" cy="21" r="21" fill="#1C458D"/>
       <circle cx="17.897" cy="28.3637" r="1.63636" fill="#1C458D" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
       <circle cx="27.7152" cy="28.3637" r="1.63636" fill="#1C458D" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -66,7 +42,7 @@ const icons = {
   );
   
 
-export const Icon = ({ name, size = 24 }) => {
+export const Icon = ({ name, size = 30 }) => {
   return React.createElement('span', { style: { width: size, height: size } }, icons[name]);
 
 };

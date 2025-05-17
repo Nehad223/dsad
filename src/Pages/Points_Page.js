@@ -66,7 +66,7 @@ const Points_Page = () => {
           {points !== undefined && <Points_Number points={points} title="عدد النقاط" />}
         </div>
        
-        {points !== undefined &&  <Packeges items={dataPoints} currency="points" />}
+        {points !== undefined &&  <Packeges items={dataPoints} currency="points" type="points" />}
       </div>
       <Dashboard />
     </div>

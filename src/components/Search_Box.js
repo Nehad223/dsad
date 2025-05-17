@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Search } from 'lucide-react';
 import '../style/All.css';
+const Search_Box = ({ searchQuery, setSearchQuery }) => {
 
-const Search_Box = () => {
   return (
     <div className="Search_Box">
-      <div>
-        <Search className="Search_Logo" />
-        <input type="text" placeholder='Search' />
+      <div className="Search_Box_Inner">
+          <Search className="Search_Logo" />
+          <input 
+            type="text" 
+            placeholder="Search"
+            value={searchQuery}       // هون مربوطة بالحالة من الأعلى
+            onChange={(e) => setSearchQuery(e.target.value)}
+            enterKeyHint="search"
+          />
       </div>
     </div>
   );
 };
 
 export default Search_Box;
+

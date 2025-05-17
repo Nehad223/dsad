@@ -1,29 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 import item from '../Assests/item.png'
 import Points_Number from "../components/Points_Number";
 import { useEffect } from 'react';
 import Form from '../components/Form';
-import { useLocation } from 'react-router-dom';
-import Test from './Test';
+import { useParams } from 'react-router-dom';
 import TelegramBackButton from '../components/Tele_Back_Btn';
+import axios from 'axios';
 const Buy_Points = () => {
-  const location = useLocation();
-  const name = location.state?.name || "";
-  const points = location.state?.points || "";
-  const photo = location.state?.photo || "";
+  const parmas=useParams();
+  const id=parmas.id;
+const [data,setData]=useState({});
   TelegramBackButton();
+useEffect(()=>{
+  const fetch=async ()=>{
+    try{
+      const res=await axios.get(`https://market-cwgu.onrender.com/item/${id}/`);
+      setData(res.data);
+    }
+    catch(err){
+      console.log(err);
+    }
 
+  }
+  fetch
+},[])
   useEffect(() => {
     document.documentElement.style.setProperty("--main", "white");
   }, []);
   return (
     <div className='Buy_Points'>
       <div className='Img'>
-         <img src={`https://res.cloudinary.com/dgocqho3b/${photo}`}/>
+         <img src={`https://res.cloudinary.com/dgocqho3b/${data.photo}`}/>
          </div>
        
         <div className='in_Buy_Points mt-5'>
-          <Points_Number title={name} points={points}  />
+          <Points_Number title={data.name} points={points}  />
           <Form/>
 
 

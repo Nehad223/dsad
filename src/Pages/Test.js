@@ -1,26 +1,31 @@
 
+import { useEffect, useState } from 'react';
 import mobile from '../Assests/mobile.png';
 import "../style/All.css";
-
+import axios from 'axios';
+import Packeges from '../components/Packeges';
 const Test = () => {
+  const [data,setData]=useState([]);
+
+  useEffect(()=>{
+      const fetchdata= async ()=>{
+           try{
+          
+    const res= await axios.get("https://market-cwgu.onrender.com/search/student/م/");
+              setData(res.data)
+    console.log(res.data);
+           }
+              
+        catch(err){
+          console.log(err);
+
+  }}
+    fetchdata();
+  },[])
   return (
          <div className="container Conformation_Page">
-      <div className="row justify-content-center">
-        <div className="col-12 d-flex justify-content-center">
-          <img src={mobile} alt="Phone" className="image" />
-        </div>
-        <div className="col-12 text-center Card_Tag">
-          <h1 className="Card_Title">Dental.kit أهلا بك في</h1>
-          <p className="Card_Par">
-            Lorem ipsum is simply dummy text of the printing <br />
-            and typesetting industry. Lorem ipsum has been <br />
-            the industry’s standard dummy text ever since
-          </p>
-          <button className="Card_Button" >
-            متابعة
-          </button>
-        </div>
-      </div>
+   <Packeges items={data} currency="sp" type="item" />;
+
     </div>
     
   );

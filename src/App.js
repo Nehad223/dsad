@@ -12,6 +12,7 @@ import Points_Page from './Pages/Points_Page';
 import Profile from './Pages/Profile_Page.js';
 import { CartProvider } from './context/CartContext';
 import Buy_Points from './Pages/Buy_Points.js';
+import Buy_Money from './Pages/Buy_Money.js'
 export const CounterContext = createContext();
 function App() {
 
@@ -28,7 +29,8 @@ function App() {
         <Route path='/dsad/cart' element={<Cart/>} />
         <Route path='/dsad/profile' element={<Profile/>} />
         <Route path='/dsad/points' element={<Points_Page/>} />
-        <Route path='/dsad/points/buy/points' element={<Buy_Points/>} />
+        <Route path='/dsad/points/buy/:id' element={<Buy_Points/>} />
+        <Route path='/dsad/home/buy/:id' element={<Buy_Money/>} />
       </Routes>
     </div>
   </CartProvider>
