@@ -549,13 +549,19 @@ div:empty {
 .in_Buy_Item h1{
   text-align: center !important;
   color: #1C458D;
-  font-size: 30px !important;
+  font-size: 24px !important;
+  font-family: "Almarai", sans-serif;
+  font-weight: 700;
+  
 }
 .in_Buy_Item p{
   margin-left: 50%;
   transform: translateX(-50%);
   text-wrap: wrap;
   flex-wrap: wrap;
+  font-size: 13px;
+  font-family: "Almarai", sans-serif;
+  font-weight: 400;
 
 }
  .Buy_Points Img img{
@@ -718,4 +724,26 @@ mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, transparent 60%);
   mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
+}
+.btns_buys{
+  display: flex;
+  margin-top: 70px !important;
+  margin-bottom: 30px !important;
+  padding-bottom: 20px;
+  margin-left: 70px;
+  justify-content: space-between;
+}
+.confirm_add{
+  margin-right: 70px;
+  width: 40%;
+  height: 40px;
+  max-width: 185px !important;
+  color: white;
+  background-color: #1C458D;
+  border:solid 1px #1C458D;
+  border-radius: 40px !important;
+  font-size: 12px;
+  font-family: "Almarai", sans-serif;
+  font-weight: 400;
+
 }

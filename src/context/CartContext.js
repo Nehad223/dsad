@@ -8,14 +8,15 @@ export function CartProvider({ children }) {
 
 
 
-  const addToCart = (item) => {
-    setCart((prev) => ({
-      ...prev,
-      [item.id]: prev[item.id]
-        ? { ...prev[item.id], quantity: prev[item.id].quantity + 1 }
-        : { name: item.name, price: item.price, quantity: 1 },
-    }));
-  };
+const addToCart = (item, quantity = 1) => {
+  setCart((prev) => ({
+    ...prev,
+    [item.id]: prev[item.id]
+      ? { ...prev[item.id], quantity: prev[item.id].quantity + quantity }
+      : { name: item.name, price: item.price, quantity: quantity },
+  }));
+};
+
 
   // تعديل الكمية أو حذف العنصر
   const updateQuantity = (itemId, delta) => {

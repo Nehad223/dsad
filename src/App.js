@@ -27,7 +27,6 @@ function App() {
         <Route path='/dsad/Test' element={<Test/>} />
         <Route path='/dsad/search' element={<Search_Page/>} />
         <Route path='/dsad/cart' element={<Cart/>} />
-        <Route path='/dsad/profile' element={<Profile/>} />
         <Route path='/dsad/points' element={<Points_Page/>} />
         <Route path='/dsad/points/buy/:id' element={<Buy_Points/>} />
         <Route path='/dsad/home/buy/:id' element={<Buy_Money/>} />
