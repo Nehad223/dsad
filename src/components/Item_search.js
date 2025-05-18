@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 const Item_Search = (props) => {
     const navigate=useNavigate();
 const Go_To_Item=()=>{
-  navigate(`buy/${props.items.id}`)}
+  navigate(`buy/items/${props.items.id}`)}
   return (
     <div onClick={Go_To_Item}>
           <div className="Item_Package" >

@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 const Item_Package = (props) => {
 const navigate=useNavigate();
 const Go_To_Item=()=>{
-  navigate(`buy/${props.items.id}`)}
+  navigate(`buy/packages/${props.items.id}`)}
   return (
-    <div className="Item_Package" >
+    <div className="Item_Package" onClick={Go_To_Item} >
       <img
         src={`https://res.cloudinary.com/dgocqho3b/${props.items.photo}`}
         className="Item_Image"

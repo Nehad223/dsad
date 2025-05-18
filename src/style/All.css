@@ -546,19 +546,18 @@ div:empty {
   background-color: white;
 }
 
-.in_Buy_Item h1{
-  text-align: center !important;
+ .Name_Buy{
   color: #1C458D;
   font-size: 24px !important;
   font-family: "Almarai", sans-serif;
   font-weight: 700;
+  text-align: center;
   
 }
 .in_Buy_Item p{
-  margin-left: 50%;
-  transform: translateX(-50%);
   text-wrap: wrap;
   flex-wrap: wrap;
+  margin-right: 50px;
   font-size: 13px;
   font-family: "Almarai", sans-serif;
   font-weight: 400;
@@ -746,4 +745,12 @@ mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, transparent 60%);
   font-family: "Almarai", sans-serif;
   font-weight: 400;
 
+}
+.Contents_Packages{
+  float: right;
+  margin-right: 50px;
+  font-size: 20px !important;
+  font-family: "Almarai", sans-serif;
+  font-weight: 400;
+  color: #1C458D;
 }
