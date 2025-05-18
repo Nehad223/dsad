@@ -6,14 +6,12 @@ import Points_Number from "../components/Points_Number";
 import axios from "axios";
 import Logo_Img from "../components/Logo_Img";
 import Profile_Img from "../components/Profile_Img";
-import TelegramBackButton from "../components/Tele_Back_Btn";
 
 const Points_Page = () => {
   const [dataPoints, setDataPoints] = useState([]);
   const [points, setPoints] = useState();
   const { userData } = useCart();
 
-  TelegramBackButton();
   useEffect(() => {
     const fetchData = async () => {
       try {

@@ -4,11 +4,13 @@ import { useEffect } from 'react';
 import In_Buy_Item from '../components/in_Buy_Item';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import TelegramBackButton from "../components/Tele_Back_Btn";
 const Buy_Money = () => {
 
   const [item,setItem]=useState({});
   const parmas=useParams();
   const id=parmas.id;
+  TelegramBackButton();
     useEffect(()=>{
   const fetch=async ()=>{
     try{
