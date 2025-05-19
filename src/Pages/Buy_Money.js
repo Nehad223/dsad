@@ -23,6 +23,7 @@ const Buy_Money = () => {
   }
   fetch();},[])
   return (
+    <div className='er'>
             <div className='Buy_Points'>
       <div className='Img'>
         {item.photo &&   (<img src={`https://res.cloudinary.com/dgocqho3b/${item.photo}`}/>)}
@@ -30,7 +31,7 @@ const Buy_Money = () => {
 
     
       {item.photo && <In_Buy_Item item={item}/>}        
-    </div>
+    </div></div>
   )
 }
 export default Buy_Money;
