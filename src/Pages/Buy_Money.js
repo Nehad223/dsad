@@ -25,11 +25,11 @@ const Buy_Money = () => {
   return (
             <div className='Buy_Points'>
       <div className='Img'>
-        {item.photo?   <img src={`https://res.cloudinary.com/dgocqho3b/${item.photo}`}/>:<div></div>}
+        {item.photo &&   (<img src={`https://res.cloudinary.com/dgocqho3b/${item.photo}`}/>)}
          </div>
 
-    <In_Buy_Item item={item}/>
-        
+    
+      {item.photo && <In_Buy_Item item={item}/>}        
     </div>
   )
 }

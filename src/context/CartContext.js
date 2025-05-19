@@ -8,12 +8,12 @@ export function CartProvider({ children }) {
 
 
 
-const addToCart = (item, quantity = 1) => {
+const addToCart = (item, quantity = 1,type) => {
   setCart((prev) => ({
     ...prev,
     [item.id]: prev[item.id]
-      ? { ...prev[item.id], quantity: prev[item.id].quantity + quantity }
-      : { name: item.name, price: item.price, quantity: quantity },
+      ? { ...prev[item.id], quantity: prev[item.id].quantity + quantity,type }
+      : { name: item.name, price: item.price, quantity: quantity,type },
   }));
 };
 

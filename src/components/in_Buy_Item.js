@@ -9,8 +9,8 @@ const In_Buy_Item = (props) => {
   const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
   const confirmAdd = () => {
-    addToCart(props.item, quantity);
-    console.log(props.item,quantity)
+    addToCart(props.item,quantity,type);
+    console.log(props.item,quantity,type)
   };
 
   return (

@@ -3,7 +3,7 @@ import { Icon, CartIcon } from "./HomeIcon";
 import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
-  const icons = ["home","points"];
+  const icons = ["home","points","cart"];
   const navigate = useNavigate();
 
   function Make_All_UnActive() {
@@ -25,7 +25,7 @@ const Dashboard = () => {
       <button onClick={() => Make_Active("home")} className="Btn_Icons">
         <Icon name="home" size={25} />
       </button>
-      <div onClick={Make_All_UnActive}>
+      <div onClick={()=> Make_Active("cart")}>
         <CartIcon />
       </div>
       <button className="Btn_Icons" onClick={() => Make_Active("points")}>
