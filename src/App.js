@@ -8,7 +8,7 @@ import Conformation_Page from './Pages/Conformation_Page';
 import Home_Page from './Pages/Home_Page';
 import Cart from './Pages/Cart';
 import Points_Page from './Pages/Points_Page';
-import { CartProvider } from './context/CartContext';
+import { CartProvider } from './context/CartContext.js';
 import Buy_Points from './Pages/Buy_Points.js';
 import Buy_Money from './Pages/Buy_Money.js'
 import Test2 from './Pages/Test2.js';

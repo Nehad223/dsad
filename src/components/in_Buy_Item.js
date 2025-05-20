@@ -3,6 +3,7 @@ import Points_Number from './Points_Number';
 import { useCart } from '../context/CartContext';
 import { useParams } from 'react-router-dom';
 import Cart from './Cart_Point'
+import Price_Btn from './Price_Btn';
 const In_Buy_Item = (props) => {
   const parmas=useParams();
   const type=parmas.itemORpackage;
@@ -15,7 +16,7 @@ const In_Buy_Item = (props) => {
 
   return (
     <div className='in_Buy_Item'>
-      <Points_Number title={props.item.name} points={props.item.price} items={true} />
+      <Price_Btn title={props.item.name} points={props.item.price} items={true} />
       {type=="packages"?
       <div> <h1 className='mt-4 Name_Buy'>بكج {props.item.name}</h1>
       <h1 className='Contents_Packages'>المحتويات</h1>

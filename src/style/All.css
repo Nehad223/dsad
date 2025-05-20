@@ -437,7 +437,7 @@ span{
   text-align: center;
   font-size: 12px;
 } 
-.points_btn{
+.points_btn,.Price_btn{
   cursor:none;
   width:195px;
   height: 30px;
@@ -445,13 +445,21 @@ span{
   border: none;
   display: flex;
   position: relative;
-  left: 42%;
-  transform: translateX(-42%);
+
   font-family: "Almarai", sans-serif;
   font-weight: 700;
   font-style: normal;
   font-size: 15px;
 
+}
+.points_btn{
+  left: 50.5%;
+  transform: translateX(-50%);
+}
+
+.Price_btn{
+  left: 42%;
+  transform: translateX(-42%);
 }
 .name_points{
   font-family: "Almarai", sans-serif;
