@@ -15,7 +15,7 @@ const In_Buy_Item = (props) => {
 
   return (
     <div className='in_Buy_Item'>
-      <Points_Number title={props.item.name} points={props.item.price} />
+      <Points_Number title={props.item.name} points={props.item.price} items={true} />
       {type=="packages"?
       <div> <h1 className='mt-4 Name_Buy'>بكج {props.item.name}</h1>
       <h1 className='Contents_Packages'>المحتويات</h1>

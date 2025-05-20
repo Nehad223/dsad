@@ -445,12 +445,12 @@ span{
   border: none;
   display: flex;
   position: relative;
-  left: 50.5%;
-  transform: translateX(-50%);
+  left: 42%;
+  transform: translateX(-42%);
   font-family: "Almarai", sans-serif;
   font-weight: 700;
   font-style: normal;
-  font-size: 12px;
+  font-size: 15px;
 
 }
 .name_points{
@@ -459,10 +459,10 @@ span{
   font-style: normal;
   padding-left: 20px;
   padding-top: 5px !important;
-  font-size: 12px;
-  left: 75px;
+   font-size: 15px;
+  left: 110px;
   position: absolute;
-  width: 110px;
+  width: 130px;
   height: 30px;
   border:solid 1px #1C458D;
   color: white;
@@ -470,14 +470,14 @@ span{
   border-bottom-left-radius:30px;
 }
 .num_points{
-  padding-top: 3px;
+  padding-top: 5px;
   font-family: "Almarai", sans-serif;
   font-weight: 700;
   font-style: normal;
-  padding-right: 30px;
+  padding-right: 20px;
   font-size: 17px;
   position: absolute;
-  width: 110px;
+  width: 130px;
   height: 30px;
   border: solid 1px #9CD5C1;
   background-color: #9CD5C1;
@@ -544,7 +544,12 @@ div:empty {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
   background-color: white;
+  margin-bottom: 10px !important;
 
+}
+.in_Buy_Item{
+  height: auto !important;
+  min-height: 250px !important;
 }
 
  .Name_Buy{
@@ -728,9 +733,8 @@ mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, transparent 60%);
 }
 .btns_buys{
   display: flex;
-  margin-top: 70px !important;
-  margin-bottom: 30px !important;
-  padding-bottom: 20px;
+  margin-top: 100px !important;
+  margin-bottom: 20px !important;
   margin-left: 50px;
   justify-content: space-between;
 }
@@ -757,3 +761,36 @@ mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, transparent 60%);
   color: #1C458D;
   
 }
+ .d1{
+  width: 300px;
+  display: flex;
+  position: relative;
+  color: white;
+  margin:50px;
+  text-align: center;
+ }
+ .d2{
+  justify-content: flex-end;
+  width: auto;
+  min-width: 50px;
+  height: 20px;
+  width: 100px;
+  max-width: 100px;
+  border: solid 1px #9CD5C1;
+  background-color: #9CD5C1;
+  border-radius: 0px 0px 100px 0px;
+  font-size: clamp(2px, 1vw, 12px);
+  padding: 0px 0px 10px 0px;
+ }
+ .d3{
+  max-width: 100px;
+  font-size: clamp(2px, 1vw, 12px);
+  position: absolute;
+  left: 85px;
+  width: 100px;
+  min-width: 50px;
+  height: 20px;
+  border: solid 1px #1C458D;
+  background-color: #1C458D;
+  border-radius: 100px 0px 0px 0px;
+ }

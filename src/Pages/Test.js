@@ -1,35 +1,23 @@
-
-import { useEffect, useState } from 'react';
-import mobile from '../Assests/mobile.png';
-import "../style/All.css";
-import axios from 'axios';
-import Packeges from '../components/Packeges';
+import React from 'react';
+import Logo_Img from '../components/Logo_Img';
+import Dashboard from '../components/Dashboard';
+import { useEffect } from 'react';
 const Test = () => {
-  const [data,setData]=useState([]);
-
-  useEffect(()=>{
-      const fetchdata= async ()=>{
-           try{
-          
-    const res= await axios.get("https://market-cwgu.onrender.com/search/student/م/");
-              setData(res.data)
-    console.log(res.data);
-           }
-              
-        catch(err){
-          console.log(err);
-
-  }}
-    fetchdata();
-  },[])
+    useEffect(() => {
+      document.documentElement.style.setProperty("--main", "white");
+    }, []);
   return (
-         <div className="container Conformation_Page">
-   <Packeges items={data} currency="sp" type="item" />;
-
+    <div>
+          <div className="out">
+      <div className="in1">
+        <Logo_Img class="Logo_in1" />
+      </div>
+      <div className="in2">
+      </div>
+      <Dashboard />
     </div>
-    
-  );
-};
+    </div>
+  )
+}
 
-export default Test;
-
+export default Test
