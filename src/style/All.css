@@ -742,7 +742,7 @@ mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, transparent 60%);
 .in_Buy_Item {
   display: flex;
   flex-direction: column;
-  min-height: 310px; /* ليغطي كامل الشاشة */
+  min-height: 305px; /* ليغطي كامل الشاشة */
   padding: 20px;
   position: relative;
 }
@@ -755,7 +755,6 @@ mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, transparent 60%);
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
-  margin-left: 50px;
   gap: 10px;
 }
 
