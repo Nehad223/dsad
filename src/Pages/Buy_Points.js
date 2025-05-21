@@ -28,18 +28,20 @@ useEffect(()=>{
     document.documentElement.style.setProperty("--main", "white");
   }, []);
   return (
+   
     <div className='Buy_Points'>
       <div className='Img'>
-         <img src={`https://res.cloudinary.com/dgocqho3b/${data.photo}`}/>
+        {data.photo && ( <img src={`https://res.cloudinary.com/dgocqho3b/${data.photo}`}/>)}
+        
          </div>
-       
-        <div className='in_Buy_Points mt-5'>
+       {data.photo && (        <div className='in_Buy_Points mt-5'>
           <Points_Number title={data.name} points={data.points}  />
           <Form/>
 
 
 
-        </div>
+        </div>)}
+
         
     </div>
   )
