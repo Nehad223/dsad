@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Cart_point from './Cart_Point';
-
+import { useNavigate } from "react-router-dom";
 const Form = () => {
+  const navigate=useNavigate();
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
@@ -37,6 +38,7 @@ const Form = () => {
   };
 
   const handleSubmit = (event) => {
+    navigate('/dsad/home');
     event.preventDefault(); 
     setSubmitted(true);
     

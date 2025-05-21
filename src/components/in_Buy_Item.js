@@ -4,8 +4,9 @@ import { useCart } from '../context/CartContext';
 import { useParams } from 'react-router-dom';
 import Cart from './Cart_Point'
 import Price_Btn from './Price_Btn';
-
+import { useNavigate } from 'react-router-dom';
 const In_Buy_Item = (props) => {
+  const navigat=useNavigate();
   const parmas = useParams();
   const type = parmas.itemORpackage;
   const { addToCart } = useCart();
@@ -14,6 +15,7 @@ const In_Buy_Item = (props) => {
   const confirmAdd = () => {
     addToCart(props.item, quantity, type);
     console.log(props.item, quantity, type);
+    navigat('/dsad/home')
   };
 
   return (
