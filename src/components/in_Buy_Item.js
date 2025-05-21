@@ -37,7 +37,7 @@ const In_Buy_Item = (props) => {
       <div className='btns_buys'>
         <Cart quantity={quantity} setQuantity={setQuantity} />
         <button className='confirm_add' onClick={confirmAdd}>
-          أضف للسلة
+          إضافة الى السلة
         </button>
       </div>
     </div>
