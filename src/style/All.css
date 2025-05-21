@@ -439,6 +439,7 @@ span{
 } 
 .points_btn,.Price_btn{
   cursor:none;
+  pointer-events: none;
   width:195px;
   height: 30px;
   background-color: transparent;
@@ -453,8 +454,8 @@ span{
 
 }
 .points_btn{
-  left: 42%;
-  transform: translateX(-42%);
+  left: 42% !important;
+  transform: translateX(-42%) !important;
 }
 
 .Price_btn{
