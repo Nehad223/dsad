@@ -52,7 +52,7 @@ const Form = () => {
 
   return (
     <div>
-      <form onSubmit={()=>handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <h1>الاسم الكامل</h1>
         <input
           type="text"
