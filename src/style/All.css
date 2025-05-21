@@ -555,13 +555,7 @@ div:empty {
   margin-bottom: 10px !important;
 
 }
-.in_Buy_Item{
-  position: relative;
-  height: auto !important;
-  min-height: 300px !important;
-  display: flex;
-  flex-direction: column;
-}
+
 
  .Name_Buy{
   color: #1C458D;
@@ -578,6 +572,9 @@ div:empty {
   font-size: 13px;
   font-family: "Almarai", sans-serif;
   font-weight: 400;
+  display: flex;
+  flex-direction: column;
+
 
 }
  .Buy_Points Img img{
@@ -742,17 +739,28 @@ mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, transparent 60%);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
 }
-.btns_buys{
-  
+.in_Buy_Item {
   display: flex;
-   gap: 20px !important;
-    margin-top: auto !important; 
-  margin-left: 50px;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  flex-direction: column;
+  min-height: 310px; /* ليغطي كامل الشاشة */
+  padding: 20px;
+  position: relative;
 }
+
+.spacer {
+  flex-grow: 1;
+}
+
+.btns_buys {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-left: 50px;
+  gap: 10px;
+}
+
 .confirm_add{
-  margin-right: 50px;
+  margin-right: 70px;
   width: 40%;
   height: 40px;
   max-width: 185px !important;
@@ -774,36 +782,3 @@ mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, transparent 60%);
   color: #1C458D;
   
 }
- .d1{
-  width: 300px;
-  display: flex;
-  position: relative;
-  color: white;
-  margin:50px;
-  text-align: center;
- }
- .d2{
-  justify-content: flex-end;
-  width: auto;
-  min-width: 50px;
-  height: 20px;
-  width: 100px;
-  max-width: 100px;
-  border: solid 1px #9CD5C1;
-  background-color: #9CD5C1;
-  border-radius: 0px 0px 100px 0px;
-  font-size: clamp(2px, 1vw, 12px);
-  padding: 0px 0px 10px 0px;
- }
- .d3{
-  max-width: 100px;
-  font-size: clamp(2px, 1vw, 12px);
-  position: absolute;
-  left: 85px;
-  width: 100px;
-  min-width: 50px;
-  height: 20px;
-  border: solid 1px #1C458D;
-  background-color: #1C458D;
-  border-radius: 100px 0px 0px 0px;
- }
