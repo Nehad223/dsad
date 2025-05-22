@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 const Item_Package = (props) => {
 const navigate=useNavigate();
+  const x=400000000;
 const Go_To_Item=()=>{
   navigate(`buy/packages/${props.items.id}`)}
   return (

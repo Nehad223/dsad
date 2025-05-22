@@ -265,16 +265,20 @@
 }
 .Item_Price {
   color: white;
+  margin-left: -8px;
   margin-top: 20px !important;
   line-height: 1; 
   
 }
 .Item_Name, .Item_Price {
-  font-size: clamp(9px, 5vw, 12px);
+  font-size: 10px;
   white-space: nowrap; 
   overflow: hidden; 
   text-overflow: ellipsis; 
   max-width: 100%; 
+}
+.Item_Name{
+  font-size: 11px !important;
 }
 .Item_inf,.Item_Info_Pack{
   width: 100%;
@@ -335,6 +339,7 @@
   font-family: "Almarai", sans-serif;
   font-weight: 400;
   font-style: normal;
+  padding-top: 1px;
   
 
 }
@@ -446,22 +451,15 @@ span{
   border: none;
   display: flex;
   position: relative;
-
   font-family: "Almarai", sans-serif;
   font-weight: 700;
   font-style: normal;
   font-size: 15px;
+  left: 38% !important;
+  transform: translateX(-38%) !important;
 
 }
-.points_btn{
-  left: 42% !important;
-  transform: translateX(-42%) !important;
-}
 
-.Price_btn{
-  left: 42%;
-  transform: translateX(-42%);
-}
 .name_points{
   font-family: "Almarai", sans-serif;
   font-weight: 700;
@@ -478,7 +476,7 @@ span{
   background-color: #1C458D;
   border-bottom-left-radius:30px;
 }
-.num_points{
+.num_points,.num_price{
   padding-top: 5px;
   font-family: "Almarai", sans-serif;
   font-weight: 700;
@@ -614,7 +612,7 @@ div:empty {
  }
  .in_Buy_Points input{
   font-size: 14px;
-  width: 90%;
+  width: 95%;
   font-family: "Almarai", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -683,12 +681,12 @@ div:empty {
 
 
  .phone_Num{
-  transform: translateX(11%);
+  transform: translateX(6%);
   display: flex;
   background-color: #fff;
   position: relative;
-  width: 90%;
-  margin-right: 20px;
+  width: 95%;
+  margin-right: 40px;
   font-family: "Almarai", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -783,4 +781,49 @@ mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, transparent 60%);
   font-weight: 400;
   color: #1C458D;
   
+}
+.TotalPrice_Btn{
+  width:300px;
+  position: relative;
+  height: 40px;
+  display: flex;
+  color: white;
+  margin: 30px 0px;
+
+}
+.totalPrice{
+  width: 288px;
+  background-color: #9CD5C1;
+  height: 100%;
+  border: solid 1px #9CD5C1;
+  text-align: center;
+  padding-top: 5px;
+  font-size: 20px;
+  
+
+}
+.totalPrice_Word{
+  font-size: 12px;
+  padding-top: 10px;
+  padding-left: 15px;
+  position: absolute;
+  left: 252px;
+  width: 88px;
+  background-color: #1C458D;
+  height: 100%;
+  border: solid 1px #1C458D;
+  border-radius: 0px 0px 0px 100px;
+  text-align: center;
+}
+.in_Cart{
+  display: flex;
+  text-align: center;
+  width: 100%;
+  height: 70%;
+  position: relative;
+  justify-content: center;
+
+}
+.num_price{
+  font-size: 15px;
 }

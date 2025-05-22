@@ -2,6 +2,9 @@ import React from 'react';
 import Logo_Img from '../components/Logo_Img';
 import Dashboard from '../components/Dashboard';
 import { useEffect } from 'react';
+import TotalPrice_btn from '../components/TotalPrice_btn';
+import Item_Cart from '../components/item_Cart';
+
 const Test = () => {
     useEffect(() => {
       document.documentElement.style.setProperty("--main", "white");
@@ -12,7 +15,9 @@ const Test = () => {
       <div className="in1">
         <Logo_Img class="Logo_in1" />
       </div>
-      <div className="in2">
+      <div className="in_Cart">
+        <TotalPrice_btn/>
+        <Item_Cart />
       </div>
       <Dashboard />
     </div>

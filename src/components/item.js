@@ -7,6 +7,7 @@ const Item = (props) => {
 const Go_To_Item=()=>{
   navigate(`buy/items/${props.item.id}`)
 }
+const x=100000000;
   return (
     <div className='Item' onClick={Go_To_Item}>
       <LazyImage
@@ -17,7 +18,10 @@ const Go_To_Item=()=>{
       />
       <div className='Item_inf'>
         <h5 className='Item_Name'>{props.item.name}</h5>
-        <p className='Item_Price'>{props.item.price.toLocaleString()}</p>
+
+        <p className='Item_Price'>  <span style={{ direction: 'ltr', unicodeBidi: 'isolate' }}>
+    {props.item.price.toLocaleString()} sp
+  </span></p>
       </div>
     </div>
   );
