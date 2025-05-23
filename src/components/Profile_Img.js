@@ -9,6 +9,7 @@ const Profile_Img = (props) => {
             height="103px"
             className="Profile_Photo"
             referrerPolicy="no-referrer"
+            crossOrigin="anonymous"
           />
     </div>
   )

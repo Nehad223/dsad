@@ -46,13 +46,16 @@ const Points_Page = () => {
 
   useEffect(() => {
     document.documentElement.style.setProperty("--main", "white");
+      document.documentElement.style.setProperty(`--home`, "#9CD5C1");
+    document.documentElement.style.setProperty(`--profile`, "#1C458D");
+
+
   }, []);
 
 useEffect(() => {
-  const tgUser = window.Telegram?.WebApp?.initDataUnsafe?.user;
-  if (tgUser?.photo_url) {
-    console.log("User photo found:", tgUser.photo_url);
-    setPhotoUrl(tgUser.photo_url);
+  if (userData?.photo_url) {
+    console.log("User photo found:", userData.photo_url);
+    setPhotoUrl(userData.photo_url);
   } else {
     console.log("No photo_url found in Telegram user.");
   }
