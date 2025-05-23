@@ -998,7 +998,7 @@ font-size: 13px;
   backdrop-filter: blur(3px);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: end;
   z-index: 1000;
 }
 
