@@ -19,9 +19,9 @@ const Cart = () => {
       <div className="in_Cart">
         <TotalPrice_btn/>
         <Item_Cart/>
+      <Dashboard />
       </div>
       
-      <Dashboard />
     </div>
     </div>
   )
