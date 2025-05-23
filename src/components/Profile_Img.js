@@ -10,9 +10,6 @@ const Profile_Img = (props) => {
             className="Profile_Photo"
             referrerPolicy="no-referrer"
             crossOrigin="anonymous"
-              style={{
-    backgroundImage: `url(${props.src})`,
-  }}
           />
     </div>
   )

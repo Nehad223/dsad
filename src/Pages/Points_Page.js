@@ -53,13 +53,16 @@ const Points_Page = () => {
   }, []);
 
 useEffect(() => {
-  if (userData?.photo_url) {
-    console.log("User photo found:", userData.photo_url);
-    setPhotoUrl(userData.photo_url);
-  } else {
-    console.log("No photo_url found in Telegram user.");
+  const user = window.Telegram?.WebApp?.initDataUnsafe?.user;
+  if (user?.photo_url) {
+    setPhotoUrl(user.photo_url);
   }
 }, []);
+
+useEffect(() => {
+  console.log("photoUrl changed:", photoUrl);
+}, [photoUrl]);
+
 
 
   return (
