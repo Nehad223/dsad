@@ -599,7 +599,7 @@ div:empty {
   padding: 20px !important;
   padding-top: 0px !important;
  }
- .in_Buy_Points h1{
+ .in_Buy_Points h1,.form-box h1{
   margin-top: 10px;
   font-family: "Almarai", sans-serif;
   font-weight: 400;
@@ -609,7 +609,7 @@ div:empty {
   font-size: 14px;
   color: #282A37;
  }
- .in_Buy_Points input{
+ .in_Buy_Points input,.form-box input{
   font-size: 14px;
   width: 95%;
   font-family: "Almarai", sans-serif;
@@ -981,4 +981,43 @@ font-size: 13px;
 .space{
   min-height: 80px !important;
   width: 100%;
+}
+.blurred {
+  filter: blur(5px);
+  transition: filter 0.3s ease;
+}
+
+/* الطبقة اللي فوق */
+.form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* صندوق الفورم */
+.form-box {
+  padding: 10px 20px;
+  width: 376px;
+  text-align: right;
+  height: 473px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+.form-box h1{
+  font-family: "Almarai", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: right;
+margin-top: 10px;
+  font-size: 14px;
+  color: #282A37;
 }
