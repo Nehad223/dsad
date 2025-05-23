@@ -11,6 +11,7 @@ const Points_Page = () => {
   const [dataPoints, setDataPoints] = useState([]);
   const [points, setPoints] = useState();
   const { userData } = useCart();
+  const [photoUrl, setPhotoUrl] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,15 +47,20 @@ const Points_Page = () => {
   useEffect(() => {
     document.documentElement.style.setProperty("--main", "white");
   }, []);
-console.log(userData)
- const user = window.Telegram.WebApp.initDataUnsafe.user;
- const photo_url=user.photo_url;
+
+  useEffect(() => {
+    // جلب الصورة مباشرة من Telegram كل مرة
+    const user = window.Telegram?.WebApp?.initDataUnsafe?.user;
+    if (user?.photo_url) {
+      setPhotoUrl(user.photo_url);
+    }
+  }, []);
 
   return (
     <div className="out">
       <div className="in1_Profile">
         <Logo_Img class={"Logo_in1_Profile"} />
-        {userData?.photo_url && <Profile_Img src={photo_url} />}
+        {photoUrl && <Profile_Img src={photoUrl} />}
       </div>
       <div className="in2">
         <div className="inf_Points mb-2">
@@ -64,8 +70,8 @@ console.log(userData)
           <p>{userData?.id} (ID Num)</p>
           {points !== undefined && <Points_Number points={points} title="عدد النقاط" />}
         </div>
-       
-        {points !== undefined &&  <Packeges items={dataPoints} currency="points" type="points" />}
+
+        {points !== undefined && <Packeges items={dataPoints} currency="points" type="points" />}
       </div>
       <Dashboard />
     </div>
