@@ -28,7 +28,7 @@ const Dashboard = () => {
       <div onClick={()=> Make_Active("cart")}>
         <CartIcon />
       </div>
-      <button className="Btn_Icons" onClick={() => Make_Active("points")}>
+      <button className="Btn_Icons" onClick={() => Make_Active("profile")}>
         <Icon name="profile" size={20} />
       </button>
     </div>
