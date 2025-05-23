@@ -54,6 +54,7 @@ const Points_Page = () => {
     if (user?.photo_url) {
       setPhotoUrl(user.photo_url);
     }
+    console.log(photoUrl)
   }, []);
 
   return (
