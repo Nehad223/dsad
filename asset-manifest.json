@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dsad/static/css/main.b46eae4f.css",
-    "main.js": "/dsad/static/js/main.94932308.js",
+    "main.css": "/dsad/static/css/main.fb52ef7c.css",
+    "main.js": "/dsad/static/js/main.f2546550.js",
     "static/js/620.7876cb7d.chunk.js": "/dsad/static/js/620.7876cb7d.chunk.js",
     "static/js/937.85c1812f.chunk.js": "/dsad/static/js/937.85c1812f.chunk.js",
     "static/js/453.7b964054.chunk.js": "/dsad/static/js/453.7b964054.chunk.js",
@@ -10,15 +10,15 @@
     "static/media/item.png": "/dsad/static/media/item.07e7663ae02d87a1a905.png",
     "static/media/logo.png": "/dsad/static/media/logo.4aac808ba0904550af59.png",
     "index.html": "/dsad/index.html",
-    "main.b46eae4f.css.map": "/dsad/static/css/main.b46eae4f.css.map",
-    "main.94932308.js.map": "/dsad/static/js/main.94932308.js.map",
+    "main.fb52ef7c.css.map": "/dsad/static/css/main.fb52ef7c.css.map",
+    "main.f2546550.js.map": "/dsad/static/js/main.f2546550.js.map",
     "620.7876cb7d.chunk.js.map": "/dsad/static/js/620.7876cb7d.chunk.js.map",
     "937.85c1812f.chunk.js.map": "/dsad/static/js/937.85c1812f.chunk.js.map",
     "453.7b964054.chunk.js.map": "/dsad/static/js/453.7b964054.chunk.js.map",
     "758.d812deab.chunk.css.map": "/dsad/static/css/758.d812deab.chunk.css.map"
   },
   "entrypoints": [
-    "static/css/main.b46eae4f.css",
-    "static/js/main.94932308.js"
+    "static/css/main.fb52ef7c.css",
+    "static/js/main.f2546550.js"
   ]
 }
