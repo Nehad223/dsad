@@ -48,7 +48,7 @@ const Points_Page = () => {
   }, []);
 console.log(userData)
  const user = window.Telegram.WebApp.initDataUnsafe.user;
- photo_url=user.photo_url;
+ const photo_url=user.photo_url;
 
   return (
     <div className="out">
