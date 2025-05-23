@@ -3,7 +3,7 @@ import { Icon, CartIcon } from "./HomeIcon";
 import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
-  const icons = ["home","points","cart"];
+  const icons = ["home","profile","cart"];
   const navigate = useNavigate();
 
   function Make_All_UnActive() {
