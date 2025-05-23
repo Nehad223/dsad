@@ -9,7 +9,7 @@ const Item_Cart = () => {
   return (
     <div>
       {Object.entries(cart).map(([id, item]) => (
-        <div key={id} className='item_Cart mt-5'>
+        <div key={id} className='item_Cart mt-4'>
           <div className="col-1 Delete_btn_grid">
             <DeleteBtn id={id} quantity={item.quantity} />
           </div>
