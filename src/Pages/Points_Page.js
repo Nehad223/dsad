@@ -47,13 +47,14 @@ const Points_Page = () => {
     document.documentElement.style.setProperty("--main", "white");
   }, []);
 console.log(userData)
- 
+ const user = window.Telegram.WebApp.initDataUnsafe.user;
+ photo_url=user.photo_url;
 
   return (
     <div className="out">
       <div className="in1_Profile">
         <Logo_Img class={"Logo_in1_Profile"} />
-        {userData?.photo_url && <Profile_Img src={userData.photo_url} />}
+        {userData?.photo_url && <Profile_Img src={photo_url} />}
       </div>
       <div className="in2">
         <div className="inf_Points mb-2">
