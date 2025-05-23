@@ -455,8 +455,8 @@ span{
   font-weight: 700;
   font-style: normal;
   font-size: 15px;
-  left: 38% !important;
-  transform: translateX(-38%) !important;
+  left: 35% !important;
+  transform: translateX(-35%) !important;
 
 }
 
@@ -512,13 +512,12 @@ span{
 
 }
 .Profile_Photo{
-  position: absolute;
-  left: 50%;
+
+  margin-left: 50%;
   transform: translateX(-50%);
   border: solid 1px #D8D8D8;
   border-radius: 100px;
   top:90px !important;
-
   background-color: #D8D8D8;
 }
 .inf_Points,.title_Catg{
@@ -870,6 +869,7 @@ border: solid 1px #6C6C6C;
 background-color: white;
 font-size: 6px;
 padding-top: 3px;
+padding-right: 10px;
 border-radius: 50px;
 text-align: center;
 margin-top: 4px;

@@ -17,6 +17,7 @@ const Add_sub = ({ id, quantity }) => {
       <button
         onClick={() => updateQuantity(id, 1)}
         className="add_Cart"
+        disabled={quantity === 99}
       >
         ➕
       </button>

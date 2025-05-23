@@ -2,7 +2,7 @@ import React from 'react'
 import DeleteBtn from '../components/DeletBtn'
 import Add_sub from '../components/add_sub'
 import item from '../Assests/item.png'
-import Totlaprice_Item from '../style/Totlaprice_Item'
+
 import { useCart } from "../context/CartContext";
 import photo from "../Assests/item.png"
 const Test3 = () => {

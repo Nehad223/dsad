@@ -46,7 +46,7 @@ const Points_Page = () => {
   useEffect(() => {
     document.documentElement.style.setProperty("--main", "white");
   }, []);
-
+console.log(userData)
  
 
   return (
