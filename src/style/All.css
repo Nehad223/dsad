@@ -815,15 +815,146 @@ mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, transparent 60%);
   border-radius: 0px 0px 0px 100px;
   text-align: center;
 }
-.in_Cart{
+.in_Cart {
   display: flex;
+  flex-direction: column; /* العناصر تحت بعض */
+  align-items: center;     /* توسيط أفقي */
   text-align: center;
   width: 100%;
   height: 70%;
   position: relative;
-  justify-content: center;
-
 }
+
 .num_price{
   font-size: 15px;
+}
+.item_Cart{
+  position: relative;
+  width: 380px;
+  height: 75px;
+  display: flex;
+  margin-left: 90px !important;
+  padding: 0px;
+}
+.delete_Btn{
+  
+  width: 42px;
+  height: 75px;
+  background-color: #ED6060;
+  color:white;
+  border: solid 1px #ED6060;
+  border-radius: 4px;
+}
+.delete_Btn span{
+  font-size: 13px;
+  position: absolute;
+    display: inline-block;
+    left: 0px;
+    top: 25px;
+  transform: rotate(270deg);
+  font-family: "Almarai", sans-serif;
+  font-weight: 700;
+}
+.add_sub_cart{
+  width: 61px;
+  height: 30px;
+  margin-top: 5px;
+  margin-left: 5px;
+  display: flex;
+}
+.add_Cart,.sub_Cart{
+width: 20px;
+height: 20px;
+border: solid 1px #6C6C6C;
+background-color: white;
+font-size: 6px;
+padding-top: 3px;
+border-radius: 50px;
+text-align: center;
+margin-top: 4px;
+}
+.add_sub_cart span{
+  color: #686363;
+  font-size: 16px;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+.add_Cart{
+  margin-left: 5px;
+
+}
+.text_grid{
+  text-align: right;
+border: solid 1px white;
+padding: 0px !important;
+margin: 0px !important;
+width: 110px;
+height: 40px;
+}
+
+
+.add_sub_grid{
+  padding: 0px !important;
+  margin: 0px !important;
+  height: 40px;
+}
+
+ .img_grid .img{
+  width: 92px;
+  height: 75px;
+  border: soild 1px #DCE4E9;
+  border-radius: 3px 0px 0px 3px;
+
+}
+.img_grid{
+    margin: 0px !important;
+  padding-left: 0px !important;
+}
+
+.Delete_btn_grid{
+  padding: 0px !important;
+  margin: 0px !important;
+}
+.center_item_grid{
+  z-index: 100;
+  padding-left: 12px;
+  background-color: white;
+  height: 75px;
+}
+.text_grid h1{
+  color: #1C458D;
+  font-size: 13px;
+  font-family: "Almarai", sans-serif;
+  font-weight: 700;
+}
+.text_grid p{
+  font-family: "Almarai", sans-serif;
+  font-weight: 400;
+  font-size: 7px;
+  color: #8A8E91;
+}
+.high_row{
+  background-color: white;
+}
+.Price{
+  padding-top: 5px;
+  font-size: 11px;
+  text-align: center;
+  color: white;
+  background-color: #9CD5C1;
+  border: solid 1px #9CD5C1;
+  height: 30px;
+  margin-top: 5px;
+
+}
+.total_Price{
+
+  padding-top: 10px;
+  text-align: center;
+  height: 30px;
+  font-size: 11px;
+  color: white;
+  background-color: #1C458D;
+  border: solid 1px #1C458D;
+  margin-top: 5px;
 }

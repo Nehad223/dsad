@@ -12,6 +12,7 @@ import { CartProvider } from './context/CartContext.js';
 import Buy_Points from './Pages/Buy_Points.js';
 import Buy_Money from './Pages/Buy_Money.js'
 import Test2 from './Pages/Test2.js';
+import Test3 from './Pages/Test3.js';
 export const CounterContext = createContext();
 function App() {
 

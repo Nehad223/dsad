@@ -4,8 +4,10 @@ import Dashboard from '../components/Dashboard';
 import { useEffect } from 'react';
 import TotalPrice_btn from '../components/TotalPrice_btn';
 import Item_Cart from '../components/item_Cart';
+import Test3 from './Test3'
 
 const Test = () => {
+
     useEffect(() => {
       document.documentElement.style.setProperty("--main", "white");
     }, []);
@@ -17,8 +19,9 @@ const Test = () => {
       </div>
       <div className="in_Cart">
         <TotalPrice_btn/>
-        <Item_Cart />
+        <Item_Cart/>
       </div>
+      
       <Dashboard />
     </div>
     </div>
