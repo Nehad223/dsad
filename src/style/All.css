@@ -380,7 +380,7 @@ span{
   display: flex;
   align-items: center; /* لضبط الأيقونات بشكل مركزي */
   justify-content: space-evenly; /* توزيع الأيقونات بالتساوي */
-  z-index: 100 !important;
+  z-index: 10000 !important;
 }
 .Search-Btn svg path ,.Home-Btn svg path , .Message-Btn svg path , .Pro-Btn svg path{
   pointer-events: all !important;
@@ -862,17 +862,19 @@ mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, transparent 60%);
   margin-left: 5px;
   display: flex;
 }
-.add_Cart,.sub_Cart{
-width: 20px;
-height: 20px;
-border: solid 1px #6C6C6C;
-background-color: white;
-font-size: 6px;
-padding-right: 15px;
-border-radius: 50px;
-text-align: center;
-margin-top: 4px;
+.add_Cart, .sub_Cart {
+  width: 20px;
+  height: 20px;
+  border: solid 1px #6C6C6C;
+  background-color: white;
+  font-size: 6px;
+  border-radius: 50%; /* هذا كافي */
+  text-align: center;
+  margin-top: 4px;
+  padding: 0; /* أو padding صغير متساوي */
+  line-height: 20px; /* يخلي المحتوى يتوسّط عموديًا */
 }
+
 .add_sub_cart span{
   color: #686363;
   font-size: 16px;
