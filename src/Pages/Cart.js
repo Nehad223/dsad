@@ -19,10 +19,13 @@ const Cart = () => {
       <div className="in_Cart">
         <TotalPrice_btn/>
         <Item_Cart/>
-      <Dashboard />
+        <button className='oreder_btn_cart mt-5  '>اطلب الان</button>
+        <div className='space'></div>
       </div>
-      
+       <Dashboard />
     </div>
+     
+
     </div>
   )
 }

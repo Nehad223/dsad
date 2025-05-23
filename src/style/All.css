@@ -827,6 +827,7 @@ mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, transparent 60%);
 .num_price{
   font-size: 15px;
 }
+
 .item_Cart{
   position: relative;
   width: 380px;
@@ -962,4 +963,22 @@ height: 40px;
 }
 body, html {
   overflow-x: hidden;
+}
+.oreder_btn_cart{
+width: 90%;
+max-width: 317px;
+height: 42px !important;
+background-color: #1C458D;
+border: solid 1px #1C458D;
+border-radius: 20px;
+min-height: 42px !important;
+text-align: center;
+color: white;
+font-size: 13px;
+  font-family: "Almarai", sans-serif;
+  font-weight: 700;
+}
+.space{
+  min-height: 80px !important;
+  width: 100%;
 }
