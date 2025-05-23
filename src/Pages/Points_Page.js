@@ -48,14 +48,16 @@ const Points_Page = () => {
     document.documentElement.style.setProperty("--main", "white");
   }, []);
 
-  useEffect(() => {
-    // جلب الصورة مباشرة من Telegram كل مرة
-    const user = window.Telegram?.WebApp?.initDataUnsafe?.user;
-    if (user?.photo_url) {
-      setPhotoUrl(user.photo_url);
-    }
-    console.log(photoUrl)
-  }, []);
+useEffect(() => {
+  const tgUser = window.Telegram?.WebApp?.initDataUnsafe?.user;
+  if (tgUser?.photo_url) {
+    console.log("User photo found:", tgUser.photo_url);
+    setPhotoUrl(tgUser.photo_url);
+  } else {
+    console.log("No photo_url found in Telegram user.");
+  }
+}, []);
+
 
   return (
     <div className="out">
