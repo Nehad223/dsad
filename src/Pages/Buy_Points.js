@@ -38,8 +38,6 @@ useEffect(()=>{
           <Points_Number title={data.name} points={data.points}  />
           <Form/>
 
-
-
         </div>)}
 
         

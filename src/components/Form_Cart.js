@@ -79,7 +79,7 @@ const Form = () => {
         <input
           type="text"
           name="address"
-          placeholder="العنوان"
+          placeholder="أدخل العنوان"
           value={formData.address}
           onChange={handleChange}
           required
@@ -87,7 +87,7 @@ const Form = () => {
         {submitted && errors.address && <p style={{ color: "red" }}>{errors.address}</p>}
         
         <div className="mt-5">
-          <button className="oreder_btn_cart mx-4" type="submit">شراء</button>
+          <button className="oreder_btn_cart  mx-4" type="submit">شراء</button>
         </div>
       </form>
     </div>

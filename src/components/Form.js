@@ -82,7 +82,7 @@ const Form = () => {
         <input
           type="text"
           name="address"
-          placeholder="العنوان"
+          placeholder="أدخل العنوان"
           value={formData.address}
           onChange={handleChange}
           required
