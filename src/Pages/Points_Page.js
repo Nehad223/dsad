@@ -16,7 +16,7 @@ const Points_Page = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-      const resPh=await axios.get(`https://market-cwgu.onrender.com/bot/getphoto/${id}/`);
+      const resPh=await axios.get(`https://market-cwgu.onrender.com/bot/getphoto/${userData.id}/`);
         const response = await axios.get(
           "https://market-cwgu.onrender.com/getpointitems/"
         );
