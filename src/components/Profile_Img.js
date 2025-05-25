@@ -8,8 +8,6 @@ const Profile_Img = (props) => {
             width="103px"
             height="103px"
             className="Profile_Photo"
-            referrerPolicy="no-referrer"
-            crossOrigin="anonymous"
           />
     </div>
   )

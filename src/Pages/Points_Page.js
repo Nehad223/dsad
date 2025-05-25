@@ -11,18 +11,15 @@ const Points_Page = () => {
   const [dataPoints, setDataPoints] = useState([]);
   const [points, setPoints] = useState();
   const { userData } = useCart();
-  const [photoUrl, setPhotoUrl] = useState(null);
+  const [photoUrl, setPhotoUrl] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-      const resPh=await axios.get(`https://market-cwgu.onrender.com/bot/getphoto/${userData.id}/`);
-        const response = await axios.get(
+       const response = await axios.get(
           "https://market-cwgu.onrender.com/getpointitems/"
         );
-        console.log("Fetched data:", response.data);
         setDataPoints(Object.values(response.data)); 
-        setPhotoUrl(resPh)
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -35,10 +32,13 @@ const Points_Page = () => {
     const fetchPoints = async () => {
       if (!userData?.id) return; 
       try {
+              const resPh=await axios.get(`https://market-cwgu.onrender.com/bot/getphoto/${userData.id}/`);
         const response = await axios.get(
           `https://market-cwgu.onrender.com/bot/getpoints/${userData.id}/`
         );
         setPoints(Object.values(response.data)); 
+        setPhotoUrl(resPh.data);
+
       } catch (error) {
         console.error(error);
       }
@@ -59,12 +59,13 @@ const Points_Page = () => {
     <div className="out">
       <div className="in1_Profile">
         <Logo_Img class={"Logo_in1_Profile"} />
-        {photoUrl && <Profile_Img src={photoUrl} />}
+        {photoUrl && <Profile_Img src={photoUrl.photo_url} />}
       </div>
       <div className="in2">
         <div className="inf_Points mb-2">
           <h1 className="mt-5">
             {userData?.first_name} {userData?.last_name || ""}
+
           </h1>
           <p>{userData?.id} (ID Num)</p>
           {points !== undefined && <Points_Number points={points} title="عدد النقاط" />}
