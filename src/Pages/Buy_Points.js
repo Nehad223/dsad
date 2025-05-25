@@ -18,7 +18,7 @@ useEffect(()=>{
       const resPh=axios.get(`https://market-cwgu.onrender.com/bot/getphoto/${id}/`)
       const res=await axios.get(`https://market-cwgu.onrender.com/pointitem/${id}/`);
       setData(res.data);
-      setresPh(resPh.data);
+      usePhoto(resPh.data);
     }
     catch(err){
       console.log(err);
