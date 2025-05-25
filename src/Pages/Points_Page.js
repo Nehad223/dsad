@@ -16,11 +16,13 @@ const Points_Page = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+      const resPh=await axios.get(`https://market-cwgu.onrender.com/bot/getphoto/${id}/`);
         const response = await axios.get(
           "https://market-cwgu.onrender.com/getpointitems/"
         );
         console.log("Fetched data:", response.data);
         setDataPoints(Object.values(response.data)); 
+        setPhotoUrl(resPh)
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -51,18 +53,6 @@ const Points_Page = () => {
 
 
   }, []);
-
-useEffect(() => {
-  const user = window.Telegram?.WebApp?.initDataUnsafe?.user;
-  if (user?.photo_url) {
-    setPhotoUrl(user.photo_url);
-  }
-}, []);
-
-useEffect(() => {
-  console.log("photoUrl changed:", photoUrl);
-}, [photoUrl]);
-
 
 
   return (
