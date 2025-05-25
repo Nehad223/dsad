@@ -9,13 +9,16 @@ import axios from 'axios';
 const Buy_Points = () => {
   const parmas=useParams();
   const id=parmas.id;
+  const [photo,usePhoto]=useState(null)
 const [data,setData]=useState({});
   TelegramBackButton();
 useEffect(()=>{
   const fetch=async ()=>{
     try{
+      const resPh=axios.get(`https://market-cwgu.onrender.com/bot/getphoto/${id}/`)
       const res=await axios.get(`https://market-cwgu.onrender.com/pointitem/${id}/`);
       setData(res.data);
+      setresPh(resPh.data);
     }
     catch(err){
       console.log(err);
@@ -31,10 +34,10 @@ useEffect(()=>{
    
     <div className='Buy_Points'>
       <div className='Img'>
-        {data.photo && ( <img src={`https://res.cloudinary.com/dgocqho3b/${data.photo}`}/>)}
+        {photo && ( <img src={`https://res.cloudinary.com/dgocqho3b/${photo}`}/>)}
         
          </div>
-       {data.photo && (        <div className='in_Buy_Points mt-5'>
+       {photo && (        <div className='in_Buy_Points mt-5'>
           <Points_Number title={data.name} points={data.points}  />
           <Form/>
 
