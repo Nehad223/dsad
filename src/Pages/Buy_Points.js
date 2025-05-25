@@ -35,7 +35,7 @@ useEffect(()=>{
         {data.photo && ( <img src={`https://res.cloudinary.com/dgocqho3b/${data.photo}`}/>)}
         
          </div>
-       {photo && (        <div className='in_Buy_Points mt-5'>
+       {data.photo && (        <div className='in_Buy_Points mt-5'>
           <Points_Number title={data.name} points={data.points}  />
           <Form/>
 
