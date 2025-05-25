@@ -9,16 +9,16 @@ import axios from 'axios';
 const Buy_Points = () => {
   const parmas=useParams();
   const id=parmas.id;
-  const [photo,usePhoto]=useState(null)
+  const [photo,setPhoto]=useState(null)
 const [data,setData]=useState({});
   TelegramBackButton();
 useEffect(()=>{
   const fetch=async ()=>{
     try{
-      const resPh=axios.get(`https://market-cwgu.onrender.com/bot/getphoto/${id}/`)
+      const resPh=await axios.get(`https://market-cwgu.onrender.com/bot/getphoto/${id}/`)
       const res=await axios.get(`https://market-cwgu.onrender.com/pointitem/${id}/`);
       setData(res.data);
-      usePhoto(resPh.data);
+      setPhoto(resPh.data);
     }
     catch(err){
       console.log(err);
