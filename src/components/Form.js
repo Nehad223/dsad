@@ -21,21 +21,17 @@ const Form = (props) => {
   const [errors, setErrors] = useState({ name: "", phone_number: "", address: "" });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    if (name === "phone_number") {
-      if (!/^[0-9]*$/.test(value)) return; 
-      if (value.length > 9) return; 
-    }
-   setFormData({
-  ...formData,
-  point_items: [{
-    ...formData.point_items[0],
-    quantity: newQuantity
-  }]
-});
+const handleChange = (event) => {
+  const { name, value } = event.target;
 
-  };
+  if (name === "phone_number") {
+    if (!/^[0-9]*$/.test(value)) return; 
+    if (value.length > 9) return; 
+  }
+
+  setFormData({ ...formData, [name]: value });
+};
+
 
   const validateForm = () => {
     let newErrors = { name: "", phone_number: "", address: "" };
@@ -64,9 +60,16 @@ const handleSubmit = (event) => {
 };
 
 
-  const handleQuantityChange = (newQuantity) => {
-    setFormData({ ...formData, quantity: newQuantity });
-  };
+const handleQuantityChange = (newQuantity) => {
+  setFormData({
+    ...formData,
+    point_items: [{
+      ...formData.point_items[0],
+      quantity: newQuantity
+    }]
+  });
+};
+
 
   return (
     <div>
