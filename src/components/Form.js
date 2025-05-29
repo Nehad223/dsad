@@ -52,7 +52,7 @@ const handleChange = (event) => {
 const handleSubmit = async (event) => {
   event.preventDefault(); 
   setSubmitted(true);
-  console.log(response.data);
+  console.log(formData);
   if (!validateForm()) return;
 
   try {
