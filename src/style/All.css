@@ -988,7 +988,7 @@ font-size: 13px;
 }
 
 /* الطبقة اللي فوق */
-.form-overlay {
+.form-overlay,.form-overlay2 {
   position: fixed;
   top: 0;
   left: 0;
@@ -1001,7 +1001,11 @@ font-size: 13px;
   align-items: end;
   z-index: 1000;
 }
-
+.form-overlay2{
+  top:50%;
+  left: 50%;
+  
+}
 /* صندوق الفورم */
 .form-box {
   padding: 10px 20px;
