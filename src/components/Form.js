@@ -160,19 +160,19 @@ const Form = (props) => {
       </form>
 
       {confirmStage && (
- <div className="form-overlay2">
+  <div className="form-overlay2">
           <div className="bg-white p-6 rounded-2xl shadow-xl flex space-x-4 ">
             <h1>تأكيد عملية الشراء</h1>
             <button
               type="button"
-              className="btn btn-success mx-5"
+              className="btn btn-success mx-4 mt-3"
               onClick={handleConfirm}
             >
               تأكيد
             </button>
             <button
               type="button"
-              className="btn btn-danger mx-5"
+              className="btn btn-danger mx-4 mt-3"
               onClick={handleCancel}
             >
               إلغاء
