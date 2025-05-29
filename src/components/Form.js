@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Cart_point from './Cart_Point';
 import { useNavigate } from "react-router-dom";
 import { useCart } from '../context/CartContext';
@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Form = (props) => {
   const navigate = useNavigate();
   const { userData } = useCart();
-
+  const[points,setPoints]=useState();
   const [formData, setFormData] = useState({
     profile_id: userData.id,
     active_type: "point",
@@ -64,8 +64,8 @@ const Form = (props) => {
     if (!validateForm()) return;
 
    
-    const requiredPoints = formData.point_items[0].quantity;
-    if (userData.points < requiredPoints) {
+    const requiredPoints = formData.point_items[0].quantity*props.points;
+    if (points < requiredPoints) {
       toast.error(" نقاطك غير كافية لإتمام عملية الشراء");
       return;
     }
@@ -75,13 +75,32 @@ const Form = (props) => {
         'https://market-cwgu.onrender.com/createorder/',
         formData
       );
-      toast.success("تم ارسال الطلب بنجاح");
-      navigate('/dsad/home');
+     toast.success("تم ارسال الطلب بنجاح");
+setTimeout(() => {
+  navigate('/dsad/home');
+}, 1500); // يعطي التوست وقت يبين
+
     } catch (error) {
       console.error(error);
       toast.error("حصل خطأ أثناء ارسال الطلب، الرجاء المحاولة لاحقاً");
     }
+
   };
+   useEffect(() => {
+      const fetchPoints = async () => {
+        if (!userData?.id) return; 
+        try {
+          const response = await axios.get(
+            `https://market-cwgu.onrender.com/bot/getpoints/${userData.id}/`
+          );
+          setPoints(Object.values(response.data)); 
+  
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      fetchPoints();
+    }, [userData]);
 
   return (
     <div>

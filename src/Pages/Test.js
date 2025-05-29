@@ -1,31 +1,23 @@
-import React from 'react';
-import Logo_Img from '../components/Logo_Img';
-import Dashboard from '../components/Dashboard';
-import { useEffect } from 'react';
-import TotalPrice_btn from '../components/TotalPrice_btn';
-import Item_Cart from '../components/item_Cart';
-import Test3 from './Test3'
+import React, { useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Test = () => {
+  useEffect(() => {
+    document.documentElement.style.setProperty("--main", "white");
+  }, []);
 
-    useEffect(() => {
-      document.documentElement.style.setProperty("--main", "white");
-    }, []);
+  const DD = () => {
+          toast.error(" نقاطك غير كافية لإتمام عملية الشراء");
+    
+  };
+
   return (
     <div>
-          <div className="out">
-      <div className="in1">
-        <Logo_Img class="Logo_in1" />
-      </div>
-      <div className="in_Cart">
-        <TotalPrice_btn/>
-        <Item_Cart/>
-      </div>
-      
-      <Dashboard />
+      <button onClick={DD}>gg</button>
+      <ToastContainer rtl position="top-center" autoClose={3000} />
     </div>
-    </div>
-  )
-}
+  );
+};
 
-export default Test
+export default Test;

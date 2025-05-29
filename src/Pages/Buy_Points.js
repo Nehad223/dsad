@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import Form from '../components/Form';
 import { useParams } from 'react-router-dom';
 import TelegramBackButton from '../components/Tele_Back_Btn';
+import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 const Buy_Points = () => {
   const parmas=useParams();
@@ -13,6 +14,7 @@ const Buy_Points = () => {
 const [data,setData]=useState({});
   TelegramBackButton();
 useEffect(()=>{
+  
   const fetch=async ()=>{
     try{
       const res=await axios.get(`https://market-cwgu.onrender.com/pointitem/${id}/`);
@@ -37,7 +39,7 @@ useEffect(()=>{
          </div>
        {data.photo && (        <div className='in_Buy_Points mt-5'>
           <Points_Number title={data.name} points={data.points}  />
-          <Form id_item={id}/>
+          <Form id_item={id} points={data.points}/>
 
         </div>)}
 
