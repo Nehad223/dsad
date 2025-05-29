@@ -49,14 +49,21 @@ const handleChange = (event) => {
     return !Object.values(newErrors).some((error) => error);
   };
 
-const handleSubmit = (event) => {
+const handleSubmit = async (event) => {
   event.preventDefault(); 
   setSubmitted(true);
   
   if (!validateForm()) return;
-  
-  console.log(formData);
-  navigate('/dsad/home');
+
+  try {
+    const response = await axios.post('https://market-cwgu.onrender.com/createorder/', formData);
+    console.log(response.data);
+    
+    navigate('/dsad/home');
+  } catch (error) {
+    console.error('حدث خطأ أثناء الإرسال:', error);
+    
+  }
 };
 
 
@@ -86,7 +93,7 @@ const handleQuantityChange = (newQuantity) => {
         {submitted && errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
        
         <h1>رقم الموبايل</h1>
-        <div className="phone__Num">
+        <div className="phone_Num">
           <span>+963</span>
           <input
             type="text"
