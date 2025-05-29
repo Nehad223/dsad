@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Cart_point from './Cart_Point';
 import { useNavigate } from "react-router-dom";
 import { useCart } from '../context/CartContext';
@@ -9,13 +9,13 @@ import 'react-toastify/dist/ReactToastify.css';
 const Form = (props) => {
   const navigate = useNavigate();
   const { userData } = useCart();
-  const[points,setPoints]=useState();
+  const [points, setPoints] = useState();
   const [formData, setFormData] = useState({
     profile_id: userData.id,
     active_type: "point",
     point_items: [{
       point_item_id: props.id_item,
-      quantity: 1, 
+      quantity: 1,
     }],
     name: "",
     phone_number: "",
@@ -23,6 +23,7 @@ const Form = (props) => {
   });
   const [errors, setErrors] = useState({ name: "", phone_number: "", address: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [confirmStage, setConfirmStage] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -56,56 +57,62 @@ const Form = (props) => {
     });
   };
 
-  const handleSubmit = async (event) => {
+  // initial click handler
+  const handleInitialClick = (event) => {
     event.preventDefault();
     setSubmitted(true);
-
-    
     if (!validateForm()) return;
+    setConfirmStage(true);
+  };
 
-   
-    const requiredPoints = formData.point_items[0].quantity*props.points;
+  const handleConfirm = async () => {
+    const requiredPoints = formData.point_items[0].quantity * props.points;
     if (points < requiredPoints) {
-      toast.error(" نقاطك غير كافية لإتمام عملية الشراء");
+      toast.error("نقاطك غير كافية لإتمام عملية الشراء");
+      setConfirmStage(false);
       return;
     }
 
     try {
-      const response = await axios.post(
+      await axios.post(
         'https://market-cwgu.onrender.com/createorder/',
         formData
       );
-     toast.success("تم ارسال الطلب بنجاح");
-setTimeout(() => {
-  navigate('/dsad/home');
-}, 1500); // يعطي التوست وقت يبين
-
+      toast.success("تم ارسال الطلب بنجاح");
+      setConfirmStage(false);
+      setTimeout(() => {
+        navigate('/dsad/home');
+      }, 1500);
     } catch (error) {
       console.error(error);
       toast.error("حصل خطأ أثناء ارسال الطلب، الرجاء المحاولة لاحقاً");
+      setConfirmStage(false);
     }
-
   };
-   useEffect(() => {
-      const fetchPoints = async () => {
-        if (!userData?.id) return; 
-        try {
-          const response = await axios.get(
-            `https://market-cwgu.onrender.com/bot/getpoints/${userData.id}/`
-          );
-          setPoints(Object.values(response.data)); 
-  
-        } catch (error) {
-          console.error(error);
-        }
-      };
-      fetchPoints();
-    }, [userData]);
+
+  const handleCancel = () => {
+    setConfirmStage(false);
+  };
+
+  useEffect(() => {
+    const fetchPoints = async () => {
+      if (!userData?.id) return;
+      try {
+        const response = await axios.get(
+          `https://market-cwgu.onrender.com/bot/getpoints/${userData.id}/`
+        );
+        setPoints(Object.values(response.data));
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchPoints();
+  }, [userData]);
 
   return (
     <div>
       <ToastContainer rtl position="top-center" autoClose={3000} />
-      <form onSubmit={handleSubmit}>
+      <form>
         <h1>الاسم الكامل</h1>
         <input
           type="text"
@@ -147,7 +154,14 @@ setTimeout(() => {
             quantity={formData.point_items[0].quantity}
             setQuantity={handleQuantityChange}
           />
-          <button className="submit" type="submit">شراء</button>
+          {!confirmStage ? (
+            <button className="submit" onClick={handleInitialClick}>شراء</button>
+          ) : (
+            <>
+              <button type="button" className="confirm-btn" onClick={handleConfirm}>تأكيد</button>
+              <button type="button" className="cancel-btn" onClick={handleCancel}>إلغاء</button>
+            </>
+          )}
         </div>
       </form>
     </div>
