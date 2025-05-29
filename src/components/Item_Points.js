@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import LazyImage from './LazyImage';
 const Item_Points = (props) => {
     const navigate=useNavigate();
 const Go_To_Item=()=>{
@@ -8,9 +9,10 @@ const Go_To_Item=()=>{
     <div onClick={Go_To_Item}>
           <div className="Item_Package" >
           
-               <img
+      <LazyImage
+        className='Item_Image'
         src={`https://res.cloudinary.com/dgocqho3b/${props.items.photo}`}
-        className="Item_Image"
+        alt={props.items.name}
       />
         
 

@@ -20,7 +20,8 @@ const Item_Cart = () => {
                 <Add_sub id={id} quantity={item.quantity} />
               </div>
               <div className='col-7 text_grid'>
-                <h1>{item.name}</h1>
+              {item.type === 'packages' ? <h1>بكج {item.name}</h1> : <h1>{item.name}</h1>}
+   
                 <p>عدد {item.quantity}</p>
               </div>
             </div>

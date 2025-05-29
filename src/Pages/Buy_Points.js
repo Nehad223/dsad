@@ -37,7 +37,7 @@ useEffect(()=>{
          </div>
        {data.photo && (        <div className='in_Buy_Points mt-5'>
           <Points_Number title={data.name} points={data.points}  />
-          <Form/>
+          <Form id_item={id}/>
 
         </div>)}
 

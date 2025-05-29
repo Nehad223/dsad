@@ -7,14 +7,12 @@ const Item = (props) => {
 const Go_To_Item=()=>{
   navigate(`buy/items/${props.item.id}`)
 }
-const x=100000000;
   return (
     <div className='Item' onClick={Go_To_Item}>
       <LazyImage
         className='Item_Image'
         src={`https://res.cloudinary.com/dgocqho3b/${props.item.photo}`}
         alt={props.item.name}
-        placeholder={logo}
       />
       <div className='Item_inf'>
         <h5 className='Item_Name'>{props.item.name}</h5>

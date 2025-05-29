@@ -1,50 +1,68 @@
 import React, { useState } from "react";
 import Cart_point from './Cart_Point';
 import { useNavigate } from "react-router-dom";
-const Form = () => {
+import { useCart } from '../context/CartContext';
+
+const Form = (props) => {
   const navigate=useNavigate();
+    const { userData } = useCart();
   const [formData, setFormData] = useState({
-    fullName: "",
-    phone: "",
+    profile_id:userData.id,
+    active_type: "point",
+    point_items:[{
+      point_item_id:props.id,
+      quantity: 1, 
+    }],
+    name: "",
+  phone_number: "",
     address: "",
-    quantity: 1, 
+    
   });
-  const [errors, setErrors] = useState({ fullName: "", phone: "", address: "" });
+  const [errors, setErrors] = useState({ name: "", phone_number: "", address: "" });
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    if (name === "phone") {
+    if (name === "phone_number") {
       if (!/^[0-9]*$/.test(value)) return; 
       if (value.length > 9) return; 
     }
-    setFormData({ ...formData, [name]: value });
+   setFormData({
+  ...formData,
+  point_items: [{
+    ...formData.point_items[0],
+    quantity: newQuantity
+  }]
+});
+
   };
 
   const validateForm = () => {
-    let newErrors = { fullName: "", phone: "", address: "" };
-    const nameRegex = /^[a-zA-Z؀-ۿ]{3,}$/; 
+    let newErrors = { name: "", phone_number: "", address: "" };
+    const nameRegex = /^[\u0600-\u06FFa-zA-Z\s]{3,}$/;
     
-    if (!formData.fullName || !nameRegex.test(formData.fullName)) 
-      newErrors.fullName = "يرجى ادخال 3 أحرف على الأقل بدون أرقام أو رموز";
+    if (!formData.name || !nameRegex.test(formData.name)) 
+      newErrors.name = "يرجى ادخال 3 أحرف على الأقل بدون أرقام أو رموز";
     
     if (!formData.address || !nameRegex.test(formData.address)) 
       newErrors.address ="يرجى ادخال 3 أحرف على الأقل بدون أرقام أو رموز";
-    if (!formData.phone || formData.phone.length !== 9) 
-      newErrors.phone = "يرجى ادخال رقم موبايل صالح";
+    if (!formData.phone_number || formData.phone_number.length !== 9) 
+      newErrors.phone_number = "يرجى ادخال رقم موبايل صالح";
     
     setErrors(newErrors);
     return !Object.values(newErrors).some((error) => error);
   };
 
-  const handleSubmit = (event) => {
-    navigate('/dsad/home');
-    event.preventDefault(); 
-    setSubmitted(true);
-    
-    if (!validateForm()) return;
-    console.log(formData);
-  };
+const handleSubmit = (event) => {
+  event.preventDefault(); 
+  setSubmitted(true);
+  
+  if (!validateForm()) return;
+  
+  console.log(formData);
+  navigate('/dsad/home');
+};
+
 
   const handleQuantityChange = (newQuantity) => {
     setFormData({ ...formData, quantity: newQuantity });
@@ -56,27 +74,27 @@ const Form = () => {
         <h1>الاسم الكامل</h1>
         <input
           type="text"
-          name="fullName"
+          name="name"
           placeholder="أدخل الاسم"
-          value={formData.fullName}
+          value={formData.name}
           onChange={handleChange}
           required
         />
-        {submitted && errors.fullName && <p style={{ color: "red" }}>{errors.fullName}</p>}
+        {submitted && errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
        
         <h1>رقم الموبايل</h1>
-        <div className="phone_Num">
+        <div className="phone__Num">
           <span>+963</span>
           <input
             type="text"
-            name="phone"
+            name="phone_number"
             placeholder="رقم الموبايل"
-            value={formData.phone}
+            value={formData.phone_number}
             onChange={handleChange}
             required
           />
         </div>
-        {submitted && errors.phone && <p style={{ color: "red" }}>{errors.phone}</p>}
+        {submitted && errors.phone_number && <p style={{ color: "red" }}>{errors.phone_number}</p>}
         
         <h1>العنوان</h1>
         <input
@@ -90,7 +108,7 @@ const Form = () => {
         {submitted && errors.address && <p style={{ color: "red" }}>{errors.address}</p>}
         
         <div className="ff">
-          <Cart_point quantity={formData.quantity} setQuantity={handleQuantityChange} />
+          <Cart_point quantity={formData.point_items[0].quantity} setQuantity={handleQuantityChange} />
           <button className="submit" type="submit">شراء</button>
         </div>
       </form>

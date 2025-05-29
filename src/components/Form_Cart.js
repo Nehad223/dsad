@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 const Form = () => {
   const navigate=useNavigate();
   const [formData, setFormData] = useState({
-    fullName: "",
+name: "",
     phone: "",
     address: "", 
   });
-  const [errors, setErrors] = useState({ fullName: "", phone: "", address: "" });
+  const [errors, setErrors] = useState({ name: "", phone: "", address: "" });
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (event) => {
@@ -21,11 +21,11 @@ const Form = () => {
   };
 
   const validateForm = () => {
-    let newErrors = { fullName: "", phone: "", address: "" };
+    let newErrors = { name: "", phone: "", address: "" };
     const nameRegex = /^[a-zA-Z؀-ۿ]{3,}$/; 
     
-    if (!formData.fullName || !nameRegex.test(formData.fullName)) 
-      newErrors.fullName = "يرجى ادخال 3 أحرف على الأقل بدون أرقام أو رموز";
+    if (!formData.name || !nameRegex.test(formData.name)) 
+      newErrors.name = "يرجى ادخال 3 أحرف على الأقل بدون أرقام أو رموز";
     
     if (!formData.address || !nameRegex.test(formData.address)) 
       newErrors.address ="يرجى ادخال 3 أحرف على الأقل بدون أرقام أو رموز";
@@ -53,13 +53,13 @@ const Form = () => {
         <h1>الاسم الكامل</h1>
         <input
           type="text"
-          name="fullName"
+          name="name"
           placeholder="أدخل الاسم"
-          value={formData.fullName}
+          value={formData.name}
           onChange={handleChange}
           required
         />
-        {submitted && errors.fullName && <p style={{ color: "red" }}>{errors.fullName}</p>}
+        {submitted && errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
        
         <h1>رقم الموبايل</h1>
         <div className="phone_Num">
