@@ -52,7 +52,6 @@ const handleChange = (event) => {
 const handleSubmit = async (event) => {
   event.preventDefault(); 
   setSubmitted(true);
-  console.log(formData);
   if (!validateForm()) return;
 
   try {
@@ -61,6 +60,9 @@ const handleSubmit = async (event) => {
     navigate('/dsad/home');
   } catch (error) {
     console.error(error);
+    console.log(formData);
+     console.log("data",userData);
+     console.log(props.id)
     
   }
 };
