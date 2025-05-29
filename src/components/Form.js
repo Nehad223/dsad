@@ -162,6 +162,7 @@ const Form = (props) => {
       {confirmStage && (
  <div className="form-overlay2">
           <div className="bg-white p-6 rounded-2xl shadow-xl flex space-x-4 ">
+            <h1>تأكيد عملية الشراء</h1>
             <button
               type="button"
               className="btn btn-success mx-5"
