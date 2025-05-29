@@ -111,7 +111,7 @@ const Form = (props) => {
   return (
     <div>
       <ToastContainer rtl position="top-center" autoClose={3000} />
-      <form>
+      <form className={`${confirmStage ? 'blurred' : ''}`}>
         <h1>الاسم الكامل</h1>
         <input
           type="text"
@@ -164,14 +164,14 @@ const Form = (props) => {
           <div className="bg-white p-6 rounded-2xl shadow-xl flex space-x-4">
             <button
               type="button"
-              className="submit confirm-btn"
+              className="btn btn-success"
               onClick={handleConfirm}
             >
               تأكيد
             </button>
             <button
               type="button"
-              className="submit cancel-btn"
+              className="btn btn-danger"
               onClick={handleCancel}
             >
               إلغاء
