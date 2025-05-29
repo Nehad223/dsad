@@ -57,7 +57,6 @@ const Form = (props) => {
     });
   };
 
-  // initial click handler
   const handleInitialClick = (event) => {
     event.preventDefault();
     setSubmitted(true);
@@ -156,14 +155,30 @@ const Form = (props) => {
           />
           {!confirmStage ? (
             <button className="submit" onClick={handleInitialClick}>شراء</button>
-          ) : (
-            <>
-              <button type="button" className="confirm-btn" onClick={handleConfirm}>تأكيد</button>
-              <button type="button" className="cancel-btn" onClick={handleCancel}>إلغاء</button>
-            </>
-          )}
+          ) : null}
         </div>
       </form>
+
+      {confirmStage && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
+          <div className="bg-white p-6 rounded-2xl shadow-xl flex space-x-4">
+            <button
+              type="button"
+              className="submit confirm-btn"
+              onClick={handleConfirm}
+            >
+              تأكيد
+            </button>
+            <button
+              type="button"
+              className="submit cancel-btn"
+              onClick={handleCancel}
+            >
+              إلغاء
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
