@@ -10,7 +10,7 @@ const Form = (props) => {
     profile_id:userData.id,
     active_type: "point",
     point_items:[{
-      point_item_id:props.id,
+      point_item_id:props.id_item,
       quantity: 1, 
     }],
     name: "",
