@@ -56,11 +56,11 @@ const handleSubmit = async (event) => {
   if (!validateForm()) return;
 
   try {
-    const response = await axios.post('https://market-cwgu.onrender.com/createorder/', formData);
-    
+    const response = await axios.post('https://market-cwgu.onrender.com/createorder/',formData);
+    console.log(response.data);
     navigate('/dsad/home');
   } catch (error) {
-    console.error('حدث خطأ أثناء الإرسال:', error);
+    console.error(error);
     
   }
 };
