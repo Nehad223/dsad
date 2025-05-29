@@ -52,12 +52,11 @@ const handleChange = (event) => {
 const handleSubmit = async (event) => {
   event.preventDefault(); 
   setSubmitted(true);
-  
+  console.log(response.data);
   if (!validateForm()) return;
 
   try {
     const response = await axios.post('https://market-cwgu.onrender.com/createorder/', formData);
-    console.log(response.data);
     
     navigate('/dsad/home');
   } catch (error) {
