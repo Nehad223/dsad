@@ -19,7 +19,7 @@ export function CartProvider({ children }) {
       ...prev,
       [item.id]: prev[item.id]
         ? { ...prev[item.id], quantity: prev[item.id].quantity + quantity, type }
-        : { name: item.name, price: item.price, quantity, photo: item.photo, type },
+        : { name: item.name, price: item.price, quantity, photo: item.photo, type,id:item.id },
     }));
   };
 

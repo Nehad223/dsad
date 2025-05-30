@@ -1,16 +1,25 @@
 import React, { useState } from "react";
 import Cart_point from './Cart_Point';
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import { useCart } from "../context/CartContext";
+import axios from "axios";
 const Form = () => {
+  const{cart,userData}=useCart();
   const navigate=useNavigate();
   const [formData, setFormData] = useState({
-name: "",
+    profile_id: 2,
+    active_type: "price",
+    items: transformItems(cart,"items"),
+    packages:transformItems(cart,"packages"),
+    name: "",
     phone: "",
     address: "", 
   });
   const [errors, setErrors] = useState({ name: "", phone: "", address: "" });
   const [submitted, setSubmitted] = useState(false);
-
+  const [confirmStage, setConfirmStage] = useState(false);
+  
   const handleChange = (event) => {
     const { name, value } = event.target;
     if (name === "phone") {
@@ -35,21 +44,67 @@ name: "",
     setErrors(newErrors);
     return !Object.values(newErrors).some((error) => error);
   };
+function transformItems(cartDict, type) {
+  const items = [];
 
-  const handleSubmit = (event) => {
-    navigate('/dsad/home');
-    event.preventDefault(); 
-    setSubmitted(true);
-    
+  for (const key in cartDict) {
+    const item = cartDict[key];
+    if (item.type === type) {
+      items.push({
+        [`${type.slice(0, -1)}_id`]: item.id,
+        quantity: item.quantity
+      });
+    }
+  }
+
+  return items;
+}
+
+
+
+  const handleConfirm = async () => {
+     console.log(cart);
     if (!validateForm()) return;
     console.log(formData);
+       try {
+      await axios.post(
+        'https://market-cwgu.onrender.com/createorder/',
+        formData
+      );
+      toast.success("تم ارسال الطلب بنجاح");
+      setConfirmStage(false);
+      setSubmitted(false);
+
+      setTimeout(() => {
+        navigate('/dsad/home');
+      }, 1500);
+    } catch (error) {
+      console.error(error);
+      toast.error("حصل خطأ أثناء ارسال الطلب، الرجاء المحاولة لاحقاً");
+      setConfirmStage(false);
+    }
+
+    }
+
+
+  const handleSubmit =async(event) => {
+
+
+    event.preventDefault(); 
+    setConfirmStage(true);
+    setSubmitted(true);
+    
+    
   };
 
-
+  const handleCancel = () => {
+    setConfirmStage(false);
+    setSubmitted(false);
+  };
 
   return (
     <div className="form-box">
-      <form onSubmit={handleSubmit} className="mt-4">
+      <form onSubmit={handleSubmit}  className={`mt-4 ${confirmStage ? 'blurred' : ''}`}>
         <h1>الاسم الكامل</h1>
         <input
           type="text"
@@ -90,6 +145,27 @@ name: "",
           <button className="oreder_btn_cart  mx-4" type="submit">شراء</button>
         </div>
       </form>
+                 {confirmStage && (
+  <div className="form-overlay2">
+          <div className="bg-white p-6 rounded-2xl shadow-xl flex space-x-4 ">
+            <h1 className="Confirm_Buy_Text">تأكيد عملية الشراء</h1>
+            <button
+              type="button"
+              className="btn btn-success mx-4 mt-3"
+              onClick={handleConfirm}
+            >
+              تأكيد
+            </button>
+            <button
+              type="button"
+              className=" btn btn-danger mx-4 mt-3"
+              onClick={handleCancel}
+            >
+              إلغاء
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
