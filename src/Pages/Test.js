@@ -139,10 +139,10 @@ const Test = (props) => {
         </div>
       </form>
 
-      {confirmStage && (
- <div className="form-overlay2">
+           {confirmStage && (
+  <div className="form-overlay2">
           <div className="bg-white p-6 rounded-2xl shadow-xl flex space-x-4 ">
-            <h1 className="confirm_But_Text">تأكيد عملية الشراء</h1>
+            <h1 className="Confirm_Buy_Text">تأكيد عملية الشراء</h1>
             <button
               type="button"
               className="btn btn-success mx-4 mt-3"
@@ -152,7 +152,7 @@ const Test = (props) => {
             </button>
             <button
               type="button"
-              className="btn btn-danger mx-4 mt-3"
+              className=" btn btn-danger mx-4 mt-3"
               onClick={handleCancel}
             >
               إلغاء
