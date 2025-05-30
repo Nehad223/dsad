@@ -8,21 +8,21 @@ const Form = () => {
   const{cart,userData}=useCart();
   const navigate=useNavigate();
   const [formData, setFormData] = useState({
-    profile_id: 2,
+    profile_id: 1345963635,
     active_type: "price",
     items: transformItems(cart,"items"),
     packages:transformItems(cart,"packages"),
     name: "",
-    phone: "",
+    phone_number: "",
     address: "", 
   });
-  const [errors, setErrors] = useState({ name: "", phone: "", address: "" });
+  const [errors, setErrors] = useState({ name: "", phone_number: "", address: "" });
   const [submitted, setSubmitted] = useState(false);
   const [confirmStage, setConfirmStage] = useState(false);
   
   const handleChange = (event) => {
     const { name, value } = event.target;
-    if (name === "phone") {
+    if (name === "phone_number") {
       if (!/^[0-9]*$/.test(value)) return; 
       if (value.length > 9) return; 
     }
@@ -30,7 +30,7 @@ const Form = () => {
   };
 
   const validateForm = () => {
-    let newErrors = { name: "", phone: "", address: "" };
+    let newErrors = { name: "", phone_number: "", address: "" };
     const nameRegex = /^[a-zA-Z؀-ۿ]{3,}$/; 
     
     if (!formData.name || !nameRegex.test(formData.name)) 
@@ -38,8 +38,8 @@ const Form = () => {
     
     if (!formData.address || !nameRegex.test(formData.address)) 
       newErrors.address ="يرجى ادخال 3 أحرف على الأقل بدون أرقام أو رموز";
-    if (!formData.phone || formData.phone.length !== 9) 
-      newErrors.phone = "يرجى ادخال رقم موبايل صالح";
+    if (!formData.phone_number || formData.phone_number.length !== 9) 
+      newErrors.phone_number = "يرجى ادخال رقم موبايل صالح";
     
     setErrors(newErrors);
     return !Object.values(newErrors).some((error) => error);
@@ -104,6 +104,7 @@ function transformItems(cartDict, type) {
 
   return (
     <div className="form-box">
+          <ToastContainer rtl position="top-center" autoClose={3000} />
       <form onSubmit={handleSubmit}  className={`mt-4 ${confirmStage ? 'blurred' : ''}`}>
         <h1>الاسم الكامل</h1>
         <input
@@ -121,14 +122,14 @@ function transformItems(cartDict, type) {
           <span>+963</span>
           <input
             type="text"
-            name="phone"
+            name="phone_number"
             placeholder="رقم الموبايل"
-            value={formData.phone}
+            value={formData.phone_number}
             onChange={handleChange}
             required
           />
         </div>
-        {submitted && errors.phone && <p style={{ color: "red" }}>{errors.phone}</p>}
+        {submitted && errors.phone_number && <p style={{ color: "red" }}>{errors.phone_number}</p>}
         
         <h1>العنوان</h1>
         <input

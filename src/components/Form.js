@@ -80,7 +80,7 @@ const Form = (props) => {
       toast.success("تم ارسال الطلب بنجاح");
       setConfirmStage(false);
       setTimeout(() => {
-        navigate('/dsad/home');
+        navigate('/dsad/profile');
       }, 1500);
     } catch (error) {
       console.error(error);
