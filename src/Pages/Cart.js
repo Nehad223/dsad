@@ -4,7 +4,7 @@ import Dashboard from '../components/Dashboard';
 import TotalPrice_btn from '../components/TotalPrice_btn';
 import Item_Cart from '../components/item_Cart';
 import Form_Cart from '../components/Form_Cart';
-import Form from '../components/Form';
+import TelegramBackButton from "../components/Tele_Back_Btn";
 
 const Cart = () => {
   const [showForm, setShowForm] = useState(false);
@@ -12,6 +12,7 @@ const Cart = () => {
   useEffect(() => {
     document.documentElement.style.setProperty('--main', 'white');
   }, []);
+  TelegramBackButton();
 
   return (
     <div>
