@@ -79,9 +79,7 @@ const Form = (props) => {
       );
       toast.success("تم ارسال الطلب بنجاح");
       setConfirmStage(false);
-      setTimeout(() => {
         navigate('/dsad/home');
-      }, 100);
     } catch (error) {
       console.error(error);
       toast.error("حصل خطأ أثناء ارسال الطلب، الرجاء المحاولة لاحقاً");
