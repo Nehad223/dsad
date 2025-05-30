@@ -1036,8 +1036,8 @@ margin-top: 10px;
   color: #282A37;
 }
 .Confirm_Buy_Text{
-  font-size: 30px;
-  text-align: center;
+  font-size: 30px !important;
+  text-align: center !important;
   font-family: "Almarai", sans-serif;
   font-weight: 700;
 }
