@@ -1035,7 +1035,9 @@ margin-top: 10px;
   font-size: 14px;
   color: #282A37;
 }
-.sdds{
+.Confirm_Buy_Text{
   font-size: 30px;
   text-align: center;
+  font-family: "Almarai", sans-serif;
+  font-weight: 700;
 }
