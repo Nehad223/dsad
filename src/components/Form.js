@@ -78,8 +78,9 @@ const Form = (props) => {
         formData
       );
       toast.success("تم ارسال الطلب بنجاح");
-      setConfirmStage(false);
+              setTimeout(() => {
         navigate('/dsad/home');
+      }, 1500);
     } catch (error) {
       console.error(error);
       toast.error("حصل خطأ أثناء ارسال الطلب، الرجاء المحاولة لاحقاً");
@@ -93,6 +94,7 @@ const Form = (props) => {
 
   useEffect(() => {
     const fetchPoints = async () => {
+
       if (!userData?.id) return;
       try {
         const response = await axios.get(
@@ -104,6 +106,8 @@ const Form = (props) => {
       }
     };
     fetchPoints();
+    setConfirmStage(false);
+
   }, [userData]);
 
   return (

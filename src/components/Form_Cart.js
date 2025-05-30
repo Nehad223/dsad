@@ -94,7 +94,6 @@ function transformItems(cartDict, type) {
     setConfirmStage(true);
     setSubmitted(true);
     
-    
   };
 
   const handleCancel = () => {
