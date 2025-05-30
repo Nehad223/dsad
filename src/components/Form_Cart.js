@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Cart_point from './Cart_Point';
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
@@ -72,8 +72,7 @@ function transformItems(cartDict, type) {
         formData
       );
       toast.success("تم ارسال الطلب بنجاح");
-      setConfirmStage(false);
-      setSubmitted(false);
+
 
       setTimeout(() => {
         navigate('/dsad/home');
@@ -100,6 +99,8 @@ function transformItems(cartDict, type) {
     setConfirmStage(false);
     setSubmitted(false);
   };
+  useEffect(()=>{ setConfirmStage(false);
+      setSubmitted(false);},[])
 
   return (
     <div className="form-box">
