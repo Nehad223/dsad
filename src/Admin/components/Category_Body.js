@@ -71,7 +71,7 @@ const Category_Body = () => {
         setValue={setDescription}
       />
       <Selector value={category_type} setValue={setType} />
-     <Btns_Del_Add/>
+     <Btn_Add onClick={handleSubmit}/>
     </div>
   )
 }
