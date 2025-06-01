@@ -8,7 +8,7 @@ const Price_input = ({ value, placeholder, setValue })  => {
     <div>
         <div className='row input mt-1'>
       <div className='col-4'></div>
-      <div className='col-5'>
+      <div className='col-4'>
         <input
           type='number'
           placeholder={placeholder}
@@ -16,7 +16,7 @@ const Price_input = ({ value, placeholder, setValue })  => {
          
         />
       </div>
-        <div className='col-3 mt-1 yy'>
+        <div className='col-1 mt-1 yy'>
           <h1 className='text'>{value}</h1>
         </div>
 
