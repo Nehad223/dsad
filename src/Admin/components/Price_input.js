@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Price_input = ({ value, placeholder, setValue })  => {
+const Price_input = ({ value, placeholder, setValue ,val_in})  => {
       const handleChange = (e) => {
-    setValue(e.target.value)
+    setValue(Number(e.target.value))
   }
   return (
     <div>
@@ -11,6 +11,7 @@ const Price_input = ({ value, placeholder, setValue })  => {
       <div className='col-4'>
         <input
           type='number'
+          value={val_in} 
           placeholder={placeholder}
           onChange={handleChange}
          

@@ -7,9 +7,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate,useParams } from 'react-router-dom';
 import Btns_Del_Add from './Btns_Del_Add';
 
-const Category_Body = () => {
+const Category_Body = ({ edit = false, olditem = {} }) => {
   const parmas=useParams();
   const catgid=parmas.catgid;
+
   const doctorOrstudent=parmas.doctorOrstudent;
   const [category, setCategory] = useState('')
   const [description, setDescription] = useState('')
@@ -17,19 +18,12 @@ const Category_Body = () => {
 
   const navigate=useNavigate();
   useEffect(() => {
-
-
-        
-        axios.get(`https://market-cwgu.onrender.com/category/${catgid}/${doctorOrstudent}`)
-            .then((response) => {
-                console.log(response.data);
-        
-            })
-            .catch((error) => {
-                console.error("Error fetching data:", error);
-
-            })
-    }, []);
+    if (edit && olditem) {
+      setCategory(olditem.name || '');
+      setDescription(olditem.description || '');
+      setType(olditem.type || 'اختر الفئة');
+    }
+  }, [edit, olditem]);
   const handleSubmit =async () => {
     if (!category.trim() || !description.trim() || !category_type.trim()) {
       alert('يرجى إدخال اسم ووصف الكاتيغوري واختيار الفئة')
@@ -55,6 +49,23 @@ const Category_Body = () => {
     setDescription('')
     setType('اختر الفئة')
   }
+  const handleDelete = async () => {
+  if (!olditem.id) return;
+
+  try {
+    const response = await axios.delete(
+      `https://market-cwgu.onrender.com/deletepointitem/${olditem.id}/`
+    );
+    console.log('Deleted:', response.data);
+
+    // تفريغ الحقول بعد الحذف
+    setDescription('');
+    setCategory('');
+    setType('اختر الفئة')
+  } catch (error) {
+    console.error('Error deleting item:', error);
+  }
+};
 
   return (
     <div className='Category_Body mt-5'>
@@ -71,7 +82,8 @@ const Category_Body = () => {
         setValue={setDescription}
       />
       <Selector value={category_type} setValue={setType} />
-     <Btn_Add onClick={handleSubmit}/>
+     {!edit?<Btn_Add onClick={handleSubmit} />:<Btns_Del_Add onClick={handleSubmit} deleteClick={handleDelete} />}
+      
     </div>
   )
 }

@@ -6,6 +6,8 @@ const Edit_catg_Body = (props) => {
   const [catges, setCatges] = useState([]);
   const [students, setStudents] = useState([]);
   const [doctors, setDoctors] = useState([]);
+  const [loading, setLoading] = useState(true); 
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,17 +22,23 @@ const Edit_catg_Body = (props) => {
         setStudents(studentItems);
         setDoctors(doctorItems);
 
-        console.log('All:', res.data);
-        console.log('طلاب:', studentItems);
-        console.log('أطباء:', doctorItems);
       } catch (err) {
         console.error(err);
       }
+             finally {
+        setLoading(false);
+      }
+      
     };
 
     fetchData();
   }, []);
-
+  if (loading) {
+    return (
+      <div>
+      </div>
+    );
+  }
   return (
 
     <div>

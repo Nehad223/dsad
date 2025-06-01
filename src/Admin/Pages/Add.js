@@ -1,6 +1,6 @@
 import React from 'react'
-import Rectangle from '../components/Rectangle'
-import Header from '../components/Header'
+import Rectangle from '../components/Rectangle';
+import Header from '../components/Header';
 const Add = () => {
   return (
     <div>

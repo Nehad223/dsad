@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Input = ({ value, placeholder, TwoWord, setValue }) => {
+const Input = ({ value, placeholder, TwoWord, val_in, setValue }) => {
   const handleChange = (e) => {
     setValue(e.target.value)
   }
@@ -12,8 +12,8 @@ const Input = ({ value, placeholder, TwoWord, setValue }) => {
         <input
           type='text'
           placeholder={placeholder}
+          value={val_in} 
           onChange={handleChange}
-         
         />
       </div>
       {TwoWord ? (
@@ -30,3 +30,4 @@ const Input = ({ value, placeholder, TwoWord, setValue }) => {
 }
 
 export default Input
+
