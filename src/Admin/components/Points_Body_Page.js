@@ -1,8 +1,14 @@
-import React from 'react'
-import '../style/Admin.css';
-const Test = (props) => {
+import React, { useState } from 'react'
+import Price_input from './Price_input'
+import Btn_Add from './Btn_Add';
+import Btn_Delete from './Delete_Btn'
+import Btns_Del_Add from './Btns_Del_Add';
+const Points_Body_Page = () => {
+    const[price,setPrice]=useState(0);
+
   return (
-  <div>
+    <div className='mt-5'>
+   <div>
         <div className='row input mt-1'>
       <div className='col-4'></div>
       <div className='col-5'>
@@ -48,12 +54,10 @@ const Test = (props) => {
     </div>
     </div>
 
+<Btn_Add/>
 
-
-
+    </div>
   )
 }
 
-export default Test
-
-
+export default Points_Body_Page
