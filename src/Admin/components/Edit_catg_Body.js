@@ -32,8 +32,9 @@ const Edit_catg_Body = (props) => {
   }, []);
 
   return (
+
     <div>
-      {students && (<h1 className='add_text mt-3'>طلاب</h1>)}
+      {catges && (<h1 className='add_text mt-3'>طلاب</h1>)}
       
       <div className='grid-container'>
 
@@ -45,7 +46,7 @@ const Edit_catg_Body = (props) => {
 
 
       </div>
-      {doctors && (<h1 className='add_text mt-1'>اطباء</h1>)}
+      {catges && (<h1 className='add_text mt-1'>اطباء</h1>)}
     
       <div className='grid-container mb-4  '>
                 {doctors.map((item, index) => (

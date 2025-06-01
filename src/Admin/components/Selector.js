@@ -3,7 +3,7 @@ import React from 'react'
 const Selector = ({ value, setValue }) => {
   return (
     <div>
-      <div className='row input mt-3'>
+      <div className='row input mt-1'>
         <div className='col-4'></div>
         <div className='col-4'>
           <select value={value} onChange={(e) => setValue(e.target.value)}>
