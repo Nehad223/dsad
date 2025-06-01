@@ -5,7 +5,7 @@ const Add_Points = () => {
   return (
     <div>
       <Header/>
-      <h1 className='add_text mt-4'> إضافة بكج</h1>
+      <h1 className='add_text mt-4'> إضافة بضاعة بنقاط</h1>
       <Points_Body/>
       
 

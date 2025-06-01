@@ -51,8 +51,8 @@ sendPoints();
         setValue={setDescription}
       />
             <Price_input
-        value={"السعر"}
-        placeholder="ادخل السعر"
+        value={"النقاط"}
+        placeholder="ادخل النقاط"
         setValue={setPrice}
       />
                         <Image_Input
