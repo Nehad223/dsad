@@ -36,7 +36,7 @@ const Points_Page = () => {
     const fetchPoints = async () => {
       if (!userData?.id) return; 
       try {
-              const resPh=await axios.get(`https://market-cwgu.onrender.com/getphotoandpoints/${userData.id}/`);
+              const resPh=await axios.get(`https://market-cwgu.onrender.com/bot/getphotoandpoints/${userData.id}/`);
         setData(resPh.data);
 
       } catch (error) {
@@ -56,7 +56,7 @@ const Points_Page = () => {
   if(loading){
   return(
     <div>
-      
+
     </div>
   )
 }
@@ -66,7 +66,7 @@ const Points_Page = () => {
     <div className="out">
       <div className="in1_Profile">
         <Logo_Img class={"Logo_in1_Profile"} />
-        {photoUrl && <Profile_Img src={data.photo_url} />}
+        {data.photo_url && <Profile_Img src={data.photo_url} />}
       </div>
       <div className="in2">
         <div className="inf_Points mb-2">
