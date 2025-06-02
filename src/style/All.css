@@ -823,6 +823,12 @@ mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, transparent 60%);
   height: 70%;
   position: relative;
 }
+.oreder_btn_cart:disabled {
+  background-color: #666; /* رمادي */
+  cursor: not-allowed;
+  border: solid 1px #666;
+}
+
 
 .num_price{
   font-size: 15px;

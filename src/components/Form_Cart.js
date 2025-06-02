@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useCart } from "../context/CartContext";
 import axios from "axios";
 const Form = () => {
-  const{cart,setCart,userData}=useCart();
+  const{cart,clearCart,userData}=useCart();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate=useNavigate();
   const [formData, setFormData] = useState({
@@ -76,9 +76,8 @@ const handleConfirm = async () => {
       formData
     );
     toast.success("تم ارسال الطلب بنجاح");
-    setCart({});
-    
-    setTimeout(() => {
+    clearCart();
+        setTimeout(() => {
       navigate('/dsad/home');
     }, 1500);
   } catch (error) {
@@ -87,6 +86,8 @@ const handleConfirm = async () => {
     setConfirmStage(false);
   } finally {
     setIsSubmitting(false); 
+    
+
   }
 };
 
@@ -149,7 +150,9 @@ const handleConfirm = async () => {
         {submitted && errors.address && <p style={{ color: "red" }}>{errors.address}</p>}
         
         <div className="mt-5">
-          <button className="oreder_btn_cart  mx-4" type="submit">شراء</button>
+          <button className="oreder_btn_cart  mx-4" type="submit"
+          
+          >شراء</button>
         </div>
       </form>
                  {confirmStage && (

@@ -5,8 +5,10 @@ import TotalPrice_btn from '../components/TotalPrice_btn';
 import Item_Cart from '../components/item_Cart';
 import Form_Cart from '../components/Form_Cart';
 import TelegramBackButton from "../components/Tele_Back_Btn";
-
+import { useCart } from "../context/CartContext";
 const Cart = () => {
+  const {cart}=useCart();
+  
   const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
@@ -25,7 +27,12 @@ const Cart = () => {
           <Item_Cart />
           <button
             className="oreder_btn_cart mt-5"
-            onClick={() => setShowForm(true)}
+              onClick={() => {
+    if (Object.keys(cart).length === 0) return;
+    setShowForm(true);
+  }}
+  disabled={Object.keys(cart).length === 0}
+        
           >
             اطلب الان
           </button>
