@@ -10,6 +10,7 @@ const Form = (props) => {
   const navigate = useNavigate();
   const { userData } = useCart();
   const [points, setPoints] = useState();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     profile_id: userData.id,
     active_type: "point",
@@ -64,6 +65,7 @@ const Form = (props) => {
     setConfirmStage(true);
   };
 
+
   const handleConfirm = async () => {
     const requiredPoints = formData.point_items[0].quantity * props.points;
     if (points < requiredPoints) {
@@ -71,6 +73,8 @@ const Form = (props) => {
       setConfirmStage(false);
       return;
     }
+  if (isSubmitting) return; 
+
 
     try {
       await axios.post(
@@ -86,6 +90,11 @@ const Form = (props) => {
       toast.error("حصل خطأ أثناء ارسال الطلب، الرجاء المحاولة لاحقاً");
       setConfirmStage(false);
     }
+finally {
+    setIsSubmitting(false); 
+  }
+
+
   };
 
   const handleCancel = () => {

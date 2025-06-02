@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from "react";
 import "../style/All.css";
-import { useNavigate} from "react-router-dom";
-import { useCart } from "../context/CartContext";
-import mobile from '../Assests/mobile.png'
+import { useNavigate } from "react-router-dom";
+import mobile from '../Assests/mobile.png';
+
 const Conformation_Page = () => {
   const navigate = useNavigate();
-  const { userData } = useCart();
+  const [isTelegramUser, setIsTelegramUser] = useState(false);
+
+  useEffect(() => {
+    if (window.Telegram && window.Telegram.WebApp) {
+      setIsTelegramUser(true);
+    }
+  }, []);
+
   const handleTelegramAuth = () => {
-        if(userData){
-        navigate("/dsad/home"); 
-      }
-  }
+    if (isTelegramUser) {
+      navigate("/dsad/home");
+    } else {
+      alert("الرجاء فتح الصفحة من خلال تطبيق تيليغرام");
+    }
+  };
 
   return (
     <div className="container Conformation_Page">
@@ -35,4 +44,3 @@ const Conformation_Page = () => {
 };
 
 export default Conformation_Page;
-

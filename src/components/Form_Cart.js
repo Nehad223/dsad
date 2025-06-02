@@ -5,7 +5,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useCart } from "../context/CartContext";
 import axios from "axios";
 const Form = () => {
-  const{cart,userData}=useCart();
+  const{cart,setCart,userData}=useCart();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate=useNavigate();
   const [formData, setFormData] = useState({
     profile_id: 1345963635,
@@ -62,28 +63,33 @@ function transformItems(cartDict, type) {
 
 
 
-  const handleConfirm = async () => {
-     console.log(cart);
-    if (!validateForm()) return;
-    console.log(formData);
-       try {
-      await axios.post(
-        'https://market-cwgu.onrender.com/createorder/',
-        formData
-      );
-      toast.success("تم ارسال الطلب بنجاح");
+const handleConfirm = async () => {
+  if (isSubmitting) return; 
 
+  if (!validateForm()) return;
 
-      setTimeout(() => {
-        navigate('/dsad/home');
-      }, 1500);
-    } catch (error) {
-      console.error(error);
-      toast.error("حصل خطأ أثناء ارسال الطلب، الرجاء المحاولة لاحقاً");
-      setConfirmStage(false);
-    }
+  setIsSubmitting(true); 
 
-    }
+  try {
+    await axios.post(
+      'https://market-cwgu.onrender.com/createorder/',
+      formData
+    );
+    toast.success("تم ارسال الطلب بنجاح");
+    setCart({});
+    
+    setTimeout(() => {
+      navigate('/dsad/home');
+    }, 1500);
+  } catch (error) {
+    console.error(error);
+    toast.error("حصل خطأ أثناء ارسال الطلب، الرجاء المحاولة لاحقاً");
+    setConfirmStage(false);
+  } finally {
+    setIsSubmitting(false); 
+  }
+};
+
 
 
   const handleSubmit =async(event) => {

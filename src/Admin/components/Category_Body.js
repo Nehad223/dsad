@@ -19,46 +19,64 @@ const Category_Body = ({ edit = false, olditem = {} }) => {
   const navigate=useNavigate();
   useEffect(() => {
     if (edit && olditem) {
-      setCategory(olditem.name || '');
+      setCategory(olditem.category || '');
       setDescription(olditem.description || '');
-      setType(olditem.type || 'اختر الفئة');
+      setType(olditem.category_type || 'اختر الفئة');
     }
   }, [edit, olditem]);
-  const handleSubmit =async () => {
-    if (!category.trim() || !description.trim() || !category_type.trim()) {
-      alert('يرجى إدخال اسم ووصف الكاتيغوري واختيار الفئة')
-      return
-    }
-
-    const newCategory = {
-      name: category,
-      description: description,
-      category_type: category_type
-    }
-  
-
-    try{
-      await axios.post("https://market-cwgu.onrender.com/newcategory/",newCategory);
-     toast.success("تم ارسال الطلب بنجاح");
-                   setTimeout(() => {
-        navigate('/admin/add');
-      }, 1500);
-    }
-    catch(error){console.log(error)}
-    setCategory('')
-    setDescription('')
-    setType('اختر الفئة')
+const handleSubmit = async () => {
+  if (!category.trim() || !description.trim() || !category_type.trim()) {
+    alert('يرجى إدخال اسم ووصف الكاتيغوري واختيار الفئة');
+    return;
   }
+
+  const newCategory = {
+    name: category,
+    description: description,
+    category_type: category_type
+  };
+
+  try {
+    if (edit && olditem?.id) {
+   
+      await axios.put(
+        `https://market-cwgu.onrender.com/updatecategory/${olditem.id}/`,
+        newCategory
+      );
+                toast.success("تمت العملية بنجاح");
+      
+    } else {
+     
+      await axios.post(
+        "https://market-cwgu.onrender.com/newcategory/",
+        newCategory
+      );
+               toast.success("تمت العملية بنجاح");
+     
+    }
+
+    setCategory('');
+    setDescription('');
+    setType('اختر الفئة');
+
+    setTimeout(() => {
+      navigate('/admin/home');
+    }, 1500);
+  } catch (error) {
+    console.error(error);
+    toast.error("حدث خطأ أثناء الإرسال");
+  }
+};
+
   const handleDelete = async () => {
   if (!olditem.id) return;
 
   try {
     const response = await axios.delete(
-      `https://market-cwgu.onrender.com/deletepointitem/${olditem.id}/`
+      `https://market-cwgu.onrender.com/deletecategory/${olditem.id}/`
     );
     console.log('Deleted:', response.data);
 
-    // تفريغ الحقول بعد الحذف
     setDescription('');
     setCategory('');
     setType('اختر الفئة')
@@ -75,11 +93,15 @@ const Category_Body = ({ edit = false, olditem = {} }) => {
         TwoWord={true}
         placeholder="ادخل الاسم"
         setValue={setCategory}
+       val_in={category}
+
       />
       <Input
         value={"وصف"}
         placeholder="ادخل الوصف"
         setValue={setDescription}
+        val_in={description}
+
       />
       <Selector value={category_type} setValue={setType} />
      {!edit?<Btn_Add onClick={handleSubmit} />:<Btns_Del_Add onClick={handleSubmit} deleteClick={handleDelete} />}
