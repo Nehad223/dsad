@@ -74,6 +74,7 @@ const Form = (props) => {
       return;
     }
   if (isSubmitting) return; 
+   setIsSubmitting(true);
 
 
     try {
