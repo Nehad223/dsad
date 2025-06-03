@@ -18,7 +18,6 @@ const Image_Input = ({ value, setValue, val_in, oldImage }) => {
     <div className="row input mt-1">
       <div className="col-4"></div>
 
-      {/* مربع قابل للضغط */}
       <div className="col-4">
         <div
           onClick={handleClick}
