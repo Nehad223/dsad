@@ -167,7 +167,7 @@ const handleConfirm = async () => {
               type="button"
               className=" btn btn-danger mx-4 mt-3"
               onClick={handleCancel}
-              disabled={submitted}
+       
             >
               إلغاء
             </button>
