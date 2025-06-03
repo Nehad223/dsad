@@ -10,6 +10,8 @@ import Profile_Img from "../components/Profile_Img";
 const Points_Page = () => {
   const [dataPoints, setDataPoints] = useState([]);
   const [data,setData]=useState({});
+  const [photo_url,setPhotoUrl]=useState(null);
+  const [points,setPoints]=useState(null);
   const { userData } = useCart();
   const[loading,setLoading]=useState(true);
 
@@ -34,9 +36,9 @@ const Points_Page = () => {
     const fetchPoints = async () => {
       if (!userData?.id) return; 
       try {
-              const resPh=await axios.get(`https://market-cwgu.onrender.com/bot/getphotoandpoints/${userData.id}/`);
-        setData(resPh.data);
+const res=await axios.get(`https://market-cwgu.onrender.com/bot/getpoints/${userData.id}/`);
 
+              setPoints(res.data)
       } catch (error) {
         console.error(error);
       }
@@ -46,6 +48,30 @@ const Points_Page = () => {
     };
     fetchPoints();
   }, []);
+useEffect(() => {
+  const fetchPhoto = async () => {
+    if (!userData?.id) return;
+
+
+    const cachedPhoto = sessionStorage.getItem("user_photo");
+    if (cachedPhoto) {
+      setPhotoUrl(cachedPhoto);
+      return;
+    }
+
+    try {
+      const resPh = await axios.get(`https://market-cwgu.onrender.com/bot/getphoto/${userData.id}/`);
+      setPhotoUrl(resPh.data);
+
+      sessionStorage.setItem("user_photo", resPh.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  fetchPhoto();
+},[]);
+
 
   useEffect(() => {
     document.documentElement.style.setProperty("--main", "white");
@@ -71,7 +97,7 @@ const Points_Page = () => {
     <div className="out">
       <div className="in1_Profile">
         <Logo_Img class={"Logo_in1_Profile"} />
-        {data.photo_url && <Profile_Img src={data.photo_url} />}
+        {photo_url && <Profile_Img src={photo_url} />}
       </div>
       <div className="in2">
         <div className="inf_Points mb-2">
@@ -80,9 +106,9 @@ const Points_Page = () => {
 
           </h1>
           <p>{userData?.id} (ID Num)</p>
-          {data.points !== undefined && <Points_Number points={data.points} title="عدد النقاط" />}
+          {points !== undefined && <Points_Number points={points} title="عدد النقاط" />}
         </div>
-{data.photo_url&& 
+{photo_url&& 
          <Packeges items={dataPoints} currency="points" type="points" />
 
 }
