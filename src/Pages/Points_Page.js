@@ -56,7 +56,8 @@ const Points_Page = () => {
   }, []);
   if(loading){
   return(
-    <div>
+    <div className="out">
+      <Logo_Img class={"Logo_in1_Profile"} />
 
     </div>
   )

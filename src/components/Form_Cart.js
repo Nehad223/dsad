@@ -65,6 +65,8 @@ function transformItems(cartDict, type) {
 
 const handleConfirm = async () => {
   if (isSubmitting) return; 
+  setIsSubmitting(true); 
+
 
   if (!validateForm()) return;
   try {
@@ -72,7 +74,6 @@ const handleConfirm = async () => {
       'https://market-cwgu.onrender.com/createorder/',
       formData
     );
-  setIsSubmitting(true); 
 
     toast.success("تم ارسال الطلب بنجاح");
     clearCart();
