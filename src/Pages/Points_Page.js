@@ -88,7 +88,7 @@ const Points_Page = () => {
     <div className="out">
       <div className="in1_Profile">
         <Logo_Img class={"Logo_in1_Profile"} />
-        {photo_url && <Profile_Img src={photo_url} />}
+        {photo_url && points !== undefined && <Profile_Img src={photo_url} />}
       </div>
       <div className="in2">
         <div className="inf_Points mb-2">
@@ -101,7 +101,7 @@ const Points_Page = () => {
           )}
         </div>
 
-        {photo_url && (
+        {points !== undefined && (
           <Packeges items={dataPoints} currency="points" type="points" />
         )}
       </div>
