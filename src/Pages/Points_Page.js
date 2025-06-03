@@ -72,21 +72,22 @@ const Points_Page = () => {
     document.documentElement.style.setProperty("--profile", "#1C458D");
   }, []);
 
-  if (loading) {
-    return (
-      <div className="out">
-        <div className="in1_Profile">
-          <Logo_Img className="Logo_in1_Profile" />
-        </div>
-        <div className="in2"></div>
+ if(loading){
+  return(
+    <div className="out">
+      <div className="in1_Profile">
+      <Logo_Img class={"Logo_in1_Profile"} />
       </div>
-    );
-  }
+      <div className="in2">
+      </div>
+    </div>
+  )
+}
 
   return (
     <div className="out">
       <div className="in1_Profile">
-        <Logo_Img className="Logo_in1_Profile" />
+        <Logo_Img class={"Logo_in1_Profile"} />
         {photo_url && <Profile_Img src={photo_url} />}
       </div>
       <div className="in2">
