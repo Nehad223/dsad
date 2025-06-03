@@ -10,7 +10,9 @@ const Start_Page = () => {
   const [isAuthChecked, setIsAuthChecked] = useState(false);
   const [isFirstTime, setIsFirstTime] = useState(false);
 
-
+  useEffect(() => {
+    document.documentElement.style.setProperty("--main", "white");
+  }, []);
   useEffect(() => {
     const firstTime = localStorage.getItem("first_time") === null;
     setIsFirstTime(firstTime);

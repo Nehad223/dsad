@@ -5,21 +5,15 @@ import mobile from '../Assests/mobile.png';
 
 const Conformation_Page = () => {
   const navigate = useNavigate();
-  const [isTelegramUser, setIsTelegramUser] = useState(false);
 
   useEffect(() => {
     if (window.Telegram && window.Telegram.WebApp) {
-      setIsTelegramUser(true);
+            navigate("/dsad/home");
+
     }
   }, []);
 
-  const handleTelegramAuth = () => {
-    if (isTelegramUser) {
-      navigate("/dsad/home");
-    } else {
-      alert("الرجاء فتح الصفحة من خلال تطبيق تيليغرام");
-    }
-  };
+
 
   return (
     <div className="container Conformation_Page">
