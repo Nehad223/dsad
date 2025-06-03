@@ -90,10 +90,7 @@ const Package_Body = (props) => {
   };
 
   const handleSubmit = async () => {
-    if (!name || !description || !price || !img || (money && catg === 'اختر الكاتيغوري')) {
-      toast.error("يرجى تعبئة جميع الحقول");
-      return;
-    }
+
 
     if (money) {
       await senMoney();

@@ -6,39 +6,49 @@ const User_Body = () => {
   const [newPassword, setNewPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [message, setMessage] = useState('')
+  const [success, setSuccess] = useState(false)
 
   const handleUpdate = async () => {
+    setMessage('')
+    setSuccess(false)
+
+    if (!oldPassword || !newPassword || !confirmPassword) {
+      setMessage('يرجى ملء جميع الحقول')
+      return
+    }
+
     if (newPassword !== confirmPassword) {
       setMessage('كلمة السر الجديدة وتأكيدها غير متطابقين')
       return
     }
 
     try {
-      const checkOldRes = await axios.post('/api/check-old-password', {
-        oldPassword,
-      })
+      const response = await axios.put(
+        'https://market-cwgu.onrender.com/updatepassword/',
+        {
+          old_password: oldPassword,
+          new_password: newPassword,
+        }
+      )
 
-      if (!checkOldRes.data.valid) {
-        setMessage('كلمة السر القديمة غير صحيحة')
-        return
-      }
-
-      const updateRes = await axios.post('/api/update-password', {
-        newPassword,
-      })
-
-      if (updateRes.data.success) {
-        setMessage('تم تغيير كلمة السر بنجاح')
-      } else {
-        setMessage('فشل في تغيير كلمة السر')
-      }
+      // في حال النجاح
+      setSuccess(true)
+      setMessage('تم تحديث كلمة السر بنجاح')
+      setOldPassword('')
+      setNewPassword('')
+      setConfirmPassword('')
     } catch (err) {
-      setMessage('حدث خطأ في الاتصال بالخادم')
+      console.error(err)
+      if (err.response?.data?.message) {
+        setMessage(err.response.data.message)
+      } else {
+        setMessage('حدث خطأ أثناء تحديث كلمة السر')
+      }
     }
   }
 
   return (
-    <div className='mt-5'>
+  <div className='mt-5'>
       <div className='row input mt-1'>
         <div className='col-4'></div>
         <div className='col-5'>

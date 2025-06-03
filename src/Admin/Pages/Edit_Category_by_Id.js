@@ -18,7 +18,7 @@ const Edit_Category_by_Id = () => {
         useEffect(() => {
           const FetchOlditem=async()=>{
             try{
-              const res=await axios.get(`https://market-cwgu.onrender.com/category/${catgid}/${doctorOrstudent}`);
+              const res=await axios.get(`https://market-cwgu.onrender.com/getcategory/${catgid}/`);
               setOlditem(res.data);
             }
             catch(err){

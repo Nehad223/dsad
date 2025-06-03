@@ -17,7 +17,7 @@ body{
 .rectangels{
     display: flex !important;
 }
-.rectangle,.rectangle_edit{
+.rectangle,.rectangle_edit,.rectangle_Delve{
     width: 100%;
     max-width: 173px;
     height: 173px;
@@ -28,6 +28,11 @@ body{
     border: none;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); 
+}
+.rectangle_Delve{
+  color: white !important;
+  background-color: #1C458D;
+  
 }
 .rectangle_edit{
     font-size: 20px;

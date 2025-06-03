@@ -12,7 +12,7 @@ const Points_Body_Page = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post('https://market-cwgu.onrender.com/global-points/update/', {
+      const response = await axios.patch('https://market-cwgu.onrender.com/global-points/update/', {
         purchase_points: Number(buyerPrice),
         referral_purchase_points: Number(referralPrice),
         referral_points: Number(pointsCount),
@@ -80,7 +80,7 @@ const Points_Body_Page = () => {
             />
           </div>
           <div className='col-2 mt-1'>
-            <h1 className='text so'>عدد النقاط</h1>
+            <h1 className='text so'>رابط الاحالة</h1>
           </div>
         </div>
       </div>
