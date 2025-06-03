@@ -18,6 +18,9 @@ const Home_Page = () => {
   const [selectedValue, setSelectedValue] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
   const location = useLocation();
+useEffect(() => {
+  document.body.style.backgroundColor = "white";
+}, []);
 
   const Send_Search = async (type) => {
     try {

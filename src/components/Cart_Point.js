@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 
 const Cart = ({ quantity, setQuantity }) => {
-  useEffect(() => {
-    document.documentElement.style.setProperty("--main", "white");
-  }, []);
+
 
   return (
     <div className='qq'>

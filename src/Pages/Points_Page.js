@@ -80,6 +80,7 @@ const Points_Page = () => {
         </div>
 {data.photo_url&& 
          <Packeges items={dataPoints} currency="points" type="points" />
+
 }
       </div>
       <Dashboard />

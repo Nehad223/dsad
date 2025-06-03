@@ -6,7 +6,12 @@
   --profile:#9CD5C1;
   --message:#9CD5C1;
 
+  
 }
+body{
+  background-color:var(--main) !important;
+}
+
 .Start_Page{
   display: flex;
   align-items: center;
@@ -79,6 +84,7 @@
 }
 
 .Card_Button {
+  z-index: 10000;
   font-family: "Almarai", sans-serif;
   width: 80%; /* يتكيف مع الشاشة */
   height: 40px;
@@ -729,6 +735,7 @@ form p{
   max-width: 265px;
   max-height: 658px;
   height: 70%;
+  z-index: -100;
   display: block;
 -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, transparent 50%);
 mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, transparent 60%);
