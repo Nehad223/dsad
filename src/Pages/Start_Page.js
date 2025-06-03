@@ -11,7 +11,7 @@ const Start_Page = () => {
   const [isFirstTime, setIsFirstTime] = useState(false);
 
   useEffect(() => {
-    document.documentElement.style.setProperty("--main", "white");
+    document.documentElement.style.setProperty("--main", " #1C458D");
   }, []);
   useEffect(() => {
     const firstTime = localStorage.getItem("first_time") === null;

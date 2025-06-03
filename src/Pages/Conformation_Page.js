@@ -5,15 +5,11 @@ import mobile from '../Assests/mobile.png';
 
 const Conformation_Page = () => {
   const navigate = useNavigate();
-
-  useEffect(() => {
+  const handleTelegramAuth = () => {
     if (window.Telegram && window.Telegram.WebApp) {
-            navigate("/dsad/home");
-
-    }
-  }, []);
-
-
+      navigate("/dsad/home");
+    } 
+  };
 
   return (
     <div className="container Conformation_Page">
