@@ -42,7 +42,7 @@ body{
     color: #1C458D;
 }
 .input{
-    width: 100%;
+  
     text-align: right;
    display: flex;
     
@@ -53,6 +53,9 @@ body{
    
 }
 .input input,.input input:focus,select,.img_input{
+    
+    text-align: right;
+   display: flex;
     width: 90%;
     max-width: 477px;
     height: 76px;
@@ -66,8 +69,8 @@ body{
     font-size: 14px;
 }
 .img_input{
-margin-left: 10% !important;
 padding-top: 20px;
+justify-content: end;
 }
 select{
     -webkit-appearance: none;
