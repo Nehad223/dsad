@@ -23,9 +23,7 @@ const Points_Page = () => {
       } catch (error) {
         console.error("Error fetching data:", error);
       }
-      finally{
-        setLoading(false)
-      }
+
     };
 
 
@@ -41,6 +39,9 @@ const Points_Page = () => {
 
       } catch (error) {
         console.error(error);
+      }
+            finally{
+        setLoading(false)
       }
     };
     fetchPoints();
@@ -77,8 +78,9 @@ const Points_Page = () => {
           <p>{userData?.id} (ID Num)</p>
           {data.points !== undefined && <Points_Number points={data.points} title="عدد النقاط" />}
         </div>
-
+{data.photo_url&& 
          <Packeges items={dataPoints} currency="points" type="points" />
+}
       </div>
       <Dashboard />
     </div>

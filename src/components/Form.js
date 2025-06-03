@@ -74,7 +74,6 @@ const Form = (props) => {
       return;
     }
   if (isSubmitting) return; 
-   setIsSubmitting(true);
 
 
     try {
@@ -82,6 +81,7 @@ const Form = (props) => {
         'https://market-cwgu.onrender.com/createorder/',
         formData
       );
+    setIsSubmitting(true);
       toast.success("تم ارسال الطلب بنجاح");
               setTimeout(() => {
         navigate('/dsad/home');

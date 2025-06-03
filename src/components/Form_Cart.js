@@ -68,13 +68,13 @@ const handleConfirm = async () => {
 
   if (!validateForm()) return;
 
-  setIsSubmitting(true); 
 
   try {
     await axios.post(
       'https://market-cwgu.onrender.com/createorder/',
       formData
     );
+    setIsSubmitting(true); 
     toast.success("تم ارسال الطلب بنجاح");
     clearCart();
         setTimeout(() => {
