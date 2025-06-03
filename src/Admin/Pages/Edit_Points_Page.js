@@ -9,7 +9,11 @@ const Edit_Points_Page = () => {
     const[olditem,setOlditem]=useState({});
     const[loading,setLoading]=useState(true)
     
-   
+       useEffect(() => {
+         document.documentElement.style.setProperty("--main", "white");
+     
+     
+       }, []);
     useEffect(()=>{
         const fetchOld=async()=>{
 

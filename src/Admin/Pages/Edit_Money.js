@@ -2,13 +2,16 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import axios from 'axios';
 import Rectangle_Edit_Catg from '../components/Rectangle_Edit_Catg';
-
 const Edit_Money = () => {
   const [students, setStudents] = useState([]);
   const [doctors, setDoctors] = useState([]);
   const [catges, setCatges] = useState([]);
   const [loading, setLoading] = useState(true); 
-
+    useEffect(() => {
+      document.documentElement.style.setProperty("--main", "white");
+  
+  
+    }, []);
   useEffect(() => {
     const fetchdata = async () => {
       try {

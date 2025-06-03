@@ -1,7 +1,12 @@
 import React from 'react'
 import Header from '../components/Header'
-
+import { useEffect } from 'react'
 const Orders_Money = () => {
+      useEffect(() => {
+        document.documentElement.style.setProperty("--main", "white");
+    
+    
+      }, []);
   return (
     <div>
         <Header/>

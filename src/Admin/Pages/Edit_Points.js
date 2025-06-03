@@ -6,6 +6,11 @@ import Rectangle_Edit_Catg from '../components/Rectangle_Edit_Catg';
 const Edit_Points = () => {
     const [data,setData]=useState([]);
     const [loading,setLoading]=useState(true);
+        useEffect(() => {
+          document.documentElement.style.setProperty("--main", "white");
+      
+      
+        }, []);
     useEffect(()=>{
         const fetchdata=async()=>{
             try{

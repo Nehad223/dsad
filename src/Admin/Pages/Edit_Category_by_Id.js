@@ -9,7 +9,12 @@ const Edit_Category_by_Id = () => {
     const catgid=parmas.catgid;
     const doctorOrstudent=parmas.doctorOrstudent;
     const[olditem,setOlditem]=useState({});
-    const[loading,setLoading]=useState(true)
+    const[loading,setLoading]=useState(true);
+        useEffect(() => {
+          document.documentElement.style.setProperty("--main", "white");
+      
+      
+        }, []);
         useEffect(() => {
           const FetchOlditem=async()=>{
             try{

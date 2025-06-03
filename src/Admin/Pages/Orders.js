@@ -1,7 +1,13 @@
 import React from 'react'
 import Header from '../components/Header.js';
 import Rectangle from '../components/Rectangle.js';
+import { useEffect } from 'react';
 const Orders = () => {
+      useEffect(() => {
+        document.documentElement.style.setProperty("--main", "white");
+    
+    
+      }, []);
   return (
     <div>
         <Header/>

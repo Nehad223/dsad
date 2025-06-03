@@ -1,7 +1,13 @@
 import React from 'react'
 import Rectangle from '../components/Rectangle';
 import Header from '../components/Header';
+import { useEffect } from 'react';
 const Add = () => {
+      useEffect(() => {
+        document.documentElement.style.setProperty("--main", "white");
+    
+    
+      }, []);
   return (
     <div>
         <Header/>

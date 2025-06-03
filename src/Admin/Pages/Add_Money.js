@@ -2,8 +2,13 @@ import React from 'react'
 import Header from '../components/Header'
 import Selector_Cat from '../components/Selector_Cat'
 import Package_Body from '../components/Package_Body'
-
+import { useEffect } from 'react'
 const Add_Money = () => {
+      useEffect(() => {
+        document.documentElement.style.setProperty("--main", "white");
+    
+    
+      }, []);
   return (
     <div>
       <Header/>

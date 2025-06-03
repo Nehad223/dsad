@@ -1,7 +1,14 @@
 import React from 'react'
 import Header from '../components/Header'
-import Category_Body from '../components/Category_Body'
+import Category_Body from '../components/Category_Body';
+import { useEffect } from 'react';
+
 const Add_Category = () => {
+      useEffect(() => {
+        document.documentElement.style.setProperty("--main", "white");
+    
+    
+      }, []);
   return (
     <div>
       <Header/>

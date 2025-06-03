@@ -9,6 +9,11 @@ const EditPackage = () => {
     const id=parmas.id;
     const[olditem,setOlditem]=useState({});
     const[loading,setLoading]=useState(true)
+        useEffect(() => {
+          document.documentElement.style.setProperty("--main", "white");
+      
+      
+        }, []);
         useEffect(()=>{
         const fetchOld=async()=>{
 

@@ -11,7 +11,11 @@ const Edit_Money_Page = () => {
     const[olditem,setOlditem]=useState({});
     const[loading,setLoading]=useState(true)
     
-   
+       useEffect(() => {
+         document.documentElement.style.setProperty("--main", "white");
+     
+     
+       }, []);
     useEffect(()=>{
         const fetchOld=async()=>{
 
