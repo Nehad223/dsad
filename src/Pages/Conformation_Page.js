@@ -6,9 +6,10 @@ import mobile from '../Assests/mobile.png';
 const Conformation_Page = () => {
   const navigate = useNavigate();
   const handleTelegramAuth = () => {
-    if (window.Telegram && window.Telegram.WebApp) {
-      navigate("/dsad/home");
-    } 
+ if (window.Telegram?.WebApp?.initData) {
+  navigate("/dsad/home");
+}
+ 
   };
 
   return (

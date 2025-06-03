@@ -74,14 +74,13 @@ const Form = (props) => {
       return;
     }
   if (isSubmitting) return; 
-
+    setIsSubmitting(true);
 
     try {
       await axios.post(
         'https://market-cwgu.onrender.com/createorder/',
         formData
       );
-    setIsSubmitting(true);
       toast.success("تم ارسال الطلب بنجاح");
               setTimeout(() => {
         navigate('/dsad/home');
@@ -91,11 +90,6 @@ const Form = (props) => {
       toast.error("حصل خطأ أثناء ارسال الطلب، الرجاء المحاولة لاحقاً");
       setConfirmStage(false);
     }
-finally {
-    setIsSubmitting(false); 
-  }
-
-
   };
 
   const handleCancel = () => {
@@ -186,6 +180,7 @@ finally {
               type="button"
               className=" btn btn-danger mx-4 mt-3"
               onClick={handleCancel}
+              disabled={submitted}
             >
               إلغاء
             </button>
