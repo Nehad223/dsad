@@ -1,29 +1,30 @@
-import React, { useState } from 'react'
-import axios from 'axios'
-
+import React, { useState } from 'react';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 const User_Body = () => {
-  const [oldPassword, setOldPassword] = useState('')
-  const [newPassword, setNewPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
-  const [message, setMessage] = useState('')
-  const [success, setSuccess] = useState(false)
+  const [oldPassword, setOldPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [message, setMessage] = useState('');
+  
 
   const handleUpdate = async () => {
-    setMessage('')
-    setSuccess(false)
+    setMessage('');
 
     if (!oldPassword || !newPassword || !confirmPassword) {
-      setMessage('يرجى ملء جميع الحقول')
+              toast.error('يرجى ملء جميع الحقول');
+    
       return
     }
 
     if (newPassword !== confirmPassword) {
-      setMessage('كلمة السر الجديدة وتأكيدها غير متطابقين')
+      toast.error('كلمة السر الجديدة وتأكيدها غير متطابقين')
       return
     }
 
     try {
-      const response = await axios.put(
+      const response = await axios.patch(
         'https://market-cwgu.onrender.com/updatepassword/',
         {
           old_password: oldPassword,
@@ -31,24 +32,23 @@ const User_Body = () => {
         }
       )
 
-      // في حال النجاح
-      setSuccess(true)
-      setMessage('تم تحديث كلمة السر بنجاح')
+      toast.success("تم التعديل بنجاح");
+      setMessage('')
       setOldPassword('')
       setNewPassword('')
       setConfirmPassword('')
+      
     } catch (err) {
-      console.error(err)
-      if (err.response?.data?.message) {
-        setMessage(err.response.data.message)
-      } else {
-        setMessage('حدث خطأ أثناء تحديث كلمة السر')
-      }
+      console.log(err);
+        toast.error('حدث خطأ أثناء تحديث كلمة السر')
+      
     }
   }
 
   return (
   <div className='mt-5'>
+          <ToastContainer rtl position="top-center" autoClose={3000} />
+    
       <div className='row input mt-1'>
         <div className='col-4'></div>
         <div className='col-5'>

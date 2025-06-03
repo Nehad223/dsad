@@ -11,6 +11,7 @@ import Points_Page from './Pages/Points_Page';
 import { CartProvider } from './context/CartContext.js';
 import Buy_Points from './Pages/Buy_Points.js';
 import Buy_Money from './Pages/Buy_Money.js'
+import Order_Item_Money from './Admin/Pages/Order_Item_Money.js';
 import Test2 from './Pages/Test2.js';
 import Test3 from './Pages/Test3.js';
 import Home from './Admin/Pages/Home.js'
@@ -58,6 +59,7 @@ function App() {
         <Route path='/admin/orders' element={<Orders/>} />
         <Route path='/admin/orders/points' element={<Orders_Points/>} />
         <Route path='/admin/orders/money' element={<Orders_Money/>}/>
+        <Route path='/admin/orders/money/:index/:id' element={<Order_Item_Money/>} />
         <Route path='/admin/add/money'  element={<Add_Money/>}/>
         <Route path='/admin/add/category'  element={<Add_Category/>}/>
         <Route path='/admin/edit' element={<Edit/>} />

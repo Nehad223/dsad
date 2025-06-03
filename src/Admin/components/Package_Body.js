@@ -28,66 +28,83 @@ const Package_Body = (props) => {
     }
   }, [edit, olditem]);
 
-  const sendPackage = async () => {
-    const formData = new FormData();
-    formData.append('name', name);
-    formData.append('description', description);
-    formData.append('price', price);
-    formData.append('photo', img);
 
-    const url = edit
-      ? `https://market-cwgu.onrender.com/updatepackage/${olditem.id}/`
-      : 'https://market-cwgu.onrender.com/newpackage/';
-    const method = edit ? 'put' : 'post';
 
-    try {
-      await axios({
-        method,
-        url,
-        data: formData,
-        headers: { 'Content-Type': 'multipart/form-data' },
-      });
-      toast.success("تمت العملية بنجاح", {
-  onClose: () => navigate('/admin/home'),
-  autoClose: 1500,
-});
+ const sendPackage = async () => {
+if (!edit) {
+  if (!name.trim() || !description.trim() || !price.trim() || !img.trim()) {
+    alert('يرجى إدخال اسم ووصف الكاتيغوري واختيار الفئة');
+    return;
+  }
+}
 
-    } catch (error) {
-      console.error(error);
-      toast.error("حدث خطأ أثناء الإرسال");
-    }
-  };
+  const formData = new FormData();
 
-  const senMoney = async () => {
-    const formData = new FormData();
-    formData.append('name', name);
-    formData.append('description', description);
-    formData.append('price', price);
-    formData.append('photo', img);
-    formData.append('category', catg);
+  if (name !== olditem.name) formData.append('name', name);
+  if (description !== olditem.description) formData.append('description', description);
+  if (price !== olditem.price) formData.append('price', price);
+  if (img) formData.append('photo', img); // الصورة دائماً لو تم تعديلها
 
-    const url = edit
-      ? `https://market-cwgu.onrender.com/updateitem/${olditem.id}/`
-      : 'https://market-cwgu.onrender.com/newitem/';
-    const method = edit ? 'put' : 'post';
+  const url = edit
+    ? `https://market-cwgu.onrender.com/editpackage/${olditem.id}/`
+    : 'https://market-cwgu.onrender.com/newpackage/';
+  const method = edit ? 'patch' : 'post';
 
-    try {
-      await axios({
-        method,
-        url,
-        data: formData,
-        headers: { 'Content-Type': 'multipart/form-data' },
-      });
-     toast.success("تمت العملية بنجاح", {
-  onClose: () => navigate('/admin/home'),
-  autoClose: 1500,
-});
+  try {
+    await axios({
+      method,
+      url,
+      data: formData,
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
+    toast.success("تمت العملية بنجاح", {
+      onClose: () => navigate('/admin/home'),
+      autoClose: 1500,
+    });
+  } catch (error) {
+    console.error(error);
+    toast.error("حدث خطأ أثناء الإرسال");
+  }
+};
 
-    } catch (error) {
-      console.error(error);
-      toast.error("حدث خطأ أثناء الإرسال");
-    }
-  };
+const senMoney = async () => {
+if (!edit) {
+  if (!name.trim() || !description.trim() || !price.trim() || !img.trim() || !catg.trim()) {
+    alert('يرجى إدخال اسم ووصف الكاتيغوري واختيار الفئة');
+    return;
+  }
+}
+
+  const formData = new FormData();
+
+  if (name !== olditem.name) formData.append('name', name);
+  if (description !== olditem.description) formData.append('description', description);
+  if (price !== olditem.price) formData.append('price', price);
+  if (catg !== olditem.category) formData.append('category', catg);
+  if (img) formData.append('photo', img);
+
+  const url = edit
+    ? `https://market-cwgu.onrender.com/edititem/${olditem.id}/`
+    : 'https://market-cwgu.onrender.com/newitem/';
+  const method = edit ? 'patch' : 'post';
+
+  try {
+    await axios({
+      method,
+      url,
+      data: formData,
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
+    toast.success("تمت العملية بنجاح", {
+      onClose: () => navigate('/admin/home'),
+      autoClose: 1500,
+    });
+  } catch (error) {
+    console.error(error);
+    toast.error("حدث خطأ أثناء الإرسال");
+  }
+};
+
 
   const handleSubmit = async () => {
 

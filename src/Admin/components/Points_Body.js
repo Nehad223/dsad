@@ -24,35 +24,47 @@ const Points_Body = ({ edit = false, olditem = {} }) => {
 
 const sendPoints = async (name, description, price, img) => {
   const formData = new FormData();
-  formData.append('name', name);
-  formData.append('description', description);
-  formData.append('price', price);
-  if (img) formData.append('photo', img);
+
+  if (!edit) {
+    // إرسال الكل إذا كنا نضيف عنصر جديد
+    formData.append('name', name);
+    formData.append('description', description);
+    formData.append('price', price);
+    if (img) formData.append('photo', img);
+  } else {
+    // فقط الحقول التي تغيرت
+    if (name !== olditem.name) formData.append('name', name);
+    if (description !== olditem.description) formData.append('description', description);
+    if (price !== String(olditem.points)) formData.append('price', price);
+    if (img) formData.append('photo', img); // تعتبر الصورة دائماً تغيرت إذا تم اختيار واحدة جديدة
+  }
 
   try {
     const url = edit
-      ? `https://market-cwgu.onrender.com/updatepointitem/${olditem.id}/`
+      ? `https://market-cwgu.onrender.com/editpointitem/${olditem.id}/`
       : 'https://market-cwgu.onrender.com/newpointitem/';
 
-    const method = edit ? 'put' : 'post';
+    const method = edit ? 'patch' : 'post';
 
     const response = await axios({
-      method: method,
-      url: url,
+      method,
+      url,
       data: formData,
       headers: {
         'Content-Type': 'multipart/form-data',
       },
     });
 
-          toast.success("تمت العملية بنجاح", {
+    toast.success('تمت العملية بنجاح', {
       onClose: () => navigate('/admin/home'),
       autoClose: 1500,
     });
   } catch (error) {
     console.error('Error uploading:', error);
+    toast.error('حدث خطأ أثناء الإرسال');
   }
 };
+
 const handleDelete = async () => {
   if (!olditem.id) return;
 

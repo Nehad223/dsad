@@ -5,7 +5,7 @@ const Btns_Del_Add = ({ onClick ,deleteClick}) => {
   return (
     <div className='btns_del_add mt-4'>
             <button className='add_Btns' onClick={onClick} >
-        إضافة
+         تعديل
       </button>
       <button  className='delete_Btns' onClick={deleteClick}>حذف</button>  
     </div>

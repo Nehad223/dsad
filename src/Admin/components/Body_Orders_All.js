@@ -8,7 +8,7 @@ const Body_Orders_All = (props) => {
         {props.data.map((item,index)=>{
           return(
             <div key={item.id}>
-              {item.status=="pending"?(<Rectangle value={index+1} redrict={item.id}/>):<Delev_Rectangle value={index+1} redrict={item.id} />}
+              {item.status=="pending"?(<Rectangle value={index+1} redrict={`${index+1}/${item.id}`}/>):<Delev_Rectangle value={index+1} redrict={`${index+1}/${item.id}`} />}
             </div>
           )
         })}
