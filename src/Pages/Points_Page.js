@@ -25,7 +25,9 @@ const Points_Page = () => {
       } catch (error) {
         console.error("Error fetching data:", error);
       }
-
+            finally{
+        setLoading(false)
+      }
     };
 
 
@@ -38,13 +40,11 @@ const Points_Page = () => {
       try {
 const res=await axios.get(`https://market-cwgu.onrender.com/bot/getpoints/${userData.id}/`);
 
-              setPoints(res.data)
+              setPoints(res.data.points)
       } catch (error) {
         console.error(error);
       }
-            finally{
-        setLoading(false)
-      }
+
     };
     fetchPoints();
   }, []);
@@ -61,9 +61,9 @@ useEffect(() => {
 
     try {
       const resPh = await axios.get(`https://market-cwgu.onrender.com/bot/getphoto/${userData.id}/`);
-      setPhotoUrl(resPh.data);
+      setPhotoUrl(resPh.data.photo_url);
 
-      sessionStorage.setItem("user_photo", resPh.data);
+      sessionStorage.setItem("user_photo", resPh.data.photo_url);
     } catch (err) {
       console.log(err);
     }
