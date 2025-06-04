@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import Btns_Del_Add from './Btns_Del_Add';
 
 const Category_Body = ({ edit = false, olditem = {} }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
   const [category_type, setType] = useState('');
@@ -23,6 +25,8 @@ const Category_Body = ({ edit = false, olditem = {} }) => {
   }, [edit, olditem]);
 
   const handleSubmit = async () => {
+      if (isSubmitting) return; 
+  setIsSubmitting(true);
 if (!edit) {
   if (!category.trim() || !description.trim() || !category_type.trim()) {
     alert('يرجى إدخال اسم ووصف الكاتيغوري واختيار الفئة');
@@ -31,7 +35,6 @@ if (!edit) {
 }
 
 
-    // فقط الحقول المعدّلة
     const updatedFields = {};
     if (category !== olditem.name) updatedFields.name = category;
     if (description !== olditem.description) updatedFields.description = description;
@@ -68,7 +71,7 @@ if (!edit) {
       setType('اختر الفئة');
 
       setTimeout(() => {
-        navigate('/admin/home');
+        navigate(-1);
       }, 1500);
     } catch (error) {
       console.error(error);
@@ -92,6 +95,9 @@ if (!edit) {
       console.error('Error deleting item:', error);
       toast.error("فشل الحذف");
     }
+     finally {
+    setIsSubmitting(false); 
+  }
   };
 
   return (

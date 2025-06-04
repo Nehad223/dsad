@@ -6,11 +6,13 @@ const User_Body = () => {
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [message, setMessage] = useState('');
+const [isSubmitting,setIsSubmitting]=useState(false);
   
 
   const handleUpdate = async () => {
-    setMessage('');
+
+      if (isSubmitting) return; 
+  setIsSubmitting(true); 
 
     if (!oldPassword || !newPassword || !confirmPassword) {
               toast.error('يرجى ملء جميع الحقول');
@@ -33,7 +35,6 @@ const User_Body = () => {
       )
 
       toast.success("تم التعديل بنجاح");
-      setMessage('')
       setOldPassword('')
       setNewPassword('')
       setConfirmPassword('')
@@ -43,6 +44,9 @@ const User_Body = () => {
         toast.error('حدث خطأ أثناء تحديث كلمة السر')
       
     }
+     finally {
+    setIsSubmitting(false); 
+  }
   }
 
   return (
@@ -93,14 +97,6 @@ const User_Body = () => {
           <h1 className='text text-start'>تأكيد</h1>
         </div>
       </div>
-
-      {message && (
-        <div className='row mt-3'>
-          <div className='col-5'></div>
-          <div className='col-4 text-end  text-danger'>{message}</div>
-        </div>
-      )}
-
     
       <div className='row'>
         <div className='col-4'></div>

@@ -1,194 +1,182 @@
-import React, { useState, useEffect } from 'react';
-import Input from './Input';
-import Image_Input from './Image_Input';
-import Price_input from './Price_input';
-import Btn_Add from './Btn_Add';
-import axios from 'axios';
-import Selector_Cat from './Selector_Cat';
-import Btns_Del_Add from './Btns_Del_Add';
-import { ToastContainer, toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from "react";
+import Input from "./Input";
+import Image_Input from "./Image_Input";
+import Price_input from "./Price_input";
+import Btn_Add from "./Btn_Add";
+import axios from "axios";
+import Selector_Cat from "./Selector_Cat";
+import Btns_Del_Add from "./Btns_Del_Add";
+import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
-const Package_Body = (props) => {
+const Package_Body = ({ edit = false, olditem = {}, money = false }) => {
   const navigate = useNavigate();
-  const { edit = false, olditem = {}, money = false } = props;
 
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [price, setPrice] = useState('');
+  const [form, setForm] = useState({
+    name: "",
+    description: "",
+    price: "",
+    catg: "اختر الكاتيغوري",
+  });
   const [img, setImg] = useState(null);
-  const [catg, setCatg] = useState('اختر الكاتيغوري');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const submittingRef = useRef(false);
+
+  const startSubmitting = () => {
+    submittingRef.current = true;
+    setIsSubmitting(true);
+  };
+  const endSubmitting = () => {
+    submittingRef.current = false;
+    setIsSubmitting(false);
+  };
+
+  /* -------------------------- Hydrate form on edit ------------------------- */
   useEffect(() => {
-    if (edit && olditem && Object.keys(olditem).length > 0) {
-      setName(olditem.name || '');
-      setDescription(olditem.description || '');
-      setPrice(olditem.price || '');
-      setCatg(olditem.category || 'اختر الكاتيغوري');
+    if (edit && olditem && Object.keys(olditem).length) {
+      setForm({
+        name: olditem.name || "",
+        description: olditem.description || "",
+        price: olditem.price || "",
+        catg: olditem.category || "اختر الكاتيغوري",
+      });
     }
   }, [edit, olditem]);
 
+  /* ----------------------------- Form helpers ----------------------------- */
+  const validate = () => {
+    const { name, description, price } = form;
+    if (!name.trim() || !description.trim() || !String(price).trim() || (!edit && !img)) {
+      toast.error("يرجى تعبئة جميع الحقول أولاً");
+      return false;
+    }
+    return true;
+  };
 
-
- const sendPackage = async () => {
-if (!edit) {
-  if (!name.trim() || !description.trim() || !price.trim() || !img.trim()) {
-    alert('يرجى إدخال اسم ووصف الكاتيغوري واختيار الفئة');
-    return;
-  }
-}
-
-  const formData = new FormData();
-
-  if (name !== olditem.name) formData.append('name', name);
-  if (description !== olditem.description) formData.append('description', description);
-  if (price !== olditem.price) formData.append('price', price);
-  if (img) formData.append('photo', img); // الصورة دائماً لو تم تعديلها
-
-  const url = edit
-    ? `https://market-cwgu.onrender.com/editpackage/${olditem.id}/`
-    : 'https://market-cwgu.onrender.com/newpackage/';
-  const method = edit ? 'patch' : 'post';
-
-  try {
-    await axios({
-      method,
-      url,
-      data: formData,
-      headers: { 'Content-Type': 'multipart/form-data' },
-    });
-    toast.success("تمت العملية بنجاح", {
-      onClose: () => navigate('/admin/home'),
-      autoClose: 1500,
-    });
-  } catch (error) {
-    console.error(error);
-    toast.error("حدث خطأ أثناء الإرسال");
-  }
-};
-
-const senMoney = async () => {
-if (!edit) {
-  if (!name.trim() || !description.trim() || !price.trim() || !img.trim() || !catg.trim()) {
-    alert('يرجى إدخال اسم ووصف الكاتيغوري واختيار الفئة');
-    return;
-  }
-}
-
-  const formData = new FormData();
-
-  if (name !== olditem.name) formData.append('name', name);
-  if (description !== olditem.description) formData.append('description', description);
-  if (price !== olditem.price) formData.append('price', price);
-  if (catg !== olditem.category) formData.append('category', catg);
-  if (img) formData.append('photo', img);
-
-  const url = edit
-    ? `https://market-cwgu.onrender.com/edititem/${olditem.id}/`
-    : 'https://market-cwgu.onrender.com/newitem/';
-  const method = edit ? 'patch' : 'post';
-
-  try {
-    await axios({
-      method,
-      url,
-      data: formData,
-      headers: { 'Content-Type': 'multipart/form-data' },
-    });
-    toast.success("تمت العملية بنجاح", {
-      onClose: () => navigate('/admin/home'),
-      autoClose: 1500,
-    });
-  } catch (error) {
-    console.error(error);
-    toast.error("حدث خطأ أثناء الإرسال");
-  }
-};
-
+  const buildFormData = () => {
+    const data = new FormData();
+    if (form.name !== olditem.name) data.append("name", form.name);
+    if (form.description !== olditem.description)
+      data.append("description", form.description);
+    if (form.price !== olditem.price) data.append("price", form.price);
+    if (money && form.catg !== olditem.category) data.append("category", form.catg);
+    if (img) data.append("photo", img);
+    return data;
+  };
 
   const handleSubmit = async () => {
+    if (submittingRef.current) return; 
+    if (!validate()) return;
 
+    startSubmitting();
 
-    if (money) {
-      await senMoney();
-    } else {
-      await sendPackage();
-    }
+    const formData = buildFormData();
 
-    if (!edit) {
-      setName('');
-      setDescription('');
-      setPrice('');
-      setImg(null);
-      setCatg('اختر الكاتيغوري');
+    const url = money
+      ? edit
+        ? `https://market-cwgu.onrender.com/edititem/${olditem.id}/`
+        : "https://market-cwgu.onrender.com/newitem/"
+      : edit
+      ? `https://market-cwgu.onrender.com/editpackage/${olditem.id}/`
+      : "https://market-cwgu.onrender.com/newpackage/";
+
+    const method = edit ? "patch" : "post";
+
+    try {
+      await axios({
+        method,
+        url,
+        data: formData,
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
+      toast.success("تمت العملية بنجاح", {
+        onClose: () => navigate(-1),
+        autoClose: 1500,
+      });
+
+      // إعادة تعيين الحقول فى حالة الإضافة فقط
+      if (!edit) resetForm();
+    } catch (err) {
+      console.error(err);
+      toast.error("حدث خطأ أثناء الإرسال");
+    } finally {
+      endSubmitting();
     }
   };
 
+  /* ------------------------------ Delete item ----------------------------- */
   const handleDelete = async () => {
-    if (!olditem.id) return;
+    if (submittingRef.current || !olditem.id) return;
 
+    startSubmitting();
     const url = money
       ? `https://market-cwgu.onrender.com/deleteitem/${olditem.id}/`
       : `https://market-cwgu.onrender.com/deletepackage/${olditem.id}/`;
-
     try {
       await axios.delete(url);
-
-      // تفريغ الحقول بعد الحذف
-      setName('');
-      setDescription('');
-      setPrice('');
-      setImg(null);
-      setCatg('اختر الكاتيغوري');
-      toast.success("تمت العملية بنجاح", {
-  onClose: () => navigate('/admin/home'),
-  autoClose: 1500,
-});
-
-    } catch (error) {
-      console.error('Error deleting item:', error);
+      toast.success("تم الحذف بنجاح", {
+        onClose: () => navigate(-1),
+        autoClose: 1500,
+      });
+      resetForm();
+    } catch (err) {
+      console.error(err);
       toast.error("حدث خطأ أثناء الحذف");
+    } finally {
+      endSubmitting();
     }
   };
 
+  /* ------------------------------ Utilities ------------------------------- */
+  const resetForm = () => {
+    setForm({ name: "", description: "", price: "", catg: "اختر الكاتيغوري" });
+    setImg(null);
+  };
+
+  /* -------------------------------- Render -------------------------------- */
   return (
-    <div className='mt-5'>
+    <div className="mt-5">
       <ToastContainer rtl position="top-center" autoClose={3000} />
 
       <Input
         value="الاسم"
-        val_in={name}
         placeholder="ادخل الاسم"
-        setValue={setName}
+        val_in={form.name}
+        setValue={(v) => setForm({ ...form, name: v })}
       />
       <Input
         value="وصف"
         placeholder="ادخل الوصف"
-        setValue={setDescription}
-        val_in={description}
+        val_in={form.description}
+        setValue={(v) => setForm({ ...form, description: v })}
       />
-      {money ? (
-        <Selector_Cat value={catg} setValue={setCatg} />
-      ) : (
-        <div></div>
+      {money && (
+        <Selector_Cat value={form.catg} setValue={(v) => setForm({ ...form, catg: v })} />
       )}
       <Price_input
         value="السعر"
         placeholder="ادخل السعر"
-        setValue={setPrice}
-        val_in={price}
+        val_in={form.price}
+        setValue={(v) => setForm({ ...form, price: v })}
       />
       <Image_Input
         value="الصورة"
         placeholder="ادخل الصورة"
-        setValue={setImg}
         val_in={img}
+        setValue={setImg}
         oldImage={edit && olditem.photo}
       />
+
       {!edit ? (
-        <Btn_Add onClick={handleSubmit} />
+        <Btn_Add onClick={handleSubmit} disabled={isSubmitting} />
       ) : (
-        <Btns_Del_Add onClick={handleSubmit} deleteClick={handleDelete} />
+        <Btns_Del_Add
+          onClick={handleSubmit}
+          deleteClick={handleDelete}
+          disabled={isSubmitting}
+        />
       )}
     </div>
   );

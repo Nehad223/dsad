@@ -9,8 +9,10 @@ const Points_Body_Page = () => {
   const [buyerPrice, setBuyerPrice] = useState('')
   const [referralPrice, setReferralPrice] = useState('')
   const [pointsCount, setPointsCount] = useState('')
-
+const[isSubmitting,setIsSubmitting]=useState(false);
   const handleSubmit = async () => {
+      if (isSubmitting) return;
+  setIsSubmitting(true); 
       if (!buyerPrice || !referralPrice || !pointsCount) {
     toast.error("يرجى ملء جميع الحقول قبل المتابعة");
     return;
@@ -26,7 +28,7 @@ const Points_Body_Page = () => {
       setReferralPrice('');
       setPointsCount('');
             toast.success("تمت العملية بنجاح", {
-        onClose: () => navigate('/admin/home'),
+        onClose: () => navigate(-1),
         autoClose: 1500,
       });
       
@@ -35,6 +37,10 @@ const Points_Body_Page = () => {
         toast.error("حدث خطأ أثناء الإرسال");
       
     }
+     finally {
+    setIsSubmitting(false); 
+  }
+
   }
 
   return (

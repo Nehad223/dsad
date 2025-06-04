@@ -26,7 +26,15 @@ const Selector_Cat = ({value,setValue}) => {
           <select value={value} onChange={(e) => setValue(e.target.value)}>
             <option value={0}>اختر الكاتيغوري</option>
             {catges.map((cat, index) => (
-              <option key={index} value={cat.id}>{cat.name}</option>
+              <div>
+                {cat.category_type=="student" && <option key={index} value={cat.id}>{cat.name} (طلاب)</option>
+                }
+                   {cat.category_type=="doctor" && <option key={index} value={cat.id}>{cat.name} (اطباء)</option>
+                }
+                 
+                 
+              </div>
+            
             ))}
           </select>
         </div>

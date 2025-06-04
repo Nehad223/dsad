@@ -56,7 +56,7 @@ const sendPoints = async (name, description, price, img) => {
     });
 
     toast.success('تمت العملية بنجاح', {
-      onClose: () => navigate('/admin/home'),
+      onClose: () => navigate(-1),
       autoClose: 1500,
     });
   } catch (error) {
@@ -80,7 +80,7 @@ const handleDelete = async () => {
     setPrice('');
     setImg(null);
           toast.success("تمت العملية بنجاح", {
-      onClose: () => navigate('/admin/home'),
+      onClose: () => navigate(-1),
       autoClose: 1500,
     });
   } catch (error) {
