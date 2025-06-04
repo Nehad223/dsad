@@ -4,11 +4,12 @@ import { useParams } from 'react-router-dom';
 import { useState,useEffect } from 'react';
 import Form_Order from '../components/Form_Order.js';
 import axios from 'axios';
-
+import Inf_Order from '../components/inf_Order.js';
 const Order_Item_Money = () => {
   const parmas=useParams();
   const id=parmas.id;
   const index=parmas.index;
+  const type=parmas.MoneyOrPoint;
   const [data,setData]=useState({});
   useEffect(()=>{
         document.documentElement.style.setProperty("--main", "white");
@@ -29,13 +30,33 @@ const Order_Item_Money = () => {
     <div>
       <Header />
       <h1 className='add_text mt-5'>الطلب رقم {index}</h1>
-   {data.customer_info && (
+
+    <div className='row'>
+      <div className='col-6'>
+        {type=="money" && 
+        <Inf_Order date={data.created_at} pacakges={data.packages} items={data.items} totalPrice={data.price}/>        
+        }
+        {type=="points" && 
+        
+        <Inf_Order date={data.created_at}  items={data.point_items} totalPrice={data.price}/>
+        
+        }
+         </div>
+      <div className='col-6'>      
+        
+   {data.customer_info &&  (
   <Form_Order 
     name={data.customer_info.name} 
     adress={data.customer_info.address} 
     phone={`0${data.customer_info.phone_number}`} 
+    id={data.id}
   />
 )}
+
+</div>
+
+
+    </div>
 
     </div>
   )

@@ -1,24 +1,23 @@
-import React, { useEffect } from 'react';
-import DeleteBtn from '../components/DeletBtn';
-import Add_sub from '../components/add_sub';
-import { useCart } from "../context/CartContext";
-
-const Item_Cart = ({cart}) => {
+import React from 'react'
+import '../../style/All.css';
+import DeleteBtn from '../../components/DeletBtn';
+import Add_sub from '../../components/add_sub';
+const Item_cart_Admin = ({cart,type}) => {
   return (
     <div>
-      {Object.entries(cart).map(([id, item]) => (
+       {Object.entries(cart).map(([id, item]) => (
         <div key={id} className='item_Cart mt-4'>
           <div className="col-1 Delete_btn_grid">
-            <DeleteBtn id={id} quantity={item.quantity} />
+            <DeleteBtn />
           </div>
 
           <div className="col-7 center_item_grid">
             <div className='row high_row'>
               <div className='col-5 add_sub_grid'>
-                <Add_sub id={id} quantity={item.quantity} />
+                <Add_sub />
               </div>
               <div className='col-7 text_grid'>
-              {item.type === 'packages' ? <h1>بكج {item.name}</h1> : <h1>{item.name}</h1>}
+              {type === 'packages' ?<h1>بكج {item.item_name}</h1> : <h1>{item.item_name}</h1>}
    
                 <p>عدد {item.quantity}</p>
               </div>
@@ -35,12 +34,12 @@ const Item_Cart = ({cart}) => {
           </div>
 
           <div className="col-3 img_grid">
-            <img src={`https://res.cloudinary.com/dgocqho3b/${item.photo}`} className='img' />
+            <img src={item.photo} className='img' />
           </div>
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default Item_Cart;
+export default Item_cart_Admin

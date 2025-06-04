@@ -59,7 +59,7 @@ function App() {
         <Route path='/admin/orders' element={<Orders/>} />
         <Route path='/admin/orders/points' element={<Orders_Points/>} />
         <Route path='/admin/orders/money' element={<Orders_Money/>}/>
-        <Route path='/admin/orders/money/:index/:id' element={<Order_Item_Money/>} />
+        <Route path='/admin/orders/:MoneyOrPoint/:index/:id' element={<Order_Item_Money/>} />
         <Route path='/admin/add/money'  element={<Add_Money/>}/>
         <Route path='/admin/add/category'  element={<Add_Category/>}/>
         <Route path='/admin/edit' element={<Edit/>} />

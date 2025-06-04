@@ -24,7 +24,7 @@ const Cart = () => {
         </div>
         <div className="in_Cart">
           <TotalPrice_btn />
-          <Item_Cart />
+          <Item_Cart cart={cart} />
           <button
             className="oreder_btn_cart mt-5"
               onClick={() => {

@@ -9,7 +9,7 @@ const Form = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate=useNavigate();
   const [formData, setFormData] = useState({
-    profile_id: 1345963635,
+    profile_id:userData?userData.id:123456789,
     active_type: "price",
     items: transformItems(cart,"items"),
     packages:transformItems(cart,"packages"),
@@ -67,7 +67,7 @@ const handleConfirm = async () => {
   if (isSubmitting) return; 
   setIsSubmitting(true); 
 
-
+console.log(formData);
   if (!validateForm()) return;
   try {
     await axios.post(
