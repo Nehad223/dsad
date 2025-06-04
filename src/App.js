@@ -1,6 +1,8 @@
 import './App.css';
 import { createContext } from 'react';
 import Catg from './Pages/Catg.js';
+import ProtectedRoute from './Admin/components/Protected_Routes.js';
+import Auth_Admin from './Admin/Pages/Auth_Admin.js';
 import { Route,Routes } from 'react-router-dom';
 import Test from './Pages/Test';
 import Start_Page from './Pages/Start_Page';
@@ -50,27 +52,93 @@ function App() {
         <Route path='/dsad/profile' element={<Points_Page/>} />
         <Route path='/dsad/profile/buy/:id' element={<Buy_Points/>} />
         <Route path='/dsad/home/buy/:itemORpackage/:id' element={<Buy_Money/>} />
-        <Route path='/admin/home' element={<Home/>} />
-        <Route path='/admin/add' element={<Add/>} />
-        <Route path='admin/points' element={<Points/>}/>
-        <Route path='admin/user' element={<User/>} />
-        <Route path='/admin/add/pacakges' element={<Add_Packages/>}/>
-        <Route path='/admin/add/points'  element={<Add_Points/>}/>
-        <Route path='/admin/orders' element={<Orders/>} />
-        <Route path='/admin/orders/points' element={<Orders_Points/>} />
-        <Route path='/admin/orders/money' element={<Orders_Money/>}/>
-        <Route path='/admin/orders/:MoneyOrPoint/:index/:id' element={<Order_Item_Money/>} />
-        <Route path='/admin/add/money'  element={<Add_Money/>}/>
-        <Route path='/admin/add/category'  element={<Add_Category/>}/>
-        <Route path='/admin/edit' element={<Edit/>} />
-        <Route path='admin/edit/category' element={<Edit_Category/>} />
-        <Route path='/admin/edit/money' element={<Edit_Money/>} />
-        <Route path='/admin/edit/money/:doctorOrstudent/:catgid' element={<Edit_Money_Page/>} />
-        <Route path='admin/edit/points' element={<Edit_Points/>}/>
-        <Route path='admin/edit/points/:id' element={<Edit_Points_Page/>}/>
-        <Route path='/admin/edit/packages' element={<Edit_Packages/>} />
-        <Route path='/admin/edit/packages/:id' element={<EditPackage/>} />
-        <Route path='admin/edit/category/:doctorOrstudent/:catgid' element={<Edit_Category_by_Id/>} />
+        <Route path='/admin/' element={<Auth_Admin/>} />
+        <Route path='/admin/home' element={
+          <ProtectedRoute allowedRoles={["admin"]}>
+            <Home/>
+          </ProtectedRoute>
+              } />
+        <Route path='/admin/add' element={
+  <ProtectedRoute allowedRoles={["admin"]}>
+    <Add/>
+  </ProtectedRoute>
+} />
+        <Route path='admin/points' element={
+          <ProtectedRoute allowedRoles={["admin"]}><Points/></ProtectedRoute>
+          }/>
+        <Route path='admin/user' element={
+          <ProtectedRoute allowedRoles={["admin"]}>  <User/></ProtectedRoute>
+        } />
+
+        <Route path='/admin/add/pacakges' element={
+          <ProtectedRoute allowedRoles={["admin"]}><Add_Packages/></ProtectedRoute>
+          
+          }/>
+        <Route path='/admin/add/points'  element={
+          <ProtectedRoute allowedRoles={["admin"]}> <Add_Points/></ProtectedRoute>
+         
+          }/>
+        <Route path='/admin/orders' element={
+            <ProtectedRoute allowedRoles={["admin", "sub_admin"]}><Orders/></ProtectedRoute>
+          
+          } />
+        <Route path='/admin/orders/points' element={
+            <ProtectedRoute allowedRoles={["admin", "sub_admin"]}> <Orders_Points/></ProtectedRoute>
+         
+          } />
+
+        <Route path='/admin/orders/money' element={
+            <ProtectedRoute allowedRoles={["admin", "sub_admin"]}><Orders_Money/></ProtectedRoute>
+          
+          }/>
+        <Route path='/admin/orders/:MoneyOrPoint/:index/:id' element={
+            <ProtectedRoute allowedRoles={["admin", "sub_admin"]}><Order_Item_Money/></ProtectedRoute>
+          
+          } />
+        <Route path='/admin/add/money'  element={
+          <ProtectedRoute allowedRoles={["admin"]}><Add_Money/></ProtectedRoute>
+          
+          }/>
+        <Route path='/admin/add/category'  element={
+          <ProtectedRoute allowedRoles={["admin"]}><Add_Category/></ProtectedRoute>
+          
+          }/>
+        <Route path='/admin/edit' element={
+          <ProtectedRoute allowedRoles={["admin"]}><Edit/></ProtectedRoute>
+          
+          } />
+        <Route path='admin/edit/category' element={
+          <ProtectedRoute allowedRoles={["admin"]}><Edit_Category/></ProtectedRoute>
+          
+          } />
+        <Route path='/admin/edit/money' element={
+          <ProtectedRoute allowedRoles={["admin"]}><Edit_Money/></ProtectedRoute>
+          
+          } />
+        <Route path='/admin/edit/money/:doctorOrstudent/:catgid' element={
+          <ProtectedRoute allowedRoles={["admin"]}><Edit_Money_Page/></ProtectedRoute>
+          
+          } />
+        <Route path='admin/edit/points' element={
+          <ProtectedRoute allowedRoles={["admin"]}>  <Edit_Points/></ProtectedRoute>
+        
+          }/>
+        <Route path='admin/edit/points/:id' element={
+          <ProtectedRoute allowedRoles={["admin"]}> <Edit_Points_Page/></ProtectedRoute>
+         
+          }/>
+        <Route path='/admin/edit/packages' element={
+          <ProtectedRoute allowedRoles={["admin"]}><Edit_Packages/></ProtectedRoute>
+          
+          } />
+        <Route path='/admin/edit/packages/:id' element={
+          <ProtectedRoute allowedRoles={["admin"]}><EditPackage/></ProtectedRoute>
+          
+          } />
+        <Route path='admin/edit/category/:doctorOrstudent/:catgid' element={
+          <ProtectedRoute allowedRoles={["admin"]}> <Edit_Category_by_Id/></ProtectedRoute>
+         
+          } />
 
 
       </Routes>
