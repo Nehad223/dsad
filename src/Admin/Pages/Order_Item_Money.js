@@ -6,10 +6,12 @@ import Form_Order from '../components/Form_Order.js';
 import axios from 'axios';
 import Inf_Order from '../components/inf_Order.js';
 const Order_Item_Money = () => {
+
   const parmas=useParams();
   const id=parmas.id;
   const index=parmas.index;
   const type=parmas.MoneyOrPoint;
+  const[loading,setLoading]=useState(true)
   const [data,setData]=useState({});
   useEffect(()=>{
         document.documentElement.style.setProperty("--main", "white");
@@ -22,10 +24,20 @@ const Order_Item_Money = () => {
       catch(err){
         console.log(err);
       }
+      finally{
+        setLoading(false);
+      }
     }
       fetchData();
 
   },[])
+  if(loading){
+    return(
+      <div>
+        
+      </div>
+    )
+  }
   return (
     <div>
       <Header />
@@ -38,7 +50,7 @@ const Order_Item_Money = () => {
         }
         {type=="points" && 
         
-        <Inf_Order date={data.created_at}  items={data.point_items} totalPrice={data.price}/>
+        <Inf_Order date={data.created_at}  items={data.point_items} />
         
         }
          </div>
@@ -50,6 +62,7 @@ const Order_Item_Money = () => {
     adress={data.customer_info.address} 
     phone={`0${data.customer_info.phone_number}`} 
     id={data.id}
+    status={data.status}
   />
 )}
 

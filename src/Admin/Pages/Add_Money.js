@@ -12,7 +12,7 @@ const Add_Money = () => {
   return (
     <div>
       <Header/>
-      <h1 className='add_text mt-1'> إضافة بضاعة بسعر</h1>
+      <h1 className='add_text mt-5'> إضافة بضاعة بسعر</h1>
       <Package_Body money={true}/>
       
       

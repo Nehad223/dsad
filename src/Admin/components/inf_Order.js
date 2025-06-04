@@ -16,7 +16,7 @@ const Inf_Order = ({ totalPrice, date,items,pacakges }) => {
       <h1 className='add_text mt-5 '>معلومات الطلب</h1>
       <div className='row mt-5'>
         <div className='col-5'></div>
-        <div className='col-5'>
+        <div className='col-5 mb-5'>
           <div style={{ transform: 'scale(1.2)' }} className='mx-4'>
             {items && 
             <Item_cart_Admin cart={items} type={"item"}  />
@@ -27,11 +27,11 @@ const Inf_Order = ({ totalPrice, date,items,pacakges }) => {
 
           </div>
           
-          
-          <div className='TotalPrice_Btn mx-5'>
+          {totalPrice && <div className='TotalPrice_Btn mt-5 mx-5'>
             <div className='totalPrice'><p>{totalPrice}</p></div>
             <div className='totalPrice_Word'><p>المجموع</p></div>
-          </div>
+          </div>}
+          
 
           <div className='TotalPrice_Btn mx-5'>
             <div className='totalPrice'><p>{formatDate(date)}</p></div>

@@ -12,7 +12,7 @@ const Selector_Cat = ({value,setValue}) => {
         console.log(res.data);
       } catch (err) {
         console.error(err);
-      }
+      } 
     };
 
     fetchData(); 
@@ -22,7 +22,7 @@ const Selector_Cat = ({value,setValue}) => {
     <div>
       <div className='row input mt-1'>
         <div className='col-4'></div>
-        <div className='col-4'>
+        <div className='col-4 d-flex justify-content-end'>
           <select value={value} onChange={(e) => setValue(e.target.value)}>
             <option value={0}>اختر الكاتيغوري</option>
             {catges.map((cat, index) => (
@@ -31,7 +31,7 @@ const Selector_Cat = ({value,setValue}) => {
           </select>
         </div>
         <div className='col-1 mt-1'>
-          <h1 className='text'>الكاتيغوري</h1>
+          <h1 className='text text-start'>الكاتيغوري</h1>
         </div>
       </div>
     </div>

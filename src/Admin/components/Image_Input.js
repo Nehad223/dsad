@@ -18,7 +18,7 @@ const Image_Input = ({ value, setValue, val_in, oldImage }) => {
     <div className="row input mt-1">
       <div className="col-4"></div>
 
-      <div className="col-4">
+      <div className="col-4 d-flex justify-content-end">
         <div
           onClick={handleClick}
           className='img_input'
@@ -42,7 +42,7 @@ const Image_Input = ({ value, setValue, val_in, oldImage }) => {
       </div>
 
       <div className='col-1 mt-1'>
-        <h1 className='text'>{value}</h1>
+        <h1 className='text text-start'>{value}</h1>
       </div>
     </div>
   );

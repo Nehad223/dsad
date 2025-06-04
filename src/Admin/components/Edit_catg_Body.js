@@ -41,7 +41,7 @@ const Edit_catg_Body = (props) => {
   }
   return (
 
-    <div>
+    <div className='mt-5'>
       {catges && (<h1 className='add_text mt-3'>طلاب</h1>)}
       
       <div className='grid-container'>

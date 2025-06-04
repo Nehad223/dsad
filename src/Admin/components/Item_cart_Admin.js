@@ -25,9 +25,15 @@ const Item_cart_Admin = ({cart,type}) => {
 
             <div className='row'>
               <div className='col-7 total_Price'>
-                <span style={{ direction: 'rtl', unicodeBidi: 'isolate' }}>
+                {item.price &&   <span style={{ direction: 'rtl', unicodeBidi: 'isolate' }}>
                   {item.quantity * item.price} ل.س
+                </span>}
+                {item.points && 
+                 <span style={{ direction: 'rtl', unicodeBidi: 'isolate' }}>
+                  {item.quantity * item.points} نقطة
                 </span>
+                }
+              
               </div>
               <div className='col-5 Price'>المبلغ النهائي</div>
             </div>

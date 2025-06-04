@@ -35,7 +35,7 @@ const Edit_Points = () => {
   return (
     <div>
       <Header/>
-      <h1 className='add_text mt-4'> بضاعة بنقاط</h1>
+      <h1 className='add_text mt-5'> بضاعة بنقاط</h1>
       <div className='grid-container'>
          {data.map((item, index) => (
           <Rectangle_Edit_Catg key={`d-${index}`} value={item.name} redrict={item.id}  />

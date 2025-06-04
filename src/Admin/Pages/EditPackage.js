@@ -43,7 +43,7 @@ const EditPackage = () => {
   return (
     <div>
         <Header/>
-      <h1 className='add_text mt-4'> البكجات</h1>
+      <h1 className='add_text mt-5'> البكجات</h1>
       <Package_Body edit={true} olditem={olditem} />
     
       

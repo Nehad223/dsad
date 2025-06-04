@@ -12,7 +12,7 @@ const User = () => {
   return (
     <div>
         <Header/>
-      <h1 className='add_text mt-4'> اليوزر</h1>
+      <h1 className='add_text mt-5'> اليوزر</h1>
         <User_Body/>
   
     </div>

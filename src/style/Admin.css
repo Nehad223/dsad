@@ -88,7 +88,6 @@ select{
     background-color: #1C458D;
     border: solid 1px #1C458D;
     border-radius: 10px;
-    margin-left: 28%;
     width: 50%;
     max-width: 284px;
     height: 62px;
@@ -109,32 +108,27 @@ select{
 
 .btns_del_add{
   display: flex;
-  justify-content: center;
-
-  
+  justify-content: space-between;
+  align-items: center;  
 }
 .add_Btns{
     background-color: #1C458D;
     border: solid 1px #1C458D;
     color: white;
     border-radius: 10px;
-    margin-left: 28%;
     width: 50%;
     max-width: 284px;
     height: 62px;
     font-size: 20px;
-  margin-left: 10% !important;
 
 }
 .delete_Btns{
     color: white;
     border-radius: 10px;
-    margin-left: 28%;
     width: 50%;
     max-width: 284px;
     height: 62px;
     font-size: 20px;
-  margin-left: 15% !important;
 }
 @media screen and (max-width:500px){
    .rectangle{
@@ -246,3 +240,4 @@ input[type=number] {
   background-color: #DB2424;
   border: solid 1px #DB2424;
 }
+

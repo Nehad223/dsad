@@ -37,7 +37,7 @@ const Edit_Packages = () => {
   return (
     <div>
       <Header/>
-      <h1 className='add_text mt-4'>البكجات</h1>
+      <h1 className='add_text mt-5'>البكجات</h1>
        {data && (<div  className='grid-container'>
 {data.map((item, index) => {
   return (

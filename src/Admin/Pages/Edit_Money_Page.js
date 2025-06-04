@@ -45,7 +45,7 @@ const Edit_Money_Page = () => {
   return (
     <div>
         <Header/>
-      <h1 className='add_text '> بضاعة بسعر</h1>
+      <h1 className='add_text mt-5 '> بضاعة بسعر</h1>
         <Package_Body edit={true} olditem={olditem} money={true} />
       
     </div>

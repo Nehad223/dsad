@@ -11,7 +11,7 @@ const Orders = () => {
   return (
     <div>
         <Header/>
-      <h1 className='add_text mt-4'>الطلبات المعلقة</h1>
+      <h1 className='add_text mt-5'>الطلبات المعلقة</h1>
       <div className='row'>
         <div className='col-4'></div>
             <div className='col-2'><Rectangle value="نقاط" redrict="points" /></div>

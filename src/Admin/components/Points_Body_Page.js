@@ -11,6 +11,10 @@ const Points_Body_Page = () => {
   const [pointsCount, setPointsCount] = useState('')
 
   const handleSubmit = async () => {
+      if (!buyerPrice || !referralPrice || !pointsCount) {
+    toast.error("يرجى ملء جميع الحقول قبل المتابعة");
+    return;
+  }
     try {
       const response = await axios.patch('https://market-cwgu.onrender.com/global-points/update/', {
         purchase_points: Number(buyerPrice),
@@ -40,8 +44,8 @@ const Points_Body_Page = () => {
       <div>
   
         <div className='row input mt-1'>
-          <div className='col-4'></div>
-          <div className='col-5'>
+          <div className='col-7'></div>
+          <div className='col-3 d-flex justify-content-end'>
             <input
               type='number'
               placeholder='أدخل السعر'
@@ -49,15 +53,15 @@ const Points_Body_Page = () => {
               onChange={(e) => setBuyerPrice(e.target.value)}
             />
           </div>
-          <div className='col-3 mt-1 yy'>
-            <h1 className='text gg'>سعر النقاط-مشتري</h1>
+          <div className='col-2 mt-1  '>
+            <h1 className='text text-start '>سعر النقاط-مشتري</h1>
           </div>
         </div>
 
 
         <div className='row input mt-1'>
-          <div className='col-4'></div>
-          <div className='col-5'>
+          <div className='col-7'></div>
+          <div className='col-3  d-flex justify-content-end '>
             <input
               type='number'
               placeholder='أدخل السعر'
@@ -65,13 +69,14 @@ const Points_Body_Page = () => {
               onChange={(e) => setReferralPrice(e.target.value)}
             />
           </div>
-          <div className='col-3 mt-1'>
-            <h1 className='text kk'>سعر النقطة-إحالة</h1>
+          <div className='col-2 mt-1'>
+            <h1 className='text text-start  '>سعر النقطة-إحالة</h1>
           </div>
+
         </div>
-        <div className='row input mt-1'>
-          <div className='col-4'></div>
-          <div className='col-5'>
+        <div className='row input mt-1  '>
+          <div className='col-7'></div>
+          <div className='col-3  d-flex justify-content-end'>
             <input
               type='number'
               placeholder='أدخل عدد النقاط'
@@ -79,14 +84,24 @@ const Points_Body_Page = () => {
               onChange={(e) => setPointsCount(e.target.value)}
             />
           </div>
-          <div className='col-2 mt-1'>
-            <h1 className='text so'>رابط الاحالة</h1>
+          <div className='col-2 mt-1 '>
+            <h1 className='text  text-start '>رابط الاحالة</h1>
           </div>
-        </div>
-      </div>
 
-     
-      <Btn_Add onClick={handleSubmit} />
+        </div>
+        
+      </div>
+      <div className='row'>
+             <div className='col-5'></div>
+      <div className='col-3 d-flex justify-content-end '>  
+                    <button className='Btn_Add mt-5' onClick={handleSubmit}>
+        إضافة
+      </button></div>
+      </div>
+ 
+
+
+  
     </div>
   )
 }

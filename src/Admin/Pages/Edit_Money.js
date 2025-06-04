@@ -40,7 +40,7 @@ const Edit_Money = () => {
   return (
     <div>
       <Header />
-      <h1 className='add_text mt-4'>بضاعة بسعر</h1>
+      <h1 className='add_text mt-5'>بضاعة بسعر</h1>
 
       <h1 className='add_text mt-3'>طلاب</h1>
       <div className='grid-container'>
@@ -55,7 +55,7 @@ const Edit_Money = () => {
 ))}
       </div>
 
-      <h1 className='add_text '>اطباء</h1>
+      <h1 className='add_text  '>اطباء</h1>
       <div className='grid-container mb-1'>
       {doctors.map((catg, i) => (
   catg.items.map((item, j) => (

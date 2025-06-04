@@ -5,23 +5,38 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const Form_Order = (props) => {
   const navigate = useNavigate()
-  const hasSent = useRef(false); // لتتبع إذا الطلب انبعت
+  const hasSent = useRef(false);
 
   const handlePatch = async (status) => {
-    if (hasSent.current) return; // تجاهل أي كبسة بعد أول وحدة
-    hasSent.current = true; // علّم إنو انبعت الطلب
+    if (hasSent.current) return; 
+
+    if (status === 'delivery' && props.status === 'delivery') {
+      toast.error("تم التوصيل مسبقاً، لا يمكن التوصيل مرة أخرى");
+      return;
+    }
+
+    if (status === 'finished' && props.status !== 'delivery') {
+      toast.error("لا يمكن الاستكمال قبل التوصيل");
+      return;
+    }
+
+    hasSent.current = true;
 
     try {
       let url = ''
+      let response;
+      
       if (status === 'finished') {
         url = `https://market-cwgu.onrender.com/makeorderfinished/${props.id}/`
+        response = await axios.patch(url)
       } else if (status === 'delivery') {
         url = `https://market-cwgu.onrender.com/makeorderdelivery/${props.id}/`
+        response = await axios.patch(url)
       } else if (status === 'refused') {
-        url = `/api/order/${props.id}/refuse`
+        url = `https://market-cwgu.onrender.com/deleteorder/${props.id}/`
+        response = await axios.delete(url)
       }
 
-      await axios.patch(url)
       toast.success("تمت العملية بنجاح", {
         onClose: () => navigate(-1),
         autoClose: 1500,
@@ -29,7 +44,7 @@ const Form_Order = (props) => {
     } catch (error) {
       console.error(error)
       toast.error("حدث خطأ أثناء الإرسال");
-      hasSent.current = false; // إذا صار خطأ، اسمح بمحاولة جديدة
+      hasSent.current = false; 
     }
   }
 

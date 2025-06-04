@@ -11,7 +11,7 @@ const Edit_Category = () => {
   return (
     <div>
         <Header/>
-      <h1 className='add_text mt-2'>الكاتيغوريز</h1>
+      <h1 className='add_text mt-5'>الكاتيغوريز</h1>
       <Edit_catg_Body/>
 
 

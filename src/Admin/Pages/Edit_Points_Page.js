@@ -43,7 +43,7 @@ const Edit_Points_Page = () => {
   return (
     <div>
         <Header/>
-      <h1 className='add_text mt-4'> بضاعة بنقاط</h1>
+      <h1 className='add_text mt-5'> بضاعة بنقاط</h1>
         <Points_Body edit={true} olditem={olditem} />
       
     </div>

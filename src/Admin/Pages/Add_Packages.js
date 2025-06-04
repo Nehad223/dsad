@@ -11,7 +11,7 @@ const Add_Packages = () => {
   return (
     <div>
         <Header/>
-      <h1 className='add_text mt-1'> إضافة بكج</h1>
+      <h1 className='add_text mt-5'> إضافة بكج</h1>
       <Package_Body />
         
       

@@ -2,10 +2,15 @@ import React from 'react'
 
 const Btn_Add = ({ onClick }) => {
   return (
-    <div>
-      <button className='Btn_Add mt-4' onClick={onClick}>
+    <div className='row'>
+      <div className='col-4'></div>
+      <div className='col-4'>
+      <button className='Btn_Add mt-5' onClick={onClick}>
         إضافة
-      </button>
+      </button></div>
+
+
+
     </div>
   )
 }
