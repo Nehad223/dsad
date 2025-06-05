@@ -36,7 +36,7 @@ import EditPackage from './Admin/Pages/EditPackage.js';
 import Edit_Points from './Admin/Pages/Edit_Points.js';
 import Edit_Points_Page from './Admin/Pages/Edit_Points_Page.js';
 import Edit_Money_Page from './Admin/Pages/Edit_Money_Page.js';
-import PurchaseHistory from './components/Purchase_History.js';
+import PurchaseHistory from './Admin/components/Purchase_History.js';
 export const CounterContext = createContext();
 function App() {
 

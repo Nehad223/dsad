@@ -29,7 +29,7 @@ const Category_Body = ({ edit = false, olditem = {} }) => {
   setIsSubmitting(true);
 if (!edit) {
   if (!category.trim()  || !category_type.trim()) {
-    alert('يرجى إدخال اسم ووصف الكاتيغوري واختيار الفئة');
+          toast.error("يرجى تعبئة جميع الحقول أولاً");
     return;
   }
 }
