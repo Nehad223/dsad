@@ -32,7 +32,6 @@ const Package_Body = ({ edit = false, olditem = {}, money = false }) => {
     setIsSubmitting(false);
   };
 
-  /* -------------------------- Hydrate form on edit ------------------------- */
   useEffect(() => {
     if (edit && olditem && Object.keys(olditem).length) {
       setForm({
@@ -44,10 +43,10 @@ const Package_Body = ({ edit = false, olditem = {}, money = false }) => {
     }
   }, [edit, olditem]);
 
-  /* ----------------------------- Form helpers ----------------------------- */
+
   const validate = () => {
     const { name, description, price } = form;
-    if (!name.trim() || !description.trim() || !String(price).trim() || (!edit && !img)) {
+    if (!name.trim()  || !price || (!edit && !img)) {
       toast.error("يرجى تعبئة جميع الحقول أولاً");
       return false;
     }
@@ -59,7 +58,11 @@ const Package_Body = ({ edit = false, olditem = {}, money = false }) => {
     if (form.name !== olditem.name) data.append("name", form.name);
     if (form.description !== olditem.description)
       data.append("description", form.description);
-    if (form.price !== olditem.price) data.append("price", form.price);
+      const numericPrice = Number(form.price);
+  if (numericPrice !== Number(olditem.price)) {
+    data.append("price", numericPrice);
+  }
+
     if (money && form.catg !== olditem.category) data.append("category", form.catg);
     if (img) data.append("photo", img);
     return data;
@@ -96,7 +99,6 @@ const Package_Body = ({ edit = false, olditem = {}, money = false }) => {
         autoClose: 1500,
       });
 
-      // إعادة تعيين الحقول فى حالة الإضافة فقط
       if (!edit) resetForm();
     } catch (err) {
       console.error(err);
@@ -106,7 +108,7 @@ const Package_Body = ({ edit = false, olditem = {}, money = false }) => {
     }
   };
 
-  /* ------------------------------ Delete item ----------------------------- */
+
   const handleDelete = async () => {
     if (submittingRef.current || !olditem.id) return;
 
@@ -129,13 +131,11 @@ const Package_Body = ({ edit = false, olditem = {}, money = false }) => {
     }
   };
 
-  /* ------------------------------ Utilities ------------------------------- */
+
   const resetForm = () => {
     setForm({ name: "", description: "", price: "", catg: "اختر الكاتيغوري" });
     setImg(null);
   };
-
-  /* -------------------------------- Render -------------------------------- */
   return (
     <div className="mt-5">
       <ToastContainer rtl position="top-center" autoClose={3000} />

@@ -13,8 +13,10 @@ const Points_Body = ({ edit = false, olditem = {} }) => {
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [img, setImg] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
+    if (isSubmitting) return; 
     if (edit && olditem) {
       setName(olditem.name || '');
       setDescription(olditem.description || '');
@@ -26,18 +28,17 @@ const sendPoints = async (name, description, price, img) => {
   const formData = new FormData();
 
   if (!edit) {
-    // إرسال الكل إذا كنا نضيف عنصر جديد
     formData.append('name', name);
     formData.append('description', description);
     formData.append('price', price);
     if (img) formData.append('photo', img);
   } else {
-    // فقط الحقول التي تغيرت
     if (name !== olditem.name) formData.append('name', name);
     if (description !== olditem.description) formData.append('description', description);
     if (price !== String(olditem.points)) formData.append('price', price);
-    if (img) formData.append('photo', img); // تعتبر الصورة دائماً تغيرت إذا تم اختيار واحدة جديدة
+    if (img) formData.append('photo', img); 
   }
+    setIsSubmitting(true); 
 
   try {
     const url = edit
@@ -54,11 +55,16 @@ const sendPoints = async (name, description, price, img) => {
         'Content-Type': 'multipart/form-data',
       },
     });
+    setIsSubmitting(false);
 
     toast.success('تمت العملية بنجاح', {
       onClose: () => navigate(-1),
       autoClose: 1500,
     });
+        setDescription('');
+    setName('');
+    setPrice('');
+    setImg(null);
   } catch (error) {
     console.error('Error uploading:', error);
     toast.error('حدث خطأ أثناء الإرسال');
@@ -73,12 +79,11 @@ const handleDelete = async () => {
       `https://market-cwgu.onrender.com/deletepointitem/${olditem.id}/`
     );
  
-
-    // تفريغ الحقول بعد الحذف
     setDescription('');
     setName('');
     setPrice('');
     setImg(null);
+    setIsSubmitting(false);
           toast.success("تمت العملية بنجاح", {
       onClose: () => navigate(-1),
       autoClose: 1500,
@@ -92,7 +97,15 @@ const handleDelete = async () => {
 
 
   const handleSubmit = async () => {
-    await sendPoints(name, description, price, img);
+   if (!name || name.trim() === '' || !price || (!edit && !img)) {
+    toast.error("يرجى تعبئة جميع الحقول المطلوبة", {
+      autoClose: 2000,
+    });
+    return;
+  }
+
+
+    await sendPoints(name, description, Number(price), img);
 
     setDescription('');
     setName('');
@@ -131,7 +144,7 @@ const handleDelete = async () => {
   oldImage={edit && olditem.photo}
 />
 
-      {!edit?<Btn_Add onClick={handleSubmit} />:<Btns_Del_Add onClick={handleSubmit} deleteClick={handleDelete} />}
+      {!edit?<Btn_Add onClick={handleSubmit} disabled={isSubmitting} />:<Btns_Del_Add onClick={handleSubmit} deleteClick={handleDelete} />}
       
     </div>
   );

@@ -28,7 +28,7 @@ const Category_Body = ({ edit = false, olditem = {} }) => {
       if (isSubmitting) return; 
   setIsSubmitting(true);
 if (!edit) {
-  if (!category.trim() || !description.trim() || !category_type.trim()) {
+  if (!category.trim()  || !category_type.trim()) {
     alert('يرجى إدخال اسم ووصف الكاتيغوري واختيار الفئة');
     return;
   }
@@ -118,7 +118,7 @@ if (!edit) {
       />
       <Selector value={category_type} setValue={setType} />
       {!edit
-        ? <Btn_Add onClick={handleSubmit} />
+        ? <Btn_Add onClick={handleSubmit} disabled={isSubmitting} />
         : <Btns_Del_Add onClick={handleSubmit} deleteClick={handleDelete} />}
     </div>
   );

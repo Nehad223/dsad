@@ -36,6 +36,7 @@ import EditPackage from './Admin/Pages/EditPackage.js';
 import Edit_Points from './Admin/Pages/Edit_Points.js';
 import Edit_Points_Page from './Admin/Pages/Edit_Points_Page.js';
 import Edit_Money_Page from './Admin/Pages/Edit_Money_Page.js';
+import PurchaseHistory from './components/Purchase_History.js';
 export const CounterContext = createContext();
 function App() {
 
@@ -138,6 +139,13 @@ function App() {
         <Route path='admin/edit/category/:doctorOrstudent/:catgid' element={
           <ProtectedRoute allowedRoles={["admin"]}> <Edit_Category_by_Id/></ProtectedRoute>
          
+          } />
+          <Route path='admin/history' element={
+            <ProtectedRoute allowedRoles={["admin"]}> 
+            <PurchaseHistory/>
+            </ProtectedRoute>
+      
+           
           } />
 
 
