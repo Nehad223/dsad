@@ -5,6 +5,11 @@ import '../../style/All.css';
 const PurchaseMonths = () => {
   const [months, setMonths] = useState([]);
 
+        useEffect(() => {
+          document.documentElement.style.setProperty("--main", "white");
+      
+      
+        }, []);
 
   useEffect(() => {
     const fetch = async () => {
@@ -39,7 +44,7 @@ const PurchaseMonths = () => {
     <div >
       <h2 className="add_text mt-5">سجل المشتريات حسب الأشهر</h2>
       <div className="grid-container">
-        {months.map((key, idx) => (
+        {months&& months.map((key, idx) => (
        <Rectangle key={idx} value={key} redrict={`${key}`} />
         ))}
       </div>

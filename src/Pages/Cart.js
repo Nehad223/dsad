@@ -13,6 +13,8 @@ const Cart = () => {
 
   useEffect(() => {
     document.documentElement.style.setProperty('--main', 'white');
+        document.documentElement.style.setProperty("--home", "#9CD5C1");
+    document.documentElement.style.setProperty("--profile", "#9CD5C1");
   }, []);
   TelegramBackButton();
 

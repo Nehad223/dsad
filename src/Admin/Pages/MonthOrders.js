@@ -6,7 +6,11 @@ const MonthOrders = () => {
   const params = useParams();
   const { month, year } = useParams();
   const [orders, setOrders] = useState([]);
-
+        useEffect(() => {
+          document.documentElement.style.setProperty("--main", "white");
+      
+      
+        }, []);
   useEffect(() => {
     const fetch = async () => {
       try {
