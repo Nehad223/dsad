@@ -16,6 +16,7 @@ import Buy_Money from './Pages/Buy_Money.js'
 import Order_Item_Money from './Admin/Pages/Order_Item_Money.js';
 import Test2 from './Pages/Test2.js';
 import Test3 from './Pages/Test3.js';
+import MonthOrders from './Admin/Pages/MonthOrders.js';
 import Home from './Admin/Pages/Home.js'
 import Add from './Admin/Pages/Add.js';
 import Edit from './Admin/Pages/Edit.js'
@@ -36,7 +37,7 @@ import EditPackage from './Admin/Pages/EditPackage.js';
 import Edit_Points from './Admin/Pages/Edit_Points.js';
 import Edit_Points_Page from './Admin/Pages/Edit_Points_Page.js';
 import Edit_Money_Page from './Admin/Pages/Edit_Money_Page.js';
-import PurchaseHistory from './Admin/components/Purchase_History.js';
+import PurchaseMonths from './Admin/Pages/Purchase_Months.js';
 export const CounterContext = createContext();
 function App() {
 
@@ -64,10 +65,10 @@ function App() {
     <Add/>
   </ProtectedRoute>
 } />
-        <Route path='admin/points' element={
+        <Route path='/admin/points' element={
           <ProtectedRoute allowedRoles={["admin"]}><Points/></ProtectedRoute>
           }/>
-        <Route path='admin/user' element={
+        <Route path='/admin/user' element={
           <ProtectedRoute allowedRoles={["admin"]}>  <User/></ProtectedRoute>
         } />
 
@@ -108,7 +109,7 @@ function App() {
           <ProtectedRoute allowedRoles={["admin"]}><Edit/></ProtectedRoute>
           
           } />
-        <Route path='admin/edit/category' element={
+        <Route path='/admin/edit/category' element={
           <ProtectedRoute allowedRoles={["admin"]}><Edit_Category/></ProtectedRoute>
           
           } />
@@ -120,11 +121,11 @@ function App() {
           <ProtectedRoute allowedRoles={["admin"]}><Edit_Money_Page/></ProtectedRoute>
           
           } />
-        <Route path='admin/edit/points' element={
+        <Route path='/admin/edit/points' element={
           <ProtectedRoute allowedRoles={["admin"]}>  <Edit_Points/></ProtectedRoute>
         
           }/>
-        <Route path='admin/edit/points/:id' element={
+        <Route path='/admin/edit/points/:id' element={
           <ProtectedRoute allowedRoles={["admin"]}> <Edit_Points_Page/></ProtectedRoute>
          
           }/>
@@ -136,13 +137,21 @@ function App() {
           <ProtectedRoute allowedRoles={["admin"]}><EditPackage/></ProtectedRoute>
           
           } />
-        <Route path='admin/edit/category/:doctorOrstudent/:catgid' element={
+        <Route path='/admin/edit/category/:doctorOrstudent/:catgid' element={
           <ProtectedRoute allowedRoles={["admin"]}> <Edit_Category_by_Id/></ProtectedRoute>
          
           } />
-          <Route path='admin/history' element={
+          <Route path='/admin/history' element={
             <ProtectedRoute allowedRoles={["admin"]}> 
-            <PurchaseHistory/>
+            <PurchaseMonths/>
+            </ProtectedRoute>
+      
+           
+          } />
+
+             <Route path='/admin/history/:month/:year' element={
+            <ProtectedRoute allowedRoles={["admin"]}> 
+            <MonthOrders/>
             </ProtectedRoute>
       
            
@@ -157,4 +166,7 @@ function App() {
 }
 
 export default App;
+
+
+
 

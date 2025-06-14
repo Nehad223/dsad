@@ -31,7 +31,7 @@ export function CartProvider({ children }) {
       const currentQty = item.quantity;
       const newQty = currentQty + delta;
 
-      // لا تعدل إذا رح تصير أقل من 1
+    
       if (newQty < 1) return prev;
 
       return {

@@ -4,7 +4,7 @@ import LazyImage from './LazyImage';
 const Item_Search = (props) => {
     const navigate=useNavigate();
 const Go_To_Item=()=>{
-  navigate(`buy/items/${props.items.id}`)}
+  navigate(`/dsad/home/buy/items/${props.items.id}`)}
   return (
     <div onClick={Go_To_Item}>
           <div className="Item_Package" >

@@ -1,6 +1,6 @@
 import React, { useRef, useImperativeHandle, forwardRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper-bundle.css';  // تأكد من استيراد استايلات Swiper
+import 'swiper/swiper-bundle.css'; 
 import Item from './item';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';

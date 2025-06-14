@@ -90,14 +90,16 @@ console.log(formData);
 
 
 
-  const handleSubmit =async(event) => {
+  const handleSubmit = async (event) => {
+  event.preventDefault(); 
+  setSubmitted(true);   
 
+  const isValid = validateForm(); 
 
-    event.preventDefault(); 
-    setConfirmStage(true);
-    setSubmitted(true);
-    
-  };
+  if (!isValid) return;  
+  setConfirmStage(true);  
+};
+
 
   const handleCancel = () => {
     setConfirmStage(false);
